@@ -1,0 +1,81 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   9 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c5_SwitchStatus"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DoorInSW"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DoorHandSW"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorHandSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i2"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorInSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorInSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorHandSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorHandSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorHandSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorHandSW"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

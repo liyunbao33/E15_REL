@@ -1,0 +1,151 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   19 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c5_DoorRelease"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DoorCentral"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorCentral"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_TRIGGER"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorCentral.TRIGGER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DOOR_LOCK"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorCentral.TRIGGER.DOOR_LOCK"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DoorIn"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorIn"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_TRIGGER"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorIn.TRIGGER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DOOR_LOCK"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorIn.TRIGGER.DOOR_LOCK"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i2"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i3"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i4"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_CentSingleDoorSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_CentSingleDoorSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_CentSingleDoorSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_CentSingleDoorSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_CentAllDoorSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_CentAllDoorSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_CentAllDoorSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_CentAllDoorSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_e_VcuGearPosn_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_e_VcuGearPosn"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_e_VcuGearPosn_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_e_VcuGearPosn"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorInSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorInSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorInSW"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

@@ -1,0 +1,1 @@
+path(strcat(pwd,'\..\CUSTOM_ENUM'),path)

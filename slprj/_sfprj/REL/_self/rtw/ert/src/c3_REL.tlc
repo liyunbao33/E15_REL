@@ -1,0 +1,88 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   10 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c3_REL"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_c3_REL"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_TRIGGER"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "TRIGGER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DOOR_LOCK"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "TRIGGER.DOOR_LOCK"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i2"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoublePressSucc_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoublePressSucc"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoublePressSucc_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoublePressSucc"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_e_VcuGearPosn_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_e_VcuGearPosn"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_e_VcuGearPosn_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_e_VcuGearPosn"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
