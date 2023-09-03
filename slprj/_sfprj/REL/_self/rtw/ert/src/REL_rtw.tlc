@@ -23,10 +23,6 @@
     %generatefile "machineSource" "DoorRelease_rtw.tlc"
     %<GENERATE_TYPE(block,"DumpMachineInitializer","machineSource")>\
   %endif
-  %if FILE_EXISTS("SwitchStatus_rtw.tlc")
-    %generatefile "machineSource" "SwitchStatus_rtw.tlc"
-    %<GENERATE_TYPE(block,"DumpMachineInitializer","machineSource")>\
-  %endif
   %if FILE_EXISTS("DoorRatSts_rtw.tlc")
     %generatefile "machineSource" "DoorRatSts_rtw.tlc"
     %<GENERATE_TYPE(block,"DumpMachineInitializer","machineSource")>\
@@ -49,8 +45,6 @@
   %openfile tmpFcnBuf
   %<DumpMachineTerminator(block)>\
   %generatefile "machineSource" "DoorRelease_rtw.tlc"
-  %<GENERATE_TYPE(block,"DumpMachineTerminator","machineSource")>\
-  %generatefile "machineSource" "SwitchStatus_rtw.tlc"
   %<GENERATE_TYPE(block,"DumpMachineTerminator","machineSource")>\
   %generatefile "machineSource" "DoorRatSts_rtw.tlc"
   %<GENERATE_TYPE(block,"DumpMachineTerminator","machineSource")>\

@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   19 \
+    NumChartData   26 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -21,45 +21,73 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_DoorIn"\
+      Name         "is_SwValid"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorIn"\
+      Path         "DoorIn.SwValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_RlsReq"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorIn.RlsReq"\
       SrcLocation  ""\
     }\
     ChartData {\
       Name         "is_TRIGGER"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorIn.TRIGGER"\
+      Path         "DoorIn.RlsReq.TRIGGER"\
       SrcLocation  ""\
     }\
     ChartData {\
       Name         "is_DOOR_LOCK"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorIn.TRIGGER.DOOR_LOCK"\
+      Path         "DoorIn.RlsReq.TRIGGER.DOOR_LOCK"\
       SrcLocation  ""\
     }\
     ChartData {\
       Name         "is_DoorCentral"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorCentral"\
+      Path         "DoorCent.DoorCentral"\
       SrcLocation  ""\
     }\
     ChartData {\
       Name         "is_TRIGGER"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorCentral.TRIGGER"\
+      Path         "DoorCent.DoorCentral.TRIGGER"\
       SrcLocation  ""\
     }\
     ChartData {\
       Name         "is_DOOR_LOCK"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorCentral.TRIGGER.DOOR_LOCK"\
+      Path         "DoorCent.DoorCentral.TRIGGER.DOOR_LOCK"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_DoorInSwValid"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_b_DoorInSwValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_CentSingleDoorSwValid"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_b_CentSingleDoorSwValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_CentAllDoorSwValid"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_b_CentAllDoorSwValid"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -91,17 +119,38 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DoorInSW_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
+      Name         "temporalCounter_i5"\
+      Description  "TemporalCounter"\
       SFName       ""\
-      Path         "SI_b_DoorInSW"\
+      Path         ""\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DoorInSW_start"\
+      Name         "SI_b_DoorInSwSts_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_DoorInSW"\
+      Path         "SI_b_DoorInSwSts"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorInSwSts_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorInSwSts"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_DoorInSwValid_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SL_b_DoorInSwValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_DoorInSwValid_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SL_b_DoorInSwValid"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -119,31 +168,31 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_CentSingleDoorSW_prev"\
+      Name         "SL_b_CentSingleDoorSwValid_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_CentSingleDoorSW"\
+      Path         "SL_b_CentSingleDoorSwValid"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_CentSingleDoorSW_start"\
+      Name         "SL_b_CentSingleDoorSwValid_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_CentSingleDoorSW"\
+      Path         "SL_b_CentSingleDoorSwValid"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_CentAllDoorSW_prev"\
+      Name         "SL_b_CentAllDoorSwValid_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_CentAllDoorSW"\
+      Path         "SL_b_CentAllDoorSwValid"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_CentAllDoorSW_start"\
+      Name         "SL_b_CentAllDoorSwValid_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_CentAllDoorSW"\
+      Path         "SL_b_CentAllDoorSwValid"\
       SrcLocation  ""\
     }\
   }
