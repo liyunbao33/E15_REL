@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.195
+ * Model version                  : 1.213
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Fri Sep  1 20:22:52 2023
+ * C/C++ source code generated on : Sun Sep  3 16:50:32 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -36,10 +36,10 @@
 /* Block states (default storage) for system '<S3>/FLDoorRelease' */
 typedef struct {
   uint8_T is_active_c5_DoorRelease;    /* '<S3>/FLDoorRelease' */
-  uint8_T is_DoorCentral;              /* '<S3>/FLDoorRelease' */
+  uint8_T is_DoorIn;                   /* '<S3>/FLDoorRelease' */
   uint8_T is_TRIGGER;                  /* '<S3>/FLDoorRelease' */
   uint8_T is_DOOR_LOCK;                /* '<S3>/FLDoorRelease' */
-  uint8_T is_DoorIn;                   /* '<S3>/FLDoorRelease' */
+  uint8_T is_DoorCentral;              /* '<S3>/FLDoorRelease' */
   uint8_T is_TRIGGER_m;                /* '<S3>/FLDoorRelease' */
   uint8_T is_DOOR_LOCK_e;              /* '<S3>/FLDoorRelease' */
   uint8_T temporalCounter_i1;          /* '<S3>/FLDoorRelease' */
@@ -48,12 +48,12 @@ typedef struct {
   uint8_T temporalCounter_i4;          /* '<S3>/FLDoorRelease' */
   uint8_T SI_e_VcuGearPosn_prev;       /* '<S3>/FLDoorRelease' */
   uint8_T SI_e_VcuGearPosn_start;      /* '<S3>/FLDoorRelease' */
+  boolean_T SI_b_DoorInSW_prev;        /* '<S3>/FLDoorRelease' */
+  boolean_T SI_b_DoorInSW_start;       /* '<S3>/FLDoorRelease' */
   boolean_T SI_b_CentSingleDoorSW_prev;/* '<S3>/FLDoorRelease' */
   boolean_T SI_b_CentSingleDoorSW_start;/* '<S3>/FLDoorRelease' */
   boolean_T SI_b_CentAllDoorSW_prev;   /* '<S3>/FLDoorRelease' */
   boolean_T SI_b_CentAllDoorSW_start;  /* '<S3>/FLDoorRelease' */
-  boolean_T SI_b_DoorInSW_prev;        /* '<S3>/FLDoorRelease' */
-  boolean_T SI_b_DoorInSW_start;       /* '<S3>/FLDoorRelease' */
 } DW_FLDoorRelease_REL_T;
 
 /* Block states (default storage) for system '<S3>/FLDoorReleaseDriver' */
@@ -117,17 +117,13 @@ typedef struct {
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  uint16_T temporalCounter_i1;         /* '<S3>/HandleButtonState' */
   uint8_T is_active_c6_REL;            /* '<S3>/Unlock_Request' */
   uint8_T is_c6_REL;                   /* '<S3>/Unlock_Request' */
-  uint8_T is_active_c24_REL;           /* '<S3>/HandleButtonState' */
-  uint8_T is_c24_REL;                  /* '<S3>/HandleButtonState' */
   uint8_T is_active_c1_REL;            /* '<S3>/DrvDoorUnlockAutoOpen' */
   uint8_T is_c1_REL;                   /* '<S3>/DrvDoorUnlockAutoOpen' */
-  uint8_T temporalCounter_i1_c;        /* '<S3>/DrvDoorUnlockAutoOpen' */
+  uint8_T temporalCounter_i1;          /* '<S3>/DrvDoorUnlockAutoOpen' */
   boolean_T SI_b_DrvUnlockReq_start;   /* '<S3>/Unlock_Request' */
   boolean_T SI_b_PassUnlockReq_start;  /* '<S3>/Unlock_Request' */
-  boolean_T SI_b_CrashOutpSts_start;   /* '<S3>/HandleButtonState' */
   DW_RLSwitchStatus_REL_T sf_RRSwitchStatus;/* '<S3>/RRSwitchStatus' */
   DW_FLDoorRelease_REL_T sf_RRDoorRelease;/* '<S3>/RRDoorRelease' */
   DW_RLSwitchStatus_REL_T sf_RLSwitchStatus;/* '<S3>/RLSwitchStatus' */
@@ -347,7 +343,6 @@ extern RT_MODEL_REL_T *const REL_M;
  * These blocks were eliminated from the model due to optimizations:
  *
  * Block '<S3>/Constant1' : Unused code path elimination
- * Block '<S3>/Data Type Conversion3' : Eliminate redundant data type conversion
  */
 
 /*-
@@ -377,17 +372,16 @@ extern RT_MODEL_REL_T *const REL_M;
  * '<S10>'  : 'REL/REL_Step_sys/REL/FRDoorRelease'
  * '<S11>'  : 'REL/REL_Step_sys/REL/FRDoorReleaseDriver'
  * '<S12>'  : 'REL/REL_Step_sys/REL/FRSwitchStatus'
- * '<S13>'  : 'REL/REL_Step_sys/REL/HandleButtonState'
- * '<S14>'  : 'REL/REL_Step_sys/REL/OFF '
- * '<S15>'  : 'REL/REL_Step_sys/REL/RLDoorRatSts'
- * '<S16>'  : 'REL/REL_Step_sys/REL/RLDoorRelease'
- * '<S17>'  : 'REL/REL_Step_sys/REL/RLDoorReleaseDriver'
- * '<S18>'  : 'REL/REL_Step_sys/REL/RLDoorReleaseDriver1'
- * '<S19>'  : 'REL/REL_Step_sys/REL/RLSwitchStatus'
- * '<S20>'  : 'REL/REL_Step_sys/REL/RRDoorRatSts'
- * '<S21>'  : 'REL/REL_Step_sys/REL/RRDoorRelease'
- * '<S22>'  : 'REL/REL_Step_sys/REL/RRSwitchStatus'
- * '<S23>'  : 'REL/REL_Step_sys/REL/Unlock_Request'
+ * '<S13>'  : 'REL/REL_Step_sys/REL/OFF '
+ * '<S14>'  : 'REL/REL_Step_sys/REL/RLDoorRatSts'
+ * '<S15>'  : 'REL/REL_Step_sys/REL/RLDoorRelease'
+ * '<S16>'  : 'REL/REL_Step_sys/REL/RLDoorReleaseDriver'
+ * '<S17>'  : 'REL/REL_Step_sys/REL/RLDoorReleaseDriver1'
+ * '<S18>'  : 'REL/REL_Step_sys/REL/RLSwitchStatus'
+ * '<S19>'  : 'REL/REL_Step_sys/REL/RRDoorRatSts'
+ * '<S20>'  : 'REL/REL_Step_sys/REL/RRDoorRelease'
+ * '<S21>'  : 'REL/REL_Step_sys/REL/RRSwitchStatus'
+ * '<S22>'  : 'REL/REL_Step_sys/REL/Unlock_Request'
  */
 #endif                                 /* RTW_HEADER_REL_h_ */
 

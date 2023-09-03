@@ -21,27 +21,6 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_DoorCentral"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "DoorCentral"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_TRIGGER"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "DoorCentral.TRIGGER"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_DOOR_LOCK"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "DoorCentral.TRIGGER.DOOR_LOCK"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
       Name         "is_DoorIn"\
       Description  "StateActiveChild"\
       SFName       ""\
@@ -60,6 +39,27 @@
       Description  "StateActiveChild"\
       SFName       ""\
       Path         "DoorIn.TRIGGER.DOOR_LOCK"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DoorCentral"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorCentral"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_TRIGGER"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorCentral.TRIGGER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DOOR_LOCK"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorCentral.TRIGGER.DOOR_LOCK"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -91,6 +91,34 @@
       SrcLocation  ""\
     }\
     ChartData {\
+      Name         "SI_b_DoorInSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorInSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_e_VcuGearPosn_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_e_VcuGearPosn"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_e_VcuGearPosn_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_e_VcuGearPosn"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
       Name         "SI_b_CentSingleDoorSW_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
@@ -116,34 +144,6 @@
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
       Path         "SI_b_CentAllDoorSW"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_e_VcuGearPosn_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_e_VcuGearPosn"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_e_VcuGearPosn_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_e_VcuGearPosn"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DoorInSW_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DoorInSW"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DoorInSW_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DoorInSW"\
       SrcLocation  ""\
     }\
   }
