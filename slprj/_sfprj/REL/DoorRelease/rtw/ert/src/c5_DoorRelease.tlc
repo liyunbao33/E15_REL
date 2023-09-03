@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   26 \
+    NumChartData   46 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -46,6 +46,55 @@
       Description  "StateActiveChild"\
       SFName       ""\
       Path         "DoorIn.RlsReq.TRIGGER.DOOR_LOCK"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_RlsReq"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorOut.RlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_TRIGGER"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorOut.RlsReq.TRIGGER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DOOR_LOCK"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorOut.RlsReq.TRIGGER.DOOR_LOCK"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_SwValid"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorHand.SwValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DoorCentral"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorHand.DoorCentral"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_TRIGGER"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorHand.DoorCentral.TRIGGER"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DOOR_LOCK"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorHand.DoorCentral.TRIGGER.DOOR_LOCK"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -91,6 +140,20 @@
       SrcLocation  ""\
     }\
     ChartData {\
+      Name         "SL_b_DoorOutSwValid"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_b_DoorOutSwValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_DoorHandSwValid"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_b_DoorHandSwValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
       Name         "temporalCounter_i1"\
       Description  "TemporalCounter"\
       SFName       ""\
@@ -120,6 +183,41 @@
     }\
     ChartData {\
       Name         "temporalCounter_i5"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i6"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i7"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i8"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i9"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i10"\
       Description  "TemporalCounter"\
       SFName       ""\
       Path         ""\
@@ -165,6 +263,48 @@
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
       Path         "SI_e_VcuGearPosn"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_DoorOutSwValid_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SL_b_DoorOutSwValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_DoorOutSwValid_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SL_b_DoorOutSwValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorHandSwSts_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorHandSwSts"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorHandSwSts_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorHandSwSts"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_DoorHandSwValid_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SL_b_DoorHandSwValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_DoorHandSwValid_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SL_b_DoorHandSwValid"\
       SrcLocation  ""\
     }\
     ChartData {\

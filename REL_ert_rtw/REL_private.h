@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.226
+ * Model version                  : 1.227
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Sun Sep  3 21:50:04 2023
+ * C/C++ source code generated on : Sun Sep  3 23:22:41 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -26,7 +26,8 @@ extern void REL_FLDoorRelease_Init(boolean_T *rty_SO_b_DoorRlsReq, boolean_T
 extern void REL_FLDoorRelease(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd,
   Boolean rtu_SI_b_EspVehSpdVld, UInt8 rtu_SI_e_VcuGearPosn, UInt8
   rtu_SI_e_DoorLockSts, uint8_T rtu_SI_e_DoorRatSts, Boolean
-  rtu_SI_b_DoorInSwSts, Boolean rtu_SI_b_CentSingleDoorSwSts, Boolean
+  rtu_SI_b_DoorInSwSts, Boolean rtu_SI_b_DoorOutSwSts, Boolean
+  rtu_SI_b_DoorHandSwSts, Boolean rtu_SI_b_CentSingleDoorSwSts, Boolean
   rtu_SI_b_CentAllDoorSwSts, boolean_T rtu_SI_b_ChildLckSts, boolean_T
   *rty_SO_b_DoorRlsReq, boolean_T *rty_SO_b_UnlockReq, DW_FLDoorRelease_REL_T
   *localDW);
@@ -42,7 +43,8 @@ extern void REL_RLDoorRelease_Init(boolean_T *rty_SO_b_DoorRlsReq, boolean_T
 extern void REL_RLDoorRelease(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd,
   Boolean rtu_SI_b_EspVehSpdVld, UInt8 rtu_SI_e_VcuGearPosn, UInt8
   rtu_SI_e_DoorLockSts, uint8_T rtu_SI_e_DoorRatSts, Boolean
-  rtu_SI_b_DoorInSwSts, Boolean rtu_SI_b_CentSingleDoorSwSts, Boolean
+  rtu_SI_b_DoorInSwSts, Boolean rtu_SI_b_DoorOutSwSts, Boolean
+  rtu_SI_b_DoorHandSwSts, Boolean rtu_SI_b_CentSingleDoorSwSts, Boolean
   rtu_SI_b_CentAllDoorSwSts, Boolean rtu_SI_b_ChildLckSts, boolean_T
   *rty_SO_b_DoorRlsReq, boolean_T *rty_SO_b_UnlockReq, DW_RLDoorRelease_REL_T
   *localDW);
