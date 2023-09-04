@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.237
+ * Model version                  : 1.240
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep  4 14:38:13 2023
+ * C/C++ source code generated on : Mon Sep  4 16:15:33 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -21,16 +21,6 @@
 
 extern void REL_FLDoorRatSts(Boolean rtu_SI_b_DoorOpen, uint8_T
   *rty_SO_e_DoorRatSts);
-extern void REL_FLDoorRelease_Init(boolean_T *rty_SO_b_DoorRlsReq, boolean_T
-  *rty_SO_b_UnlockReq);
-extern void REL_FLDoorRelease(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd,
-  Boolean rtu_SI_b_EspVehSpdVld, UInt8 rtu_SI_e_VcuGearPosn, UInt8
-  rtu_SI_e_DoorLockSts, uint8_T rtu_SI_e_DoorRatSts, Boolean
-  rtu_SI_b_DoorInSwSts, Boolean rtu_SI_b_DoorOutSwSts, Boolean
-  rtu_SI_b_DoorHandSwSts, Boolean rtu_SI_b_CentSingleDoorSwSts, Boolean
-  rtu_SI_b_CentAllDoorSwSts, boolean_T rtu_SI_b_ChildLckSts, boolean_T
-  *rty_SO_b_DoorRlsReq, boolean_T *rty_SO_b_UnlockReq, DW_FLDoorRelease_REL_T
-  *localDW);
 extern void REL_FLDoorReleaseDriver_Init(boolean_T *rty_SO_b_MotorA, boolean_T
   *rty_SO_b_MotorB, uint8_T *rty_SO_e_MotorMode, boolean_T *rty_SO_b_Error);
 extern void REL_FLDoorReleaseDriver(boolean_T rtu_SI_b_TriggerRelease, Boolean
@@ -46,8 +36,8 @@ extern void REL_RLDoorRelease(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd,
   rtu_SI_b_DoorInSwSts, Boolean rtu_SI_b_DoorOutSwSts, Boolean
   rtu_SI_b_DoorHandSwSts, Boolean rtu_SI_b_CentSingleDoorSwSts, Boolean
   rtu_SI_b_CentAllDoorSwSts, Boolean rtu_SI_b_ChildLckSts, boolean_T
-  *rty_SO_b_DoorRlsReq, boolean_T *rty_SO_b_UnlockReq, DW_RLDoorRelease_REL_T
-  *localDW);
+  rtu_SI_b_DoorLockSetSts, boolean_T *rty_SO_b_DoorRlsReq, boolean_T
+  *rty_SO_b_UnlockReq, DW_RLDoorRelease_REL_T *localDW);
 
 #endif                                 /* RTW_HEADER_REL_private_h_ */
 
