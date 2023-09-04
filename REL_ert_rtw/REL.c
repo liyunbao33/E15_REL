@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.233
+ * Model version                  : 1.237
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep  4 11:50:31 2023
+ * C/C++ source code generated on : Mon Sep  4 14:38:13 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -68,6 +68,10 @@
 #define REL_IN_SUCESS_UNLOCK_m         ((uint8_T)3U)
 #define REL_IN_TRIGGER_a               ((uint8_T)2U)
 #define REL_IN_TWICE_m                 ((uint8_T)3U)
+
+/* Named constants for Chart: '<S3>/DoorLockSetSts' */
+#define REL_IN_DoorLockSet             ((uint8_T)1U)
+#define REL_IN_Init                    ((uint8_T)2U)
 
 /* Named constants for Chart: '<S3>/Unlock_Request' */
 #define REL_IN_Initial_i               ((uint8_T)1U)
@@ -1566,6 +1570,7 @@ void REL_RLDoorRelease(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
 /* Model step function for TID1 */
 void REL_Step(void)                    /* Explicit Task: REL_Step */
 {
+  uint8_T SI_e_DoorLockSet_prev;
   boolean_T Compare;
   boolean_T SI_b_PassUnlockReq_prev;
   boolean_T SO_b_Error_d;
@@ -1576,14 +1581,61 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   /* Chart: '<S3>/DoorLockSetSts' incorporates:
    *  Inport: '<Root>/VeINP_CAN_CdcDrvrDoorLockSet_sig_VeINP_CAN_CdcDrvrDoorLockSet_sig'
    */
+  if (REL_DW.temporalCounter_i1 < 127U) {
+    REL_DW.temporalCounter_i1++;
+  }
+
+  SI_e_DoorLockSet_prev = REL_DW.SI_e_DoorLockSet_start;
+  REL_DW.SI_e_DoorLockSet_start = REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si;
   if (REL_DW.is_active_c1_REL == 0U) {
     REL_DW.is_active_c1_REL = 1U;
+
+    /*  ReadEEDoorLockSet  */
+    REL_DW.is_c1_REL = REL_IN_Init;
+    REL_DW.temporalCounter_i1 = 0U;
+
+    /* Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg' incorporates:
+     *  Inport: '<Root>/VeINP_EPRM_BdcDrvrDoorLockSetSts_sig_VeINP_EPRM_BdcDrvrDoorLockSetSts_sig'
+     */
+    REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo =
+      (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt != 0);
+  } else if (REL_DW.is_c1_REL == REL_IN_DoorLockSet) {
+    if (SI_e_DoorLockSet_prev != REL_DW.SI_e_DoorLockSet_start) {
+      /*  DoorLockSet  */
+      switch (REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si) {
+       case 1:
+        /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
+        REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = true;
+
+        /* Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg' */
+        REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo = true;
+        break;
+
+       case 2:
+        /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
+        REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = false;
+
+        /* Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg' */
+        REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo = false;
+        break;
+
+       default:
+        /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' incorporates:
+         *  Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg'
+         */
+        REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts =
+          REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo;
+        break;
+      }
+    }
+
+    /* case IN_Init: */
+  } else if (REL_DW.temporalCounter_i1 >= 100) {
+    REL_DW.is_c1_REL = REL_IN_DoorLockSet;
 
     /*  DoorLockSet  */
     switch (REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si) {
      case 1:
-      REL_DW.SL_e_TimeCount = 100U;
-
       /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
       REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = true;
 
@@ -1592,27 +1644,27 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
       break;
 
      case 2:
-      REL_DW.SL_e_TimeCount = 100U;
-
       /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
       REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = false;
 
       /* Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg' */
-      REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo = true;
+      REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo = false;
       break;
 
      default:
-      if (REL_DW.SL_e_TimeCount > 0) {
-        REL_DW.SL_e_TimeCount--;
-      } else {
-        /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' incorporates:
-         *  Inport: '<Root>/VeINP_EPRM_BdcDrvrDoorLockSetSts_sig_VeINP_EPRM_BdcDrvrDoorLockSetSts_sig'
-         */
-        REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts =
-          (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt == 1);
-      }
+      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' incorporates:
+       *  Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg'
+       */
+      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts =
+        REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo;
       break;
     }
+  } else {
+    /* Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg' incorporates:
+     *  Inport: '<Root>/VeINP_EPRM_BdcDrvrDoorLockSetSts_sig_VeINP_EPRM_BdcDrvrDoorLockSetSts_sig'
+     */
+    REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo =
+      (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt != 0);
   }
 
   /* End of Chart: '<S3>/DoorLockSetSts' */
