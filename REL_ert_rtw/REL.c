@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.232
+ * Model version                  : 1.233
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep  4 10:46:34 2023
+ * C/C++ source code generated on : Mon Sep  4 11:50:31 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -1580,18 +1580,38 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     REL_DW.is_active_c1_REL = 1U;
 
     /*  DoorLockSet  */
-    if (REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 1) {
+    switch (REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si) {
+     case 1:
+      REL_DW.SL_e_TimeCount = 100U;
+
       /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
       REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = true;
 
       /* Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg' */
       REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo = true;
-    } else {
-      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' incorporates:
-       *  Inport: '<Root>/VeINP_EPRM_BdcDrvrDoorLockSetSts_sig_VeINP_EPRM_BdcDrvrDoorLockSetSts_sig'
-       */
-      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts =
-        (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt == 1);
+      break;
+
+     case 2:
+      REL_DW.SL_e_TimeCount = 100U;
+
+      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
+      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = false;
+
+      /* Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg' */
+      REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo = true;
+      break;
+
+     default:
+      if (REL_DW.SL_e_TimeCount > 0) {
+        REL_DW.SL_e_TimeCount--;
+      } else {
+        /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' incorporates:
+         *  Inport: '<Root>/VeINP_EPRM_BdcDrvrDoorLockSetSts_sig_VeINP_EPRM_BdcDrvrDoorLockSetSts_sig'
+         */
+        REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts =
+          (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt == 1);
+      }
+      break;
     }
   }
 
