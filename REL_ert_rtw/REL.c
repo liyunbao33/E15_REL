@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.227
+ * Model version                  : 1.232
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Sun Sep  3 23:22:41 2023
+ * C/C++ source code generated on : Mon Sep  4 10:46:34 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -69,10 +69,6 @@
 #define REL_IN_TRIGGER_a               ((uint8_T)2U)
 #define REL_IN_TWICE_m                 ((uint8_T)3U)
 
-/* Named constants for Chart: '<S3>/DrvDoorUnlockAutoOpen' */
-#define REL_IN_CFG_SETTING             ((uint8_T)1U)
-#define REL_IN_Initial_m               ((uint8_T)2U)
-
 /* Named constants for Chart: '<S3>/Unlock_Request' */
 #define REL_IN_Initial_i               ((uint8_T)1U)
 #define REL_IN_REQ_SENT                ((uint8_T)2U)
@@ -122,9 +118,6 @@ static void REL_DoorHand_m(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd,
   rtu_SI_e_DoorLockSts, uint8_T rtu_SI_e_DoorRatSts, boolean_T
   *rty_SO_b_DoorRlsReq, boolean_T *rty_SO_b_UnlockReq, DW_RLDoorRelease_REL_T
   *localDW);
-
-/* Forward declaration for local functions */
-static void REL_InitialSet(void);
 
 /*
  * Output and update for atomic system:
@@ -1570,16 +1563,6 @@ void REL_RLDoorRelease(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
   /* End of Chart: '<S3>/RLDoorRelease' */
 }
 
-/* Function for Chart: '<S3>/DrvDoorUnlockAutoOpen' */
-static void REL_InitialSet(void)
-{
-  /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' incorporates:
-   *  Inport: '<Root>/VeINP_EPRM_BdcDrvrDoorLockSetSts_sig_VeINP_EPRM_BdcDrvrDoorLockSetSts_sig'
-   */
-  REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt
-    == 1);
-}
-
 /* Model step function for TID1 */
 void REL_Step(void)                    /* Explicit Task: REL_Step */
 {
@@ -1590,20 +1573,13 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   /* RootInportFunctionCallGenerator generated from: '<Root>/REL_Step' incorporates:
    *  SubSystem: '<Root>/REL_Step_sys'
    */
-  /* Chart: '<S3>/DrvDoorUnlockAutoOpen' incorporates:
+  /* Chart: '<S3>/DoorLockSetSts' incorporates:
    *  Inport: '<Root>/VeINP_CAN_CdcDrvrDoorLockSet_sig_VeINP_CAN_CdcDrvrDoorLockSet_sig'
-   *  Inport: '<Root>/VeINP_EPRM_BdcDrvrDoorLockSetSts_sig_VeINP_EPRM_BdcDrvrDoorLockSetSts_sig'
    */
-  if (REL_DW.temporalCounter_i1 < 127U) {
-    REL_DW.temporalCounter_i1++;
-  }
-
   if (REL_DW.is_active_c1_REL == 0U) {
     REL_DW.is_active_c1_REL = 1U;
-    REL_DW.is_c1_REL = REL_IN_Initial_m;
-    REL_DW.temporalCounter_i1 = 0U;
-    REL_InitialSet();
-  } else if (REL_DW.is_c1_REL == REL_IN_CFG_SETTING) {
+
+    /*  DoorLockSet  */
     if (REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 1) {
       /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
       REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = true;
@@ -1611,19 +1587,15 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
       /* Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg' */
       REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo = true;
     } else {
-      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
-      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = false;
-
-      /* Outport: '<Root>/VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg_VbOUT_REL_BcmAutoHeadLiSetStsToEE_flg' */
-      REL_Y.VbOUT_REL_BcmAutoHeadLiSetStsTo = false;
+      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' incorporates:
+       *  Inport: '<Root>/VeINP_EPRM_BdcDrvrDoorLockSetSts_sig_VeINP_EPRM_BdcDrvrDoorLockSetSts_sig'
+       */
+      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts =
+        (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt == 1);
     }
-
-    /* case IN_Initial: */
-  } else if (REL_DW.temporalCounter_i1 >= 100) {
-    REL_DW.is_c1_REL = REL_IN_CFG_SETTING;
   }
 
-  /* End of Chart: '<S3>/DrvDoorUnlockAutoOpen' */
+  /* End of Chart: '<S3>/DoorLockSetSts' */
 
   /* Truth Table: '<S3>/FLDoorRatSts' incorporates:
    *  Inport: '<Root>/VbINP_HWA_FLDoorAjar_flg_VbINP_HWA_FLDoorAjar_flg'

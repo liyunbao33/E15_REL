@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.227
+ * Model version                  : 1.232
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Sun Sep  3 23:22:41 2023
+ * C/C++ source code generated on : Mon Sep  4 10:46:34 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -166,9 +166,7 @@ typedef struct {
 typedef struct {
   uint8_T is_active_c6_REL;            /* '<S3>/Unlock_Request' */
   uint8_T is_c6_REL;                   /* '<S3>/Unlock_Request' */
-  uint8_T is_active_c1_REL;            /* '<S3>/DrvDoorUnlockAutoOpen' */
-  uint8_T is_c1_REL;                   /* '<S3>/DrvDoorUnlockAutoOpen' */
-  uint8_T temporalCounter_i1;          /* '<S3>/DrvDoorUnlockAutoOpen' */
+  uint8_T is_active_c1_REL;            /* '<S3>/DoorLockSetSts' */
   boolean_T SI_b_DrvUnlockReq_start;   /* '<S3>/Unlock_Request' */
   boolean_T SI_b_PassUnlockReq_start;  /* '<S3>/Unlock_Request' */
   DW_RLDoorRelease_REL_T sf_RRDoorRelease;/* '<S3>/RRDoorRelease' */
@@ -406,7 +404,7 @@ extern RT_MODEL_REL_T *const REL_M;
  * '<S1>'   : 'REL/REL_Init'
  * '<S2>'   : 'REL/REL_Step_sys'
  * '<S3>'   : 'REL/REL_Step_sys/REL'
- * '<S4>'   : 'REL/REL_Step_sys/REL/DrvDoorUnlockAutoOpen'
+ * '<S4>'   : 'REL/REL_Step_sys/REL/DoorLockSetSts'
  * '<S5>'   : 'REL/REL_Step_sys/REL/FLDoorRatSts'
  * '<S6>'   : 'REL/REL_Step_sys/REL/FLDoorRelease'
  * '<S7>'   : 'REL/REL_Step_sys/REL/FLDoorReleaseDriver'
