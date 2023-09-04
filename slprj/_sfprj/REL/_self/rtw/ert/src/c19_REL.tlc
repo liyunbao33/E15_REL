@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   17 \
+    NumChartData   15 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -91,17 +91,17 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DoorOpenSts_prev"\
+      Name         "SO_b_DoorRlsReq_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_DoorOpenSts"\
+      Path         "SO_b_DoorRlsReq"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DoorOpenSts_start"\
+      Name         "SO_b_DoorRlsReq_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_DoorOpenSts"\
+      Path         "SO_b_DoorRlsReq"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -116,20 +116,6 @@
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
       Path         "SI_b_DCUCinchHomeSwt"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_TriggerRelease_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_TriggerRelease"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_TriggerRelease_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_TriggerRelease"\
       SrcLocation  ""\
     }\
   }
