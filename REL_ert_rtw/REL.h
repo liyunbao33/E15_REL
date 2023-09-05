@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.267
+ * Model version                  : 1.272
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Tue Sep  5 09:38:44 2023
+ * C/C++ source code generated on : Tue Sep  5 09:51:43 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -33,191 +33,191 @@
 #define rtmSetErrorStatus(rtm, val)    ((rtm)->errorStatus = (val))
 #endif
 
-/* Block states (default storage) for system '<S3>/FLDoorReleaseDriver' */
+/* Block states (default storage) for system '<S3>/FLDoorRlsDriver' */
 typedef struct {
-  uint16_T temporalCounter_i1;         /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_active_c19_DoorReleaseDriver;/* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_c19_DoorReleaseDriver;    /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_NORMAL;                   /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_MAIN_PROGRESS;            /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_RELEASE;                  /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_STEP2_OPEN;               /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_MAIN_PROGRESS_p;          /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_RELEASE_k;                /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_STEP2_OPEN_j;             /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T SL_e_CheckCycle;             /* '<S3>/FLDoorReleaseDriver' */
-  boolean_T SO_b_DoorRlsReq_prev;      /* '<S3>/FLDoorReleaseDriver' */
-  boolean_T SO_b_DoorRlsReq_start;     /* '<S3>/FLDoorReleaseDriver' */
-  boolean_T SI_b_CinchHome_prev;       /* '<S3>/FLDoorReleaseDriver' */
-  boolean_T SI_b_CinchHome_start;      /* '<S3>/FLDoorReleaseDriver' */
-} DW_FLDoorReleaseDriver_REL_T;
+  uint16_T temporalCounter_i1;         /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_active_c19_DoorRlsDriver; /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_c19_DoorRlsDriver;        /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_NORMAL;                   /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_MAIN_PROGRESS;            /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_RELEASE;                  /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_STEP2_OPEN;               /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_MAIN_PROGRESS_f;          /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_RELEASE_k;                /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_STEP2_OPEN_p;             /* '<S3>/FLDoorRlsDriver' */
+  uint8_T SL_e_CheckCycle;             /* '<S3>/FLDoorRlsDriver' */
+  boolean_T SI_b_CinchHome_prev;       /* '<S3>/FLDoorRlsDriver' */
+  boolean_T SI_b_CinchHome_start;      /* '<S3>/FLDoorRlsDriver' */
+  boolean_T SO_b_DoorRlsReq_prev;      /* '<S3>/FLDoorRlsDriver' */
+  boolean_T SO_b_DoorRlsReq_start;     /* '<S3>/FLDoorRlsDriver' */
+} DW_FLDoorRlsDriver_REL_T;
 
-/* Block states (default storage) for system '<S3>/RLDoorRelease' */
+/* Block states (default storage) for system '<S3>/RLDoorRlsReq' */
 typedef struct {
-  uint8_T is_active_c5_DoorRelease;    /* '<S3>/RLDoorRelease' */
-  uint8_T is_RlsReq;                   /* '<S3>/RLDoorRelease' */
-  uint8_T is_TRIGGER;                  /* '<S3>/RLDoorRelease' */
-  uint8_T is_SwValid;                  /* '<S3>/RLDoorRelease' */
-  uint8_T is_RlsReq_m;                 /* '<S3>/RLDoorRelease' */
-  uint8_T is_TRIGGER_g;                /* '<S3>/RLDoorRelease' */
-  uint8_T is_DOOR_LOCK;                /* '<S3>/RLDoorRelease' */
-  uint8_T is_RlsReq_a;                 /* '<S3>/RLDoorRelease' */
-  uint8_T is_TRIGGER_e;                /* '<S3>/RLDoorRelease' */
-  uint8_T is_DOOR_LOCK_p;              /* '<S3>/RLDoorRelease' */
-  uint8_T is_SwValid_l;                /* '<S3>/RLDoorRelease' */
-  uint8_T is_RlsReq_a0;                /* '<S3>/RLDoorRelease' */
-  uint8_T is_TRIGGER_o;                /* '<S3>/RLDoorRelease' */
-  uint8_T is_DOOR_LOCK_m;              /* '<S3>/RLDoorRelease' */
-  uint8_T is_DoorCentral;              /* '<S3>/RLDoorRelease' */
-  uint8_T is_TRIGGER_j;                /* '<S3>/RLDoorRelease' */
-  uint8_T is_DOOR_LOCK_h;              /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i1;          /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i2;          /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i3;          /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i4;          /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i5;          /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i6;          /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i7;          /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i8;          /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i9;          /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i10;         /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i11;         /* '<S3>/RLDoorRelease' */
-  uint8_T temporalCounter_i12;         /* '<S3>/RLDoorRelease' */
-  uint8_T SI_e_DoorLockSts_prev;       /* '<S3>/RLDoorRelease' */
-  uint8_T SI_e_DoorLockSts_start;      /* '<S3>/RLDoorRelease' */
-  uint8_T SI_e_VcuGearPosn_prev;       /* '<S3>/RLDoorRelease' */
-  uint8_T SI_e_VcuGearPosn_start;      /* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_DoorInSwValid;        /* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_CentSingleDoorSwValid;/* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_CentAllDoorSwValid;   /* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_DoorOutSwValid;       /* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_DoorHandSwValid;      /* '<S3>/RLDoorRelease' */
-  boolean_T SI_b_DoorInSwSts_prev;     /* '<S3>/RLDoorRelease' */
-  boolean_T SI_b_DoorInSwSts_start;    /* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_DoorInSwValid_prev;   /* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_DoorInSwValid_start;  /* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_DoorOutSwValid_prev;  /* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_DoorOutSwValid_start; /* '<S3>/RLDoorRelease' */
-  boolean_T SI_b_DoorHandSwSts_prev;   /* '<S3>/RLDoorRelease' */
-  boolean_T SI_b_DoorHandSwSts_start;  /* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_DoorHandSwValid_prev; /* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_DoorHandSwValid_start;/* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_CentSingleDoorSwValid_prev;/* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_CentSingleDoorSwValid_star;/* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_CentAllDoorSwValid_prev;/* '<S3>/RLDoorRelease' */
-  boolean_T SL_b_CentAllDoorSwValid_start;/* '<S3>/RLDoorRelease' */
-} DW_RLDoorRelease_REL_T;
+  uint8_T is_active_c5_DoorRlsReq;     /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_RlsReq;                   /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_TRIGGER;                  /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_SwValid;                  /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_RlsReq_o;                 /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_TRIGGER_h;                /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_DOOR_LOCK;                /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_RlsReq_ou;                /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_TRIGGER_n;                /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_DOOR_LOCK_d;              /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_SwValid_p;                /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_RlsReq_f;                 /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_TRIGGER_p;                /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_DOOR_LOCK_n;              /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_DoorCentral;              /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_TRIGGER_l;                /* '<S3>/RLDoorRlsReq' */
+  uint8_T is_DOOR_LOCK_f;              /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i1;          /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i2;          /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i3;          /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i4;          /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i5;          /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i6;          /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i7;          /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i8;          /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i9;          /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i10;         /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i11;         /* '<S3>/RLDoorRlsReq' */
+  uint8_T temporalCounter_i12;         /* '<S3>/RLDoorRlsReq' */
+  uint8_T SI_e_DoorLockSts_prev;       /* '<S3>/RLDoorRlsReq' */
+  uint8_T SI_e_DoorLockSts_start;      /* '<S3>/RLDoorRlsReq' */
+  uint8_T SI_e_VcuGearPosn_prev;       /* '<S3>/RLDoorRlsReq' */
+  uint8_T SI_e_VcuGearPosn_start;      /* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_DoorInSwValid;        /* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_CentSingleDoorSwValid;/* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_CentAllDoorSwValid;   /* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_DoorOutSwValid;       /* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_DoorHandSwValid;      /* '<S3>/RLDoorRlsReq' */
+  boolean_T SI_b_DoorInSwSts_prev;     /* '<S3>/RLDoorRlsReq' */
+  boolean_T SI_b_DoorInSwSts_start;    /* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_DoorInSwValid_prev;   /* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_DoorInSwValid_start;  /* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_DoorOutSwValid_prev;  /* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_DoorOutSwValid_start; /* '<S3>/RLDoorRlsReq' */
+  boolean_T SI_b_DoorHandSwSts_prev;   /* '<S3>/RLDoorRlsReq' */
+  boolean_T SI_b_DoorHandSwSts_start;  /* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_DoorHandSwValid_prev; /* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_DoorHandSwValid_start;/* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_CentSingleDoorSwValid_prev;/* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_CentSingleDoorSwValid_star;/* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_CentAllDoorSwValid_prev;/* '<S3>/RLDoorRlsReq' */
+  boolean_T SL_b_CentAllDoorSwValid_start;/* '<S3>/RLDoorRlsReq' */
+} DW_RLDoorRlsReq_REL_T;
 
 /* Block signals (default storage) */
 typedef struct {
-  boolean_T SO_b_UnlockReq;            /* '<S3>/RRDoorRelease' */
-  boolean_T SO_b_UnlockReq_d;          /* '<S3>/RLDoorRelease' */
-  boolean_T SO_b_UnlockReq_g;          /* '<S3>/FRDoorRelease' */
-  boolean_T SO_b_UnlockReq_k;          /* '<S3>/FLDoorRelease' */
+  boolean_T SO_b_UnlockReq;            /* '<S3>/RRDoorRlsReq' */
+  boolean_T SO_b_UnlockReq_e;          /* '<S3>/RLDoorRlsReq' */
+  boolean_T SO_b_UnlockReq_i;          /* '<S3>/FRDoorRlsReq' */
+  boolean_T SO_b_UnlockReq_f;          /* '<S3>/FLDoorRlsReq' */
 } B_REL_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   uint8_T is_active_c6_REL;            /* '<S3>/Unlock_Request' */
   uint8_T is_c6_REL;                   /* '<S3>/Unlock_Request' */
-  uint8_T is_active_c5_DoorRelease;    /* '<S3>/FRDoorRelease' */
-  uint8_T is_RlsReq;                   /* '<S3>/FRDoorRelease' */
-  uint8_T is_TRIGGER;                  /* '<S3>/FRDoorRelease' */
-  uint8_T is_SwValid;                  /* '<S3>/FRDoorRelease' */
-  uint8_T is_RlsReq_n;                 /* '<S3>/FRDoorRelease' */
-  uint8_T is_TRIGGER_f;                /* '<S3>/FRDoorRelease' */
-  uint8_T is_DOOR_LOCK;                /* '<S3>/FRDoorRelease' */
-  uint8_T is_RlsReq_c;                 /* '<S3>/FRDoorRelease' */
-  uint8_T is_TRIGGER_p;                /* '<S3>/FRDoorRelease' */
-  uint8_T is_DOOR_LOCK_a;              /* '<S3>/FRDoorRelease' */
-  uint8_T is_SwValid_i;                /* '<S3>/FRDoorRelease' */
-  uint8_T is_RlsReq_cr;                /* '<S3>/FRDoorRelease' */
-  uint8_T is_TRIGGER_c;                /* '<S3>/FRDoorRelease' */
-  uint8_T is_DOOR_LOCK_j;              /* '<S3>/FRDoorRelease' */
-  uint8_T is_DoorCentral;              /* '<S3>/FRDoorRelease' */
-  uint8_T is_TRIGGER_k;                /* '<S3>/FRDoorRelease' */
-  uint8_T is_DOOR_LOCK_i;              /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i1;          /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i2;          /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i3;          /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i4;          /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i5;          /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i6;          /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i7;          /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i8;          /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i9;          /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i10;         /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i11;         /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i12;         /* '<S3>/FRDoorRelease' */
-  uint8_T SI_e_DoorLockSts_start;      /* '<S3>/FRDoorRelease' */
-  uint8_T SI_e_VcuGearPosn_start;      /* '<S3>/FRDoorRelease' */
-  uint8_T is_active_c5_DoorRelease_d;  /* '<S3>/FLDoorRelease' */
-  uint8_T is_RlsReq_o;                 /* '<S3>/FLDoorRelease' */
-  uint8_T is_TRIGGER_g;                /* '<S3>/FLDoorRelease' */
-  uint8_T is_SwValid_b;                /* '<S3>/FLDoorRelease' */
-  uint8_T is_RlsReq_m;                 /* '<S3>/FLDoorRelease' */
-  uint8_T is_TRIGGER_m;                /* '<S3>/FLDoorRelease' */
-  uint8_T is_DOOR_LOCK_e;              /* '<S3>/FLDoorRelease' */
-  uint8_T is_RlsReq_b;                 /* '<S3>/FLDoorRelease' */
-  uint8_T is_TRIGGER_cd;               /* '<S3>/FLDoorRelease' */
-  uint8_T is_DOOR_LOCK_m;              /* '<S3>/FLDoorRelease' */
-  uint8_T is_SwValid_a;                /* '<S3>/FLDoorRelease' */
-  uint8_T is_RlsReq_g;                 /* '<S3>/FLDoorRelease' */
-  uint8_T is_TRIGGER_cc;               /* '<S3>/FLDoorRelease' */
-  uint8_T is_DOOR_LOCK_l;              /* '<S3>/FLDoorRelease' */
-  uint8_T is_DoorCentral_f;            /* '<S3>/FLDoorRelease' */
-  uint8_T is_TRIGGER_cn;               /* '<S3>/FLDoorRelease' */
-  uint8_T is_DOOR_LOCK_o;              /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i1_e;        /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i2_p;        /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i3_b;        /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i4_g;        /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i5_i;        /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i6_j;        /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i7_g;        /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i8_k;        /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i9_n;        /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i10_n;       /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i11_c;       /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i12_l;       /* '<S3>/FLDoorRelease' */
-  uint8_T SI_e_DoorLockSts_start_b;    /* '<S3>/FLDoorRelease' */
-  uint8_T SI_e_VcuGearPosn_start_i;    /* '<S3>/FLDoorRelease' */
+  uint8_T is_active_c5_DoorRlsReq;     /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_RlsReq;                   /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_TRIGGER;                  /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_SwValid;                  /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_RlsReq_f;                 /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_TRIGGER_o;                /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_DOOR_LOCK;                /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_RlsReq_b;                 /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_TRIGGER_d;                /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_DOOR_LOCK_j;              /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_SwValid_p;                /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_RlsReq_j;                 /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_TRIGGER_m;                /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_DOOR_LOCK_e;              /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_DoorCentral;              /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_TRIGGER_f;                /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_DOOR_LOCK_b;              /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i1;          /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i2;          /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i3;          /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i4;          /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i5;          /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i6;          /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i7;          /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i8;          /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i9;          /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i10;         /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i11;         /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i12;         /* '<S3>/FRDoorRlsReq' */
+  uint8_T SI_e_DoorLockSts_start;      /* '<S3>/FRDoorRlsReq' */
+  uint8_T SI_e_VcuGearPosn_start;      /* '<S3>/FRDoorRlsReq' */
+  uint8_T is_active_c5_DoorRlsReq_o;   /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_RlsReq_p;                 /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_TRIGGER_fb;               /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_SwValid_pj;               /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_RlsReq_o;                 /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_TRIGGER_df;               /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_DOOR_LOCK_h;              /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_RlsReq_fx;                /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_TRIGGER_b;                /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_DOOR_LOCK_n;              /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_SwValid_f;                /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_RlsReq_a;                 /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_TRIGGER_n;                /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_DOOR_LOCK_nf;             /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_DoorCentral_c;            /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_TRIGGER_p;                /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_DOOR_LOCK_o;              /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i1_d;        /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i2_f;        /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i3_e;        /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i4_o;        /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i5_j;        /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i6_l;        /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i7_j;        /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i8_l;        /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i9_g;        /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i10_c;       /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i11_p;       /* '<S3>/FLDoorRlsReq' */
+  uint8_T temporalCounter_i12_j;       /* '<S3>/FLDoorRlsReq' */
+  uint8_T SI_e_DoorLockSts_start_n;    /* '<S3>/FLDoorRlsReq' */
+  uint8_T SI_e_VcuGearPosn_start_f;    /* '<S3>/FLDoorRlsReq' */
   uint8_T is_active_c1_REL;            /* '<S3>/DoorLockSetSts' */
   uint8_T is_c1_REL;                   /* '<S3>/DoorLockSetSts' */
   uint8_T temporalCounter_i1_c;        /* '<S3>/DoorLockSetSts' */
   uint8_T SI_e_DoorLockSet_start;      /* '<S3>/DoorLockSetSts' */
   boolean_T SI_b_DrvUnlockReq_start;   /* '<S3>/Unlock_Request' */
   boolean_T SI_b_PassUnlockReq_start;  /* '<S3>/Unlock_Request' */
-  boolean_T SL_b_DoorInSwValid;        /* '<S3>/FRDoorRelease' */
-  boolean_T SL_b_CentSingleDoorSwValid;/* '<S3>/FRDoorRelease' */
-  boolean_T SL_b_CentAllDoorSwValid;   /* '<S3>/FRDoorRelease' */
-  boolean_T SL_b_DoorOutSwValid;       /* '<S3>/FRDoorRelease' */
-  boolean_T SL_b_DoorHandSwValid;      /* '<S3>/FRDoorRelease' */
-  boolean_T SI_b_DoorInSwSts_start;    /* '<S3>/FRDoorRelease' */
-  boolean_T SL_b_DoorInSwValid_start;  /* '<S3>/FRDoorRelease' */
-  boolean_T SL_b_DoorOutSwValid_start; /* '<S3>/FRDoorRelease' */
-  boolean_T SI_b_DoorHandSwSts_start;  /* '<S3>/FRDoorRelease' */
-  boolean_T SL_b_DoorHandSwValid_start;/* '<S3>/FRDoorRelease' */
-  boolean_T SL_b_CentSingleDoorSwValid_star;/* '<S3>/FRDoorRelease' */
-  boolean_T SL_b_CentAllDoorSwValid_start;/* '<S3>/FRDoorRelease' */
-  boolean_T SL_b_DoorInSwValid_n;      /* '<S3>/FLDoorRelease' */
-  boolean_T SL_b_CentSingleDoorSwValid_m;/* '<S3>/FLDoorRelease' */
-  boolean_T SL_b_CentAllDoorSwValid_o; /* '<S3>/FLDoorRelease' */
-  boolean_T SL_b_DoorOutSwValid_c;     /* '<S3>/FLDoorRelease' */
-  boolean_T SL_b_DoorHandSwValid_l;    /* '<S3>/FLDoorRelease' */
-  boolean_T SI_b_DoorInSwSts_start_g;  /* '<S3>/FLDoorRelease' */
-  boolean_T SL_b_DoorInSwValid_start_p;/* '<S3>/FLDoorRelease' */
-  boolean_T SL_b_DoorOutSwValid_start_c;/* '<S3>/FLDoorRelease' */
-  boolean_T SI_b_DoorHandSwSts_start_h;/* '<S3>/FLDoorRelease' */
-  boolean_T SL_b_DoorHandSwValid_start_b;/* '<S3>/FLDoorRelease' */
-  boolean_T SL_b_CentSingleDoorSwValid_st_a;/* '<S3>/FLDoorRelease' */
-  boolean_T SL_b_CentAllDoorSwValid_start_f;/* '<S3>/FLDoorRelease' */
-  DW_FLDoorReleaseDriver_REL_T sf_RRDoorReleaseDriver;/* '<S3>/RRDoorReleaseDriver' */
-  DW_RLDoorRelease_REL_T sf_RRDoorRelease;/* '<S3>/RRDoorRelease' */
-  DW_FLDoorReleaseDriver_REL_T sf_RLDoorReleaseDriver;/* '<S3>/RLDoorReleaseDriver' */
-  DW_RLDoorRelease_REL_T sf_RLDoorRelease;/* '<S3>/RLDoorRelease' */
-  DW_FLDoorReleaseDriver_REL_T sf_FRDoorReleaseDriver;/* '<S3>/FRDoorReleaseDriver' */
-  DW_FLDoorReleaseDriver_REL_T sf_FLDoorReleaseDriver;/* '<S3>/FLDoorReleaseDriver' */
+  boolean_T SL_b_DoorInSwValid;        /* '<S3>/FRDoorRlsReq' */
+  boolean_T SL_b_CentSingleDoorSwValid;/* '<S3>/FRDoorRlsReq' */
+  boolean_T SL_b_CentAllDoorSwValid;   /* '<S3>/FRDoorRlsReq' */
+  boolean_T SL_b_DoorOutSwValid;       /* '<S3>/FRDoorRlsReq' */
+  boolean_T SL_b_DoorHandSwValid;      /* '<S3>/FRDoorRlsReq' */
+  boolean_T SI_b_DoorInSwSts_start;    /* '<S3>/FRDoorRlsReq' */
+  boolean_T SL_b_DoorInSwValid_start;  /* '<S3>/FRDoorRlsReq' */
+  boolean_T SL_b_DoorOutSwValid_start; /* '<S3>/FRDoorRlsReq' */
+  boolean_T SI_b_DoorHandSwSts_start;  /* '<S3>/FRDoorRlsReq' */
+  boolean_T SL_b_DoorHandSwValid_start;/* '<S3>/FRDoorRlsReq' */
+  boolean_T SL_b_CentSingleDoorSwValid_star;/* '<S3>/FRDoorRlsReq' */
+  boolean_T SL_b_CentAllDoorSwValid_start;/* '<S3>/FRDoorRlsReq' */
+  boolean_T SL_b_DoorInSwValid_i;      /* '<S3>/FLDoorRlsReq' */
+  boolean_T SL_b_CentSingleDoorSwValid_g;/* '<S3>/FLDoorRlsReq' */
+  boolean_T SL_b_CentAllDoorSwValid_l; /* '<S3>/FLDoorRlsReq' */
+  boolean_T SL_b_DoorOutSwValid_e;     /* '<S3>/FLDoorRlsReq' */
+  boolean_T SL_b_DoorHandSwValid_l;    /* '<S3>/FLDoorRlsReq' */
+  boolean_T SI_b_DoorInSwSts_start_b;  /* '<S3>/FLDoorRlsReq' */
+  boolean_T SL_b_DoorInSwValid_start_d;/* '<S3>/FLDoorRlsReq' */
+  boolean_T SL_b_DoorOutSwValid_start_c;/* '<S3>/FLDoorRlsReq' */
+  boolean_T SI_b_DoorHandSwSts_start_c;/* '<S3>/FLDoorRlsReq' */
+  boolean_T SL_b_DoorHandSwValid_start_g;/* '<S3>/FLDoorRlsReq' */
+  boolean_T SL_b_CentSingleDoorSwValid_st_j;/* '<S3>/FLDoorRlsReq' */
+  boolean_T SL_b_CentAllDoorSwValid_start_i;/* '<S3>/FLDoorRlsReq' */
+  DW_RLDoorRlsReq_REL_T sf_RRDoorRlsReq;/* '<S3>/RRDoorRlsReq' */
+  DW_FLDoorRlsDriver_REL_T sf_RRDoorRlsDriver;/* '<S3>/RRDoorRlsDriver' */
+  DW_RLDoorRlsReq_REL_T sf_RLDoorRlsReq;/* '<S3>/RLDoorRlsReq' */
+  DW_FLDoorRlsDriver_REL_T sf_RLDoorRlsDriver;/* '<S3>/RLDoorRlsDriver' */
+  DW_FLDoorRlsDriver_REL_T sf_FRDoorRlsDriver;/* '<S3>/FRDoorRlsDriver' */
+  DW_FLDoorRlsDriver_REL_T sf_FLDoorRlsDriver;/* '<S3>/FLDoorRlsDriver' */
 } DW_REL_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -447,18 +447,18 @@ extern RT_MODEL_REL_T *const REL_M;
  * '<S3>'   : 'REL/REL_Step_sys/REL'
  * '<S4>'   : 'REL/REL_Step_sys/REL/DoorLockSetSts'
  * '<S5>'   : 'REL/REL_Step_sys/REL/FLDoorRatSts'
- * '<S6>'   : 'REL/REL_Step_sys/REL/FLDoorRelease'
- * '<S7>'   : 'REL/REL_Step_sys/REL/FLDoorReleaseDriver'
+ * '<S6>'   : 'REL/REL_Step_sys/REL/FLDoorRlsDriver'
+ * '<S7>'   : 'REL/REL_Step_sys/REL/FLDoorRlsReq'
  * '<S8>'   : 'REL/REL_Step_sys/REL/FRDoorRatSts'
- * '<S9>'   : 'REL/REL_Step_sys/REL/FRDoorRelease'
- * '<S10>'  : 'REL/REL_Step_sys/REL/FRDoorReleaseDriver'
+ * '<S9>'   : 'REL/REL_Step_sys/REL/FRDoorRlsDriver'
+ * '<S10>'  : 'REL/REL_Step_sys/REL/FRDoorRlsReq'
  * '<S11>'  : 'REL/REL_Step_sys/REL/OFF '
  * '<S12>'  : 'REL/REL_Step_sys/REL/RLDoorRatSts'
- * '<S13>'  : 'REL/REL_Step_sys/REL/RLDoorRelease'
- * '<S14>'  : 'REL/REL_Step_sys/REL/RLDoorReleaseDriver'
+ * '<S13>'  : 'REL/REL_Step_sys/REL/RLDoorRlsDriver'
+ * '<S14>'  : 'REL/REL_Step_sys/REL/RLDoorRlsReq'
  * '<S15>'  : 'REL/REL_Step_sys/REL/RRDoorRatSts'
- * '<S16>'  : 'REL/REL_Step_sys/REL/RRDoorRelease'
- * '<S17>'  : 'REL/REL_Step_sys/REL/RRDoorReleaseDriver'
+ * '<S16>'  : 'REL/REL_Step_sys/REL/RRDoorRlsDriver'
+ * '<S17>'  : 'REL/REL_Step_sys/REL/RRDoorRlsReq'
  * '<S18>'  : 'REL/REL_Step_sys/REL/Unlock_Request'
  */
 #endif                                 /* RTW_HEADER_REL_h_ */
