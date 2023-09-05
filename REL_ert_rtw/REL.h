@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.272
+ * Model version                  : 1.280
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Tue Sep  5 09:51:43 2023
+ * C/C++ source code generated on : Tue Sep  5 11:41:44 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -114,10 +114,23 @@ typedef struct {
   boolean_T SO_b_UnlockReq_e;          /* '<S3>/RLDoorRlsReq' */
   boolean_T SO_b_UnlockReq_i;          /* '<S3>/FRDoorRlsReq' */
   boolean_T SO_b_UnlockReq_f;          /* '<S3>/FLDoorRlsReq' */
+  boolean_T SL_b_FLDoorInSwSts;        /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_FRDoorInSwSts;        /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_RLDoorInSwSts;        /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_RRDoorInSwSts;        /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_FLDoorOutSwSts;       /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_FRDoorOutSwSts;       /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_RLDoorOutSwSts;       /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_RRDoorOutSwSts;       /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_FLDoorHandSwSts;      /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_FRDoorHandSwSts;      /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_RLDoorHandSwSts;      /* '<S3>/DoorSwSts' */
+  boolean_T SL_b_RRDoorHandSwSts;      /* '<S3>/DoorSwSts' */
 } B_REL_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
+  uint16_T temporalCounter_i1;         /* '<S3>/DoorSwSts' */
   uint8_T is_active_c6_REL;            /* '<S3>/Unlock_Request' */
   uint8_T is_c6_REL;                   /* '<S3>/Unlock_Request' */
   uint8_T is_active_c5_DoorRlsReq;     /* '<S3>/FRDoorRlsReq' */
@@ -137,7 +150,7 @@ typedef struct {
   uint8_T is_DoorCentral;              /* '<S3>/FRDoorRlsReq' */
   uint8_T is_TRIGGER_f;                /* '<S3>/FRDoorRlsReq' */
   uint8_T is_DOOR_LOCK_b;              /* '<S3>/FRDoorRlsReq' */
-  uint8_T temporalCounter_i1;          /* '<S3>/FRDoorRlsReq' */
+  uint8_T temporalCounter_i1_c;        /* '<S3>/FRDoorRlsReq' */
   uint8_T temporalCounter_i2;          /* '<S3>/FRDoorRlsReq' */
   uint8_T temporalCounter_i3;          /* '<S3>/FRDoorRlsReq' */
   uint8_T temporalCounter_i4;          /* '<S3>/FRDoorRlsReq' */
@@ -182,9 +195,11 @@ typedef struct {
   uint8_T temporalCounter_i12_j;       /* '<S3>/FLDoorRlsReq' */
   uint8_T SI_e_DoorLockSts_start_n;    /* '<S3>/FLDoorRlsReq' */
   uint8_T SI_e_VcuGearPosn_start_f;    /* '<S3>/FLDoorRlsReq' */
+  uint8_T is_active_c23_REL;           /* '<S3>/DoorSwSts' */
+  uint8_T is_c23_REL;                  /* '<S3>/DoorSwSts' */
   uint8_T is_active_c1_REL;            /* '<S3>/DoorLockSetSts' */
   uint8_T is_c1_REL;                   /* '<S3>/DoorLockSetSts' */
-  uint8_T temporalCounter_i1_c;        /* '<S3>/DoorLockSetSts' */
+  uint8_T temporalCounter_i1_cn;       /* '<S3>/DoorLockSetSts' */
   uint8_T SI_e_DoorLockSet_start;      /* '<S3>/DoorLockSetSts' */
   boolean_T SI_b_DrvUnlockReq_start;   /* '<S3>/Unlock_Request' */
   boolean_T SI_b_PassUnlockReq_start;  /* '<S3>/Unlock_Request' */
@@ -212,6 +227,7 @@ typedef struct {
   boolean_T SL_b_DoorHandSwValid_start_g;/* '<S3>/FLDoorRlsReq' */
   boolean_T SL_b_CentSingleDoorSwValid_st_j;/* '<S3>/FLDoorRlsReq' */
   boolean_T SL_b_CentAllDoorSwValid_start_i;/* '<S3>/FLDoorRlsReq' */
+  boolean_T SI_b_CrashSts_start;       /* '<S3>/DoorSwSts' */
   DW_RLDoorRlsReq_REL_T sf_RRDoorRlsReq;/* '<S3>/RRDoorRlsReq' */
   DW_FLDoorRlsDriver_REL_T sf_RRDoorRlsDriver;/* '<S3>/RRDoorRlsDriver' */
   DW_RLDoorRlsReq_REL_T sf_RLDoorRlsReq;/* '<S3>/RLDoorRlsReq' */
@@ -446,20 +462,21 @@ extern RT_MODEL_REL_T *const REL_M;
  * '<S2>'   : 'REL/REL_Step_sys'
  * '<S3>'   : 'REL/REL_Step_sys/REL'
  * '<S4>'   : 'REL/REL_Step_sys/REL/DoorLockSetSts'
- * '<S5>'   : 'REL/REL_Step_sys/REL/FLDoorRatSts'
- * '<S6>'   : 'REL/REL_Step_sys/REL/FLDoorRlsDriver'
- * '<S7>'   : 'REL/REL_Step_sys/REL/FLDoorRlsReq'
- * '<S8>'   : 'REL/REL_Step_sys/REL/FRDoorRatSts'
- * '<S9>'   : 'REL/REL_Step_sys/REL/FRDoorRlsDriver'
- * '<S10>'  : 'REL/REL_Step_sys/REL/FRDoorRlsReq'
- * '<S11>'  : 'REL/REL_Step_sys/REL/OFF '
- * '<S12>'  : 'REL/REL_Step_sys/REL/RLDoorRatSts'
- * '<S13>'  : 'REL/REL_Step_sys/REL/RLDoorRlsDriver'
- * '<S14>'  : 'REL/REL_Step_sys/REL/RLDoorRlsReq'
- * '<S15>'  : 'REL/REL_Step_sys/REL/RRDoorRatSts'
- * '<S16>'  : 'REL/REL_Step_sys/REL/RRDoorRlsDriver'
- * '<S17>'  : 'REL/REL_Step_sys/REL/RRDoorRlsReq'
- * '<S18>'  : 'REL/REL_Step_sys/REL/Unlock_Request'
+ * '<S5>'   : 'REL/REL_Step_sys/REL/DoorSwSts'
+ * '<S6>'   : 'REL/REL_Step_sys/REL/FLDoorRatSts'
+ * '<S7>'   : 'REL/REL_Step_sys/REL/FLDoorRlsDriver'
+ * '<S8>'   : 'REL/REL_Step_sys/REL/FLDoorRlsReq'
+ * '<S9>'   : 'REL/REL_Step_sys/REL/FRDoorRatSts'
+ * '<S10>'  : 'REL/REL_Step_sys/REL/FRDoorRlsDriver'
+ * '<S11>'  : 'REL/REL_Step_sys/REL/FRDoorRlsReq'
+ * '<S12>'  : 'REL/REL_Step_sys/REL/OFF '
+ * '<S13>'  : 'REL/REL_Step_sys/REL/RLDoorRatSts'
+ * '<S14>'  : 'REL/REL_Step_sys/REL/RLDoorRlsDriver'
+ * '<S15>'  : 'REL/REL_Step_sys/REL/RLDoorRlsReq'
+ * '<S16>'  : 'REL/REL_Step_sys/REL/RRDoorRatSts'
+ * '<S17>'  : 'REL/REL_Step_sys/REL/RRDoorRlsDriver'
+ * '<S18>'  : 'REL/REL_Step_sys/REL/RRDoorRlsReq'
+ * '<S19>'  : 'REL/REL_Step_sys/REL/Unlock_Request'
  */
 #endif                                 /* RTW_HEADER_REL_h_ */
 

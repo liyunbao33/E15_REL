@@ -35,17 +35,17 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_CrashOutpSts_prev"\
+      Name         "SI_b_CrashSts_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_CrashOutpSts"\
+      Path         "SI_b_CrashSts"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_CrashOutpSts_start"\
+      Name         "SI_b_CrashSts_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_CrashOutpSts"\
+      Path         "SI_b_CrashSts"\
       SrcLocation  ""\
     }\
   }

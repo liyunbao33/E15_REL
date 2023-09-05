@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.272
+ * Model version                  : 1.280
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Tue Sep  5 09:51:43 2023
+ * C/C++ source code generated on : Tue Sep  5 11:41:44 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -33,8 +33,8 @@ extern void REL_RLDoorRlsReq_Init(boolean_T *rty_SO_b_DoorRlsReq, boolean_T
   *rty_SO_b_UnlockReq);
 extern void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd,
   Boolean rtu_SI_b_EspVehSpdVld, UInt8 rtu_SI_e_VcuGearPosn, UInt8
-  rtu_SI_e_DoorLockSts, uint8_T rtu_SI_e_DoorRatSts, Boolean
-  rtu_SI_b_DoorInSwSts, Boolean rtu_SI_b_DoorOutSwSts, Boolean
+  rtu_SI_e_DoorLockSts, uint8_T rtu_SI_e_DoorRatSts, boolean_T
+  rtu_SI_b_DoorInSwSts, boolean_T rtu_SI_b_DoorOutSwSts, boolean_T
   rtu_SI_b_DoorHandSwSts, Boolean rtu_SI_b_CentSingleDoorSwSts, Boolean
   rtu_SI_b_CentAllDoorSwSts, Boolean rtu_SI_b_ChildLckSts, boolean_T
   rtu_SI_b_DoorLockSetSts, boolean_T *rty_SO_b_DoorRlsReq, boolean_T
