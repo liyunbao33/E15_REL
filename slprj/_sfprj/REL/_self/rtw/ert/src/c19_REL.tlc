@@ -91,17 +91,17 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DCUCinchHomeSwt_prev"\
+      Name         "SI_b_CinchHome_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_DCUCinchHomeSwt"\
+      Path         "SI_b_CinchHome"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DCUCinchHomeSwt_start"\
+      Name         "SI_b_CinchHome_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_DCUCinchHomeSwt"\
+      Path         "SI_b_CinchHome"\
       SrcLocation  ""\
     }\
     ChartData {\

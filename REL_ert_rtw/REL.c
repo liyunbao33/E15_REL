@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.261
+ * Model version                  : 1.265
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Tue Sep  5 09:02:10 2023
+ * C/C++ source code generated on : Tue Sep  5 09:17:58 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -147,8 +147,8 @@ static void REL_DoorCent_a(const boolean_T *Compare, const uint8_T
 static void REL_DoorHand_h(const boolean_T *Compare, const uint8_T
   *SI_e_VcuGearPosn_prev_d, const boolean_T *SI_b_DoorHandSwSts_prev_p, const
   boolean_T *SL_b_DoorHandSwValid_prev_e);
-static void REL_NORMAL(const boolean_T *SI_b_DCUCinchHomeSwt_prev, const
-  boolean_T *SO_b_DoorRlsReq_prev);
+static void REL_NORMAL(const boolean_T *SI_b_CinchHome_prev, const boolean_T
+  *SO_b_DoorRlsReq_prev);
 static void REL_DoorIn_f(const uint8_T *SI_e_VcuGearPosn_prev, const boolean_T
   *SI_b_DoorInSwSts_prev, const boolean_T *SL_b_DoorInSwValid_prev);
 static void REL_DoorCent_b(const boolean_T *Compare, const uint8_T
@@ -1523,8 +1523,8 @@ static void REL_DoorHand_h(const boolean_T *Compare, const uint8_T
 }
 
 /* Function for Chart: '<S3>/FLDoorReleaseDriver' */
-static void REL_NORMAL(const boolean_T *SI_b_DCUCinchHomeSwt_prev, const
-  boolean_T *SO_b_DoorRlsReq_prev)
+static void REL_NORMAL(const boolean_T *SI_b_CinchHome_prev, const boolean_T
+  *SO_b_DoorRlsReq_prev)
 {
   if (REL_DW.is_NORMAL == REL_IN_ELECTRIC_DOOR_d) {
     if (REL_DW.is_MAIN_PROGRESS == REL_IN_IDLE_f) {
@@ -1679,9 +1679,9 @@ static void REL_NORMAL(const boolean_T *SI_b_DCUCinchHomeSwt_prev, const
           break;
 
          case REL_IN_ICE_BREAK_f:
-          if ((REL_DW.temporalCounter_i1 < 600) && ((*SI_b_DCUCinchHomeSwt_prev
-                != REL_DW.SI_b_DCUCinchHomeSwt_start) &&
-               (!REL_DW.SI_b_DCUCinchHomeSwt_start))) {
+          if ((REL_DW.temporalCounter_i1 < 600) && ((*SI_b_CinchHome_prev !=
+                REL_DW.SI_b_CinchHome_start) && (!REL_DW.SI_b_CinchHome_start)))
+          {
             REL_DW.is_STEP2_OPEN = REL_IN_NO_ACTIVE_CHILD_hj;
             REL_DW.is_RELEASE = REL_IN_RESET_l;
             REL_DW.temporalCounter_i1 = 0U;
@@ -2672,8 +2672,8 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     REL_DW.temporalCounter_i1++;
   }
 
-  SI_b_DoorInSwSts_prev_d = REL_DW.SI_b_DCUCinchHomeSwt_start;
-  REL_DW.SI_b_DCUCinchHomeSwt_start = REL_U.VbINP_CAN_FLDCUCinchHomeSwitch_;
+  SI_b_DoorInSwSts_prev_d = REL_DW.SI_b_CinchHome_start;
+  REL_DW.SI_b_CinchHome_start = REL_U.VbINP_CAN_FLDCUCinchHomeSwitch_;
   SL_b_DoorInSwValid_prev_o = REL_DW.SO_b_DoorRlsReq_start;
   REL_DW.SO_b_DoorRlsReq_start = REL_Y.VbOUT_REL_FLDoorRlsReq_flg_VbOU;
   if (REL_DW.is_active_c19_REL == 0U) {
