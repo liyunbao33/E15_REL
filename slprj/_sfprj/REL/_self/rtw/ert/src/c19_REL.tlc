@@ -91,20 +91,6 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SO_b_DoorRlsReq_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SO_b_DoorRlsReq"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SO_b_DoorRlsReq_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SO_b_DoorRlsReq"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
       Name         "SI_b_DCUCinchHomeSwt_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
@@ -116,6 +102,20 @@
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
       Path         "SI_b_DCUCinchHomeSwt"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SO_b_DoorRlsReq_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SO_b_DoorRlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SO_b_DoorRlsReq_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SO_b_DoorRlsReq"\
       SrcLocation  ""\
     }\
   }

@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.258
+ * Model version                  : 1.261
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep  4 17:58:48 2023
+ * C/C++ source code generated on : Tue Sep  5 09:02:10 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -213,8 +213,8 @@ typedef struct {
   boolean_T SL_b_DoorHandSwValid_start;/* '<S3>/FRDoorRelease' */
   boolean_T SL_b_CentSingleDoorSwValid_star;/* '<S3>/FRDoorRelease' */
   boolean_T SL_b_CentAllDoorSwValid_start;/* '<S3>/FRDoorRelease' */
-  boolean_T SO_b_DoorRlsReq_start;     /* '<S3>/FLDoorReleaseDriver' */
   boolean_T SI_b_DCUCinchHomeSwt_start;/* '<S3>/FLDoorReleaseDriver' */
+  boolean_T SO_b_DoorRlsReq_start;     /* '<S3>/FLDoorReleaseDriver' */
   boolean_T SL_b_DoorInSwValid_n;      /* '<S3>/FLDoorRelease' */
   boolean_T SL_b_CentSingleDoorSwValid_m;/* '<S3>/FLDoorRelease' */
   boolean_T SL_b_CentAllDoorSwValid_o; /* '<S3>/FLDoorRelease' */
