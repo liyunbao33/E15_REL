@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   52 \
+    NumChartData   44 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -49,17 +49,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_TRIGGER"\
+      Name         "is_Trigger"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorIn.RlsReq.TRIGGER"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_DOOR_LOCK"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "DoorIn.RlsReq.TRIGGER.DOOR_LOCK"\
+      Path         "DoorIn.RlsReq.Trigger"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -70,17 +63,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_TRIGGER"\
+      Name         "is_Trigger"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorOut.RlsReq.TRIGGER"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_DOOR_LOCK"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "DoorOut.RlsReq.TRIGGER.DOOR_LOCK"\
+      Path         "DoorOut.RlsReq.Trigger"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -98,17 +84,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_TRIGGER"\
+      Name         "is_Trigger"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorHand.RlsReq.TRIGGER"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_DOOR_LOCK"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "DoorHand.RlsReq.TRIGGER.DOOR_LOCK"\
+      Path         "DoorHand.RlsReq.Trigger"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -119,17 +98,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_TRIGGER"\
+      Name         "is_Trigger"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorCent.DoorCentral.TRIGGER"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_DOOR_LOCK"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "DoorCent.DoorCentral.TRIGGER.DOOR_LOCK"\
+      Path         "DoorCent.DoorCentral.Trigger"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -218,34 +190,6 @@
     }\
     ChartData {\
       Name         "temporalCounter_i8"\
-      Description  "TemporalCounter"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "temporalCounter_i9"\
-      Description  "TemporalCounter"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "temporalCounter_i10"\
-      Description  "TemporalCounter"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "temporalCounter_i11"\
-      Description  "TemporalCounter"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "temporalCounter_i12"\
       Description  "TemporalCounter"\
       SFName       ""\
       Path         ""\
