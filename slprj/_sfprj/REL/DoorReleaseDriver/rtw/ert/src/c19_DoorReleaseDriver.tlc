@@ -1,0 +1,123 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   15 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c19_DoorReleaseDriver"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_c19_DoorReleaseDriver"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_NORMAL"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "NORMAL"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_MAIN_PROGRESS"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "NORMAL.ELECTRIC_DOOR.MAIN_PROGRESS"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_RELEASE"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "NORMAL.ELECTRIC_DOOR.MAIN_PROGRESS.RELEASE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_STEP2_OPEN"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "NORMAL.ELECTRIC_DOOR.MAIN_PROGRESS.RELEASE.STEP2_OPEN"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_MAIN_PROGRESS"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "NORMAL.NON_ELECTRIC_DOOR.MAIN_PROGRESS"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_RELEASE"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "NORMAL.NON_ELECTRIC_DOOR.MAIN_PROGRESS.RELEASE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_STEP2_OPEN"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "NORMAL.NON_ELECTRIC_DOOR.MAIN_PROGRESS.RELEASE.STEP2_OPEN"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_e_CheckCycle"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_e_CheckCycle"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SO_b_DoorRlsReq_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SO_b_DoorRlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SO_b_DoorRlsReq_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SO_b_DoorRlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_CinchHome_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_CinchHome"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_CinchHome_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_CinchHome"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

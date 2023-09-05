@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.265
+ * Model version                  : 1.267
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Tue Sep  5 09:17:58 2023
+ * C/C++ source code generated on : Tue Sep  5 09:38:44 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -33,26 +33,24 @@
 #define rtmSetErrorStatus(rtm, val)    ((rtm)->errorStatus = (val))
 #endif
 
-/* Block states (default storage) for system '<S3>/FRDoorReleaseDriver' */
+/* Block states (default storage) for system '<S3>/FLDoorReleaseDriver' */
 typedef struct {
-  uint16_T temporalCounter_i1;         /* '<S3>/FRDoorReleaseDriver' */
-  uint8_T is_active_c20_REL;           /* '<S3>/FRDoorReleaseDriver' */
-  uint8_T is_c20_REL;                  /* '<S3>/FRDoorReleaseDriver' */
-  uint8_T is_NORMAL;                   /* '<S3>/FRDoorReleaseDriver' */
-  uint8_T is_MAIN_PROGRESS;            /* '<S3>/FRDoorReleaseDriver' */
-  uint8_T is_RELEASE;                  /* '<S3>/FRDoorReleaseDriver' */
-  uint8_T is_STEP2_OPEN;               /* '<S3>/FRDoorReleaseDriver' */
-  uint8_T is_MAIN_PROGRESS_g;          /* '<S3>/FRDoorReleaseDriver' */
-  uint8_T is_RELEASE_d;                /* '<S3>/FRDoorReleaseDriver' */
-  uint8_T is_STEP2_OPEN_g;             /* '<S3>/FRDoorReleaseDriver' */
-  uint8_T SL_e_CheckCycle;             /* '<S3>/FRDoorReleaseDriver' */
-  boolean_T SI_b_DoorOpenSts_prev;     /* '<S3>/FRDoorReleaseDriver' */
-  boolean_T SI_b_DoorOpenSts_start;    /* '<S3>/FRDoorReleaseDriver' */
-  boolean_T SI_b_DCUCinchHomeSwt_prev; /* '<S3>/FRDoorReleaseDriver' */
-  boolean_T SI_b_DCUCinchHomeSwt_start;/* '<S3>/FRDoorReleaseDriver' */
-  boolean_T SI_b_TriggerRelease_prev;  /* '<S3>/FRDoorReleaseDriver' */
-  boolean_T SI_b_TriggerRelease_start; /* '<S3>/FRDoorReleaseDriver' */
-} DW_FRDoorReleaseDriver_REL_T;
+  uint16_T temporalCounter_i1;         /* '<S3>/FLDoorReleaseDriver' */
+  uint8_T is_active_c19_DoorReleaseDriver;/* '<S3>/FLDoorReleaseDriver' */
+  uint8_T is_c19_DoorReleaseDriver;    /* '<S3>/FLDoorReleaseDriver' */
+  uint8_T is_NORMAL;                   /* '<S3>/FLDoorReleaseDriver' */
+  uint8_T is_MAIN_PROGRESS;            /* '<S3>/FLDoorReleaseDriver' */
+  uint8_T is_RELEASE;                  /* '<S3>/FLDoorReleaseDriver' */
+  uint8_T is_STEP2_OPEN;               /* '<S3>/FLDoorReleaseDriver' */
+  uint8_T is_MAIN_PROGRESS_p;          /* '<S3>/FLDoorReleaseDriver' */
+  uint8_T is_RELEASE_k;                /* '<S3>/FLDoorReleaseDriver' */
+  uint8_T is_STEP2_OPEN_j;             /* '<S3>/FLDoorReleaseDriver' */
+  uint8_T SL_e_CheckCycle;             /* '<S3>/FLDoorReleaseDriver' */
+  boolean_T SO_b_DoorRlsReq_prev;      /* '<S3>/FLDoorReleaseDriver' */
+  boolean_T SO_b_DoorRlsReq_start;     /* '<S3>/FLDoorReleaseDriver' */
+  boolean_T SI_b_CinchHome_prev;       /* '<S3>/FLDoorReleaseDriver' */
+  boolean_T SI_b_CinchHome_start;      /* '<S3>/FLDoorReleaseDriver' */
+} DW_FLDoorReleaseDriver_REL_T;
 
 /* Block states (default storage) for system '<S3>/RLDoorRelease' */
 typedef struct {
@@ -120,7 +118,6 @@ typedef struct {
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  uint16_T temporalCounter_i1;         /* '<S3>/FLDoorReleaseDriver' */
   uint8_T is_active_c6_REL;            /* '<S3>/Unlock_Request' */
   uint8_T is_c6_REL;                   /* '<S3>/Unlock_Request' */
   uint8_T is_active_c5_DoorRelease;    /* '<S3>/FRDoorRelease' */
@@ -140,7 +137,7 @@ typedef struct {
   uint8_T is_DoorCentral;              /* '<S3>/FRDoorRelease' */
   uint8_T is_TRIGGER_k;                /* '<S3>/FRDoorRelease' */
   uint8_T is_DOOR_LOCK_i;              /* '<S3>/FRDoorRelease' */
-  uint8_T temporalCounter_i1_e;        /* '<S3>/FRDoorRelease' */
+  uint8_T temporalCounter_i1;          /* '<S3>/FRDoorRelease' */
   uint8_T temporalCounter_i2;          /* '<S3>/FRDoorRelease' */
   uint8_T temporalCounter_i3;          /* '<S3>/FRDoorRelease' */
   uint8_T temporalCounter_i4;          /* '<S3>/FRDoorRelease' */
@@ -154,16 +151,6 @@ typedef struct {
   uint8_T temporalCounter_i12;         /* '<S3>/FRDoorRelease' */
   uint8_T SI_e_DoorLockSts_start;      /* '<S3>/FRDoorRelease' */
   uint8_T SI_e_VcuGearPosn_start;      /* '<S3>/FRDoorRelease' */
-  uint8_T is_active_c19_REL;           /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_c19_REL;                  /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_NORMAL;                   /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_MAIN_PROGRESS;            /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_RELEASE;                  /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_STEP2_OPEN;               /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_MAIN_PROGRESS_k;          /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_RELEASE_h;                /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T is_STEP2_OPEN_j;             /* '<S3>/FLDoorReleaseDriver' */
-  uint8_T SL_e_CheckCycle;             /* '<S3>/FLDoorReleaseDriver' */
   uint8_T is_active_c5_DoorRelease_d;  /* '<S3>/FLDoorRelease' */
   uint8_T is_RlsReq_o;                 /* '<S3>/FLDoorRelease' */
   uint8_T is_TRIGGER_g;                /* '<S3>/FLDoorRelease' */
@@ -181,7 +168,7 @@ typedef struct {
   uint8_T is_DoorCentral_f;            /* '<S3>/FLDoorRelease' */
   uint8_T is_TRIGGER_cn;               /* '<S3>/FLDoorRelease' */
   uint8_T is_DOOR_LOCK_o;              /* '<S3>/FLDoorRelease' */
-  uint8_T temporalCounter_i1_em;       /* '<S3>/FLDoorRelease' */
+  uint8_T temporalCounter_i1_e;        /* '<S3>/FLDoorRelease' */
   uint8_T temporalCounter_i2_p;        /* '<S3>/FLDoorRelease' */
   uint8_T temporalCounter_i3_b;        /* '<S3>/FLDoorRelease' */
   uint8_T temporalCounter_i4_g;        /* '<S3>/FLDoorRelease' */
@@ -213,8 +200,6 @@ typedef struct {
   boolean_T SL_b_DoorHandSwValid_start;/* '<S3>/FRDoorRelease' */
   boolean_T SL_b_CentSingleDoorSwValid_star;/* '<S3>/FRDoorRelease' */
   boolean_T SL_b_CentAllDoorSwValid_start;/* '<S3>/FRDoorRelease' */
-  boolean_T SI_b_CinchHome_start;      /* '<S3>/FLDoorReleaseDriver' */
-  boolean_T SO_b_DoorRlsReq_start;     /* '<S3>/FLDoorReleaseDriver' */
   boolean_T SL_b_DoorInSwValid_n;      /* '<S3>/FLDoorRelease' */
   boolean_T SL_b_CentSingleDoorSwValid_m;/* '<S3>/FLDoorRelease' */
   boolean_T SL_b_CentAllDoorSwValid_o; /* '<S3>/FLDoorRelease' */
@@ -227,11 +212,12 @@ typedef struct {
   boolean_T SL_b_DoorHandSwValid_start_b;/* '<S3>/FLDoorRelease' */
   boolean_T SL_b_CentSingleDoorSwValid_st_a;/* '<S3>/FLDoorRelease' */
   boolean_T SL_b_CentAllDoorSwValid_start_f;/* '<S3>/FLDoorRelease' */
+  DW_FLDoorReleaseDriver_REL_T sf_RRDoorReleaseDriver;/* '<S3>/RRDoorReleaseDriver' */
   DW_RLDoorRelease_REL_T sf_RRDoorRelease;/* '<S3>/RRDoorRelease' */
-  DW_FRDoorReleaseDriver_REL_T sf_RLDoorReleaseDriver1;/* '<S3>/RLDoorReleaseDriver1' */
-  DW_FRDoorReleaseDriver_REL_T sf_RLDoorReleaseDriver;/* '<S3>/RLDoorReleaseDriver' */
+  DW_FLDoorReleaseDriver_REL_T sf_RLDoorReleaseDriver;/* '<S3>/RLDoorReleaseDriver' */
   DW_RLDoorRelease_REL_T sf_RLDoorRelease;/* '<S3>/RLDoorRelease' */
-  DW_FRDoorReleaseDriver_REL_T sf_FRDoorReleaseDriver;/* '<S3>/FRDoorReleaseDriver' */
+  DW_FLDoorReleaseDriver_REL_T sf_FRDoorReleaseDriver;/* '<S3>/FRDoorReleaseDriver' */
+  DW_FLDoorReleaseDriver_REL_T sf_FLDoorReleaseDriver;/* '<S3>/FLDoorReleaseDriver' */
 } DW_REL_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -470,9 +456,9 @@ extern RT_MODEL_REL_T *const REL_M;
  * '<S12>'  : 'REL/REL_Step_sys/REL/RLDoorRatSts'
  * '<S13>'  : 'REL/REL_Step_sys/REL/RLDoorRelease'
  * '<S14>'  : 'REL/REL_Step_sys/REL/RLDoorReleaseDriver'
- * '<S15>'  : 'REL/REL_Step_sys/REL/RLDoorReleaseDriver1'
- * '<S16>'  : 'REL/REL_Step_sys/REL/RRDoorRatSts'
- * '<S17>'  : 'REL/REL_Step_sys/REL/RRDoorRelease'
+ * '<S15>'  : 'REL/REL_Step_sys/REL/RRDoorRatSts'
+ * '<S16>'  : 'REL/REL_Step_sys/REL/RRDoorRelease'
+ * '<S17>'  : 'REL/REL_Step_sys/REL/RRDoorReleaseDriver'
  * '<S18>'  : 'REL/REL_Step_sys/REL/Unlock_Request'
  */
 #endif                                 /* RTW_HEADER_REL_h_ */
