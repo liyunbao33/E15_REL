@@ -1,0 +1,67 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   7 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c15_REL"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_c15_REL"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorHandleSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorHandleSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorHandleSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorHandleSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_e_BTDoorOpenReq_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_e_BTDoorOpenReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_e_BTDoorOpenReq_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_e_BTDoorOpenReq"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

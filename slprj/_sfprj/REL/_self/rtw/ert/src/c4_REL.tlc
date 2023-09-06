@@ -1,0 +1,137 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   17 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c4_REL"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_FL_IN_BUTTON"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "FL_IN_BUTTON"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_FR_IN_BUTTON"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "FR_IN_BUTTON"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_RL_IN_BUTTON"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "RL_IN_BUTTON"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_RR_IN_BUTTON"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "RR_IN_BUTTON"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i2"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i3"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i4"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_FLDoorInSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_FLDoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_FLDoorInSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_FLDoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_FRDoorInSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_FRDoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_FRDoorInSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_FRDoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_RLDoorInSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_RLDoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_RLDoorInSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_RLDoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_RRDoorInSW_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_RRDoorInSW"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_RRDoorInSW_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_RRDoorInSW"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

@@ -1,0 +1,60 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   6 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c6_REL"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_c6_REL"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DrvUnlockReq_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DrvUnlockReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DrvUnlockReq_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DrvUnlockReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_PassUnlockReq_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_PassUnlockReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_PassUnlockReq_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_PassUnlockReq"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
