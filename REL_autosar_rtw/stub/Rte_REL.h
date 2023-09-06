@@ -7,7 +7,7 @@
    This file is generated for:
    Atomic software component:  "REL"
    ARXML schema: "4.3"
-   File generated on: "28-Aug-2023 16:23:49"  */
+   File generated on: "06-Sep-2023 14:20:04"  */
 
 #ifndef Rte_REL_h
 #define Rte_REL_h
@@ -94,6 +94,26 @@ Std_ReturnType Rte_Write_VbOUT_REL_RRDoorMotorB_flg_VbOUT_REL_RRDoorMotorB_flg
 
 Std_ReturnType
   Rte_Invalidate_VbOUT_REL_RRDoorMotorB_flg_VbOUT_REL_RRDoorMotorB_flg(void);
+
+#define Rte_Write_VbOUT_REL_RLDoorRlsReq_flg_VbOUT_REL_RLDoorRlsReq_flg Rte_Write_REL_VbOUT_REL_RLDoorRlsReq_flg_VbOUT_REL_RLDoorRlsReq_flg
+
+Std_ReturnType Rte_Write_VbOUT_REL_RLDoorRlsReq_flg_VbOUT_REL_RLDoorRlsReq_flg
+  (Boolean u);
+
+#define Rte_Invalidate_VbOUT_REL_RLDoorRlsReq_flg_VbOUT_REL_RLDoorRlsReq_flg Rte_Invalidate_REL_VbOUT_REL_RLDoorRlsReq_flg_VbOUT_REL_RLDoorRlsReq_flg
+
+Std_ReturnType
+  Rte_Invalidate_VbOUT_REL_RLDoorRlsReq_flg_VbOUT_REL_RLDoorRlsReq_flg(void);
+
+#define Rte_Write_VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg Rte_Write_REL_VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg
+
+Std_ReturnType Rte_Write_VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg
+  (Boolean u);
+
+#define Rte_Invalidate_VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg Rte_Invalidate_REL_VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg
+
+Std_ReturnType
+  Rte_Invalidate_VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg(void);
 
 #define Rte_Write_VeOUT_REL_FLDoorMotorSts_sig_VeOUT_REL_FLDoorMotorSts_sig Rte_Write_REL_VeOUT_REL_FLDoorMotorSts_sig_VeOUT_REL_FLDoorMotorSts_sig
 
