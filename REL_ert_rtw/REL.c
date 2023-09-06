@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.288
+ * Model version                  : 1.299
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Tue Sep  5 23:23:06 2023
+ * C/C++ source code generated on : Wed Sep  6 10:29:52 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -120,7 +120,10 @@ static void REL_DoorHand(UInt8 rtu_SI_e_EspVehSpd, Boolean rtu_SI_b_EspVehSpdVld
   *localDW);
 
 /* Forward declaration for local functions */
-static void REL_enter_atomic_NoCrash(void);
+static void REL_enter_atomic_NoCrash(boolean_T *SL_b_FLDoorInSwSts, boolean_T
+  *SL_b_FRDoorInSwSts, boolean_T *SL_b_RLDoorInSwSts, boolean_T
+  *SL_b_RRDoorInSwSts, boolean_T *SL_b_FLDoorOutSwSts, boolean_T
+  *SL_b_FRDoorOutSwSts);
 static void REL_DoorIn_l(const boolean_T *SI_b_DoorInSwSts_prev_p, const
   boolean_T *SL_b_DoorInSwValid_prev_g);
 static void REL_DoorHand_k(const boolean_T *SI_b_DoorHandSwSts_prev_i, const
@@ -184,32 +187,36 @@ static void REL_NORMAL(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
       /* case IN_RELEASE: */
       switch (localDW->is_RELEASE) {
        case REL_IN_CHECKING:
-        *rty_SO_e_MotorMode = 0U;
-        if ((localDW->temporalCounter_i1 >= 5) && (!rtu_SI_b_DoorAjar)) {
-          localDW->is_RELEASE = REL_IN_STEP2_OPEN;
-          localDW->is_STEP2_OPEN = REL_IN_IDLE_j;
-          localDW->temporalCounter_i1 = 0U;
-          *rty_SO_b_MotorA = false;
-          *rty_SO_b_MotorB = false;
+        {
           *rty_SO_e_MotorMode = 0U;
-        } else if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar &&
-                   (localDW->SL_e_CheckCycle < 2)) {
-          *rty_SO_e_MotorPwm = 80U;
-          localDW->is_RELEASE = REL_IN_INITIAL;
-          localDW->temporalCounter_i1 = 0U;
-          *rty_SO_b_MotorA = true;
-          *rty_SO_b_MotorB = false;
-          *rty_SO_e_MotorMode = 1U;
-
-          /* MotorA=Release Side */
-        } else if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar &&
-                   (localDW->SL_e_CheckCycle >= 2)) {
-          localDW->is_RELEASE = REL_IN_RESET;
-          localDW->temporalCounter_i1 = 0U;
-          *rty_SO_b_MotorA = false;
-          *rty_SO_b_MotorB = true;
-          *rty_SO_e_MotorMode = 2U;
-          *rty_SO_e_MotorPwm = 70U;
+          if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar) {
+            localDW->is_RELEASE = REL_IN_STEP2_OPEN;
+            localDW->is_STEP2_OPEN = REL_IN_IDLE_j;
+            localDW->temporalCounter_i1 = 0U;
+            *rty_SO_b_MotorA = false;
+            *rty_SO_b_MotorB = false;
+            *rty_SO_e_MotorMode = 0U;
+          } else {
+            Boolean tmp_0;
+            tmp_0 = !rtu_SI_b_DoorAjar;
+            if ((localDW->temporalCounter_i1 >= 5) && tmp_0 &&
+                (localDW->SL_e_CheckCycle < 2)) {
+              *rty_SO_e_MotorPwm = 80U;
+              localDW->is_RELEASE = REL_IN_INITIAL;
+              localDW->temporalCounter_i1 = 0U;
+              *rty_SO_b_MotorA = true;
+              *rty_SO_b_MotorB = false;
+              *rty_SO_e_MotorMode = 1U;
+            } else if ((localDW->temporalCounter_i1 >= 5) && tmp_0 &&
+                       (localDW->SL_e_CheckCycle >= 2)) {
+              localDW->is_RELEASE = REL_IN_RESET;
+              localDW->temporalCounter_i1 = 0U;
+              *rty_SO_b_MotorA = false;
+              *rty_SO_b_MotorB = true;
+              *rty_SO_e_MotorMode = 2U;
+              *rty_SO_e_MotorPwm = 70U;
+            }
+          }
         }
         break;
 
@@ -220,8 +227,6 @@ static void REL_NORMAL(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
           *rty_SO_b_MotorA = true;
           *rty_SO_b_MotorB = false;
           *rty_SO_e_MotorMode = 1U;
-
-          /* MotorA=Release Side */
         }
         break;
 
@@ -301,7 +306,7 @@ static void REL_NORMAL(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
 
          case REL_IN_IDLE_j:
           *rty_SO_e_MotorMode = 0U;
-          if ((localDW->temporalCounter_i1 < 270) && (!rtu_SI_b_DoorAjar)) {
+          if ((localDW->temporalCounter_i1 < 270) && rtu_SI_b_DoorAjar) {
             localDW->is_STEP2_OPEN = REL_IN_NO_ACTIVE_CHILD;
             localDW->is_RELEASE = REL_IN_RESET;
             localDW->temporalCounter_i1 = 0U;
@@ -344,32 +349,36 @@ static void REL_NORMAL(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
     /* case IN_RELEASE: */
     switch (localDW->is_RELEASE_k) {
      case REL_IN_CHECKING:
-      *rty_SO_e_MotorMode = 0U;
-      if ((localDW->temporalCounter_i1 >= 5) && (!rtu_SI_b_DoorAjar)) {
-        localDW->is_RELEASE_k = REL_IN_STEP2_OPEN;
-        localDW->is_STEP2_OPEN_p = REL_IN_IDLE;
-        localDW->temporalCounter_i1 = 0U;
-        *rty_SO_b_MotorA = false;
-        *rty_SO_b_MotorB = false;
+      {
         *rty_SO_e_MotorMode = 0U;
-      } else if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar &&
-                 (localDW->SL_e_CheckCycle < 2)) {
-        *rty_SO_e_MotorPwm = 80U;
-        localDW->is_RELEASE_k = REL_IN_INITIAL;
-        localDW->temporalCounter_i1 = 0U;
-        *rty_SO_b_MotorA = true;
-        *rty_SO_b_MotorB = false;
-        *rty_SO_e_MotorMode = 1U;
-
-        /* MotorA=Release Side */
-      } else if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar &&
-                 (localDW->SL_e_CheckCycle >= 2)) {
-        localDW->is_RELEASE_k = REL_IN_RESET;
-        localDW->temporalCounter_i1 = 0U;
-        *rty_SO_b_MotorA = false;
-        *rty_SO_b_MotorB = true;
-        *rty_SO_e_MotorMode = 2U;
-        *rty_SO_e_MotorPwm = 70U;
+        if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar) {
+          localDW->is_RELEASE_k = REL_IN_STEP2_OPEN;
+          localDW->is_STEP2_OPEN_p = REL_IN_IDLE;
+          localDW->temporalCounter_i1 = 0U;
+          *rty_SO_b_MotorA = false;
+          *rty_SO_b_MotorB = false;
+          *rty_SO_e_MotorMode = 0U;
+        } else {
+          Boolean tmp_0;
+          tmp_0 = !rtu_SI_b_DoorAjar;
+          if ((localDW->temporalCounter_i1 >= 5) && tmp_0 &&
+              (localDW->SL_e_CheckCycle < 2)) {
+            *rty_SO_e_MotorPwm = 80U;
+            localDW->is_RELEASE_k = REL_IN_INITIAL;
+            localDW->temporalCounter_i1 = 0U;
+            *rty_SO_b_MotorA = true;
+            *rty_SO_b_MotorB = false;
+            *rty_SO_e_MotorMode = 1U;
+          } else if ((localDW->temporalCounter_i1 >= 5) && tmp_0 &&
+                     (localDW->SL_e_CheckCycle >= 2)) {
+            localDW->is_RELEASE_k = REL_IN_RESET;
+            localDW->temporalCounter_i1 = 0U;
+            *rty_SO_b_MotorA = false;
+            *rty_SO_b_MotorB = true;
+            *rty_SO_e_MotorMode = 2U;
+            *rty_SO_e_MotorPwm = 70U;
+          }
+        }
       }
       break;
 
@@ -380,8 +389,6 @@ static void REL_NORMAL(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
         *rty_SO_b_MotorA = true;
         *rty_SO_b_MotorB = false;
         *rty_SO_e_MotorMode = 1U;
-
-        /* MotorA=Release Side */
       }
       break;
 
@@ -421,7 +428,7 @@ static void REL_NORMAL(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
       /* case IN_STEP2_OPEN: */
       if (localDW->is_STEP2_OPEN_p == REL_IN_IDLE) {
         *rty_SO_e_MotorMode = 0U;
-        if ((localDW->temporalCounter_i1 < 270) && (!rtu_SI_b_DoorAjar)) {
+        if ((localDW->temporalCounter_i1 < 270) && rtu_SI_b_DoorAjar) {
           localDW->is_STEP2_OPEN_p = REL_IN_NO_ACTIVE_CHILD;
           localDW->is_RELEASE_k = REL_IN_RESET;
           localDW->temporalCounter_i1 = 0U;
@@ -1018,25 +1025,28 @@ void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
 }
 
 /* Function for Chart: '<S3>/DoorSwSts' */
-static void REL_enter_atomic_NoCrash(void)
+static void REL_enter_atomic_NoCrash(boolean_T *SL_b_FLDoorInSwSts, boolean_T
+  *SL_b_FRDoorInSwSts, boolean_T *SL_b_RLDoorInSwSts, boolean_T
+  *SL_b_RRDoorInSwSts, boolean_T *SL_b_FLDoorOutSwSts, boolean_T
+  *SL_b_FRDoorOutSwSts)
 {
   /* Inport: '<Root>/VbINP_HWA_FLDoorButton_flg_VbINP_HWA_FLDoorButton_flg' */
-  REL_B.SL_b_FLDoorInSwSts = REL_U.VbINP_HWA_FLDoorButton_flg_VbIN;
+  *SL_b_FLDoorInSwSts = REL_U.VbINP_HWA_FLDoorButton_flg_VbIN;
 
   /* Inport: '<Root>/VbINP_HWA_FRDoorButton_flg_VbINP_HWA_FRDoorButton_flg' */
-  REL_B.SL_b_FRDoorInSwSts = REL_U.VbINP_HWA_FRDoorButton_flg_VbIN;
+  *SL_b_FRDoorInSwSts = REL_U.VbINP_HWA_FRDoorButton_flg_VbIN;
 
   /* Inport: '<Root>/VbINP_HWA_RLDoorButton_flg_VbINP_HWA_RLDoorButton_flg' */
-  REL_B.SL_b_RLDoorInSwSts = REL_U.VbINP_HWA_RLDoorButton_flg_VbIN;
+  *SL_b_RLDoorInSwSts = REL_U.VbINP_HWA_RLDoorButton_flg_VbIN;
 
   /* Inport: '<Root>/VbINP_HWA_RRDoorButton_flg_VbINP_HWA_RRDoorButton_flg' */
-  REL_B.SL_b_RRDoorInSwSts = REL_U.VbINP_HWA_RRDoorButton_flg_VbIN;
+  *SL_b_RRDoorInSwSts = REL_U.VbINP_HWA_RRDoorButton_flg_VbIN;
 
   /* Outport: '<Root>/VbOUT_REL_BcmDrvrDoorHandleReq_flg_VbOUT_REL_BcmDrvrDoorHandleReq_flg' */
-  REL_B.SL_b_FLDoorOutSwSts = REL_Y.VbOUT_REL_BcmDrvrDoorHandleReq_;
+  *SL_b_FLDoorOutSwSts = REL_Y.VbOUT_REL_BcmDrvrDoorHandleReq_;
 
   /* Outport: '<Root>/VbOUT_REL_BcmPassDoorHandleReq_flg_VbOUT_REL_BcmPassDoorHandleReq_flg' */
-  REL_B.SL_b_FRDoorOutSwSts = REL_Y.VbOUT_REL_BcmPassDoorHandleReq_;
+  *SL_b_FRDoorOutSwSts = REL_Y.VbOUT_REL_BcmPassDoorHandleReq_;
 
   /* Outport: '<Root>/VbOUT_REL_BcmLeReDoorHandleReq_flg_VbOUT_REL_BcmLeReDoorHandleReq_flg' */
   REL_B.SL_b_RLDoorOutSwSts = REL_Y.VbOUT_REL_BcmLeReDoorHandleReq_;
@@ -1562,14 +1572,19 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
 {
   uint8_T SI_e_DoorLockSet_prev;
   uint8_T SI_e_VcuGearPosn_prev_n;
+  boolean_T Compare;
   boolean_T SI_b_CrashSts_prev;
   boolean_T SI_b_DoorHandSwSts_prev_i;
   boolean_T SI_b_DoorInSwSts_prev_p;
   boolean_T SL_b_CentAllDoorSwValid_prev_o;
   boolean_T SL_b_CentSingleDoorSwValid_pr_f;
   boolean_T SL_b_DoorHandSwValid_prev_k;
-  boolean_T SL_b_DoorInSwValid_prev_g;
   boolean_T SL_b_DoorOutSwValid_prev_j;
+  boolean_T SL_b_FLDoorInSwSts;
+  boolean_T SL_b_FLDoorOutSwSts;
+  boolean_T SL_b_FRDoorInSwSts;
+  boolean_T SL_b_FRDoorOutSwSts;
+  boolean_T SL_b_RRDoorInSwSts;
 
   /* RootInportFunctionCallGenerator generated from: '<Root>/REL_Step' incorporates:
    *  SubSystem: '<Root>/REL_Step_sys'
@@ -1734,7 +1749,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
    *  Outport: '<Root>/VbOUT_REL_RLDoorHndlBtnSig_flg_VbOUT_REL_RLDoorHndlBtnSig_flg'
    *  Outport: '<Root>/VbOUT_REL_RRDoorHndlBtnSig_flg_VbOUT_REL_RRDoorHndlBtnSig_flg'
    */
-  if (REL_DW.temporalCounter_i1 < 16383U) {
+  if (REL_DW.temporalCounter_i1 < 1023U) {
     REL_DW.temporalCounter_i1++;
   }
 
@@ -1743,11 +1758,28 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   if (REL_DW.is_active_c23_REL == 0U) {
     REL_DW.is_active_c23_REL = 1U;
     REL_DW.is_c23_REL = REL_IN_NoCrash;
-    REL_enter_atomic_NoCrash();
+    REL_enter_atomic_NoCrash(&SL_b_FLDoorInSwSts, &SL_b_FRDoorInSwSts,
+      &SI_b_CrashSts_prev, &SL_b_RRDoorInSwSts, &SL_b_FLDoorOutSwSts,
+      &SL_b_FRDoorOutSwSts);
   } else if (REL_DW.is_c23_REL == REL_IN_Crash) {
-    if (REL_DW.temporalCounter_i1 >= 10000) {
+    if (REL_DW.temporalCounter_i1 >= 1000) {
       REL_DW.is_c23_REL = REL_IN_NoCrash;
-      REL_enter_atomic_NoCrash();
+      REL_enter_atomic_NoCrash(&SL_b_FLDoorInSwSts, &SL_b_FRDoorInSwSts,
+        &SI_b_CrashSts_prev, &SL_b_RRDoorInSwSts, &SL_b_FLDoorOutSwSts,
+        &SL_b_FRDoorOutSwSts);
+    } else {
+      SL_b_FLDoorInSwSts = false;
+      SL_b_FRDoorInSwSts = false;
+      SI_b_CrashSts_prev = false;
+      SL_b_RRDoorInSwSts = false;
+      SL_b_FLDoorOutSwSts = false;
+      SL_b_FRDoorOutSwSts = false;
+      REL_B.SL_b_RLDoorOutSwSts = false;
+      REL_B.SL_b_RRDoorOutSwSts = false;
+      REL_B.SL_b_FLDoorHandSwSts = false;
+      REL_B.SL_b_FRDoorHandSwSts = false;
+      REL_B.SL_b_RLDoorHandSwSts = false;
+      REL_B.SL_b_RRDoorHandSwSts = false;
     }
 
     /* case IN_NoCrash: */
@@ -1755,12 +1787,12 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
              REL_DW.SI_b_CrashSts_start) {
     REL_DW.is_c23_REL = REL_IN_Crash;
     REL_DW.temporalCounter_i1 = 0U;
-    REL_B.SL_b_FLDoorInSwSts = false;
-    REL_B.SL_b_FRDoorInSwSts = false;
-    REL_B.SL_b_RLDoorInSwSts = false;
-    REL_B.SL_b_RRDoorInSwSts = false;
-    REL_B.SL_b_FLDoorOutSwSts = false;
-    REL_B.SL_b_FRDoorOutSwSts = false;
+    SL_b_FLDoorInSwSts = false;
+    SL_b_FRDoorInSwSts = false;
+    SI_b_CrashSts_prev = false;
+    SL_b_RRDoorInSwSts = false;
+    SL_b_FLDoorOutSwSts = false;
+    SL_b_FRDoorOutSwSts = false;
     REL_B.SL_b_RLDoorOutSwSts = false;
     REL_B.SL_b_RRDoorOutSwSts = false;
     REL_B.SL_b_FLDoorHandSwSts = false;
@@ -1768,12 +1800,12 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     REL_B.SL_b_RLDoorHandSwSts = false;
     REL_B.SL_b_RRDoorHandSwSts = false;
   } else {
-    REL_B.SL_b_FLDoorInSwSts = REL_U.VbINP_HWA_FLDoorButton_flg_VbIN;
-    REL_B.SL_b_FRDoorInSwSts = REL_U.VbINP_HWA_FRDoorButton_flg_VbIN;
-    REL_B.SL_b_RLDoorInSwSts = REL_U.VbINP_HWA_RLDoorButton_flg_VbIN;
-    REL_B.SL_b_RRDoorInSwSts = REL_U.VbINP_HWA_RRDoorButton_flg_VbIN;
-    REL_B.SL_b_FLDoorOutSwSts = REL_Y.VbOUT_REL_BcmDrvrDoorHandleReq_;
-    REL_B.SL_b_FRDoorOutSwSts = REL_Y.VbOUT_REL_BcmPassDoorHandleReq_;
+    SL_b_FLDoorInSwSts = REL_U.VbINP_HWA_FLDoorButton_flg_VbIN;
+    SL_b_FRDoorInSwSts = REL_U.VbINP_HWA_FRDoorButton_flg_VbIN;
+    SI_b_CrashSts_prev = REL_U.VbINP_HWA_RLDoorButton_flg_VbIN;
+    SL_b_RRDoorInSwSts = REL_U.VbINP_HWA_RRDoorButton_flg_VbIN;
+    SL_b_FLDoorOutSwSts = REL_Y.VbOUT_REL_BcmDrvrDoorHandleReq_;
+    SL_b_FRDoorOutSwSts = REL_Y.VbOUT_REL_BcmPassDoorHandleReq_;
     REL_B.SL_b_RLDoorOutSwSts = REL_Y.VbOUT_REL_BcmLeReDoorHandleReq_;
     REL_B.SL_b_RRDoorOutSwSts = REL_Y.VbOUT_REL_BcmBcmRiReDoorHandleR;
     REL_B.SL_b_FLDoorHandSwSts = REL_Y.VbOUT_REL_FLDoorHndlBtnSig_flg_;
@@ -1788,7 +1820,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
    *  Constant: '<S12>/Constant'
    *  Inport: '<Root>/VeOUT_PDU_BcmPowerStatusFeedback_sig_VeOUT_PDU_BcmPowerStatusFeedback_sig'
    */
-  SI_b_CrashSts_prev = (REL_U.VeOUT_PDU_BcmPowerStatusFeedbac == 0);
+  Compare = (REL_U.VeOUT_PDU_BcmPowerStatusFeedbac == 0);
 
   /* Truth Table: '<S3>/FLDoorRatSts' incorporates:
    *  Inport: '<Root>/VbINP_HWA_FLDoorAjar_flg_VbINP_HWA_FLDoorAjar_flg'
@@ -1845,8 +1877,8 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   SI_e_VcuGearPosn_prev_n = REL_DW.SI_e_VcuGearPosn_start_c;
   REL_DW.SI_e_VcuGearPosn_start_c = REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP;
   SI_b_DoorInSwSts_prev_p = REL_DW.SI_b_DoorInSwSts_start_p;
-  REL_DW.SI_b_DoorInSwSts_start_p = REL_B.SL_b_FLDoorInSwSts;
-  SL_b_DoorInSwValid_prev_g = REL_DW.SL_b_DoorInSwValid_start_o;
+  REL_DW.SI_b_DoorInSwSts_start_p = SL_b_FLDoorInSwSts;
+  SL_b_FLDoorInSwSts = REL_DW.SL_b_DoorInSwValid_start_o;
   REL_DW.SL_b_DoorInSwValid_start_o = REL_DW.SL_b_DoorInSwValid_g;
   SL_b_DoorOutSwValid_prev_j = REL_DW.SL_b_DoorOutSwValid_start_h;
   REL_DW.SL_b_DoorOutSwValid_start_h = REL_DW.SL_b_DoorOutSwValid_n;
@@ -1866,7 +1898,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     REL_DW.is_DoorCentral_f = REL_IN_Initial_i;
     REL_DW.SL_b_CentSingleDoorSwValid_h = REL_U.VbINP_CAN_CdcDrvrDoorButtonSts_;
     REL_DW.SL_b_CentAllDoorSwValid_h = REL_U.VbINP_CAN_CdcAllDoorOpenButtonS;
-    REL_DW.SL_b_DoorOutSwValid_n = REL_B.SL_b_FLDoorOutSwSts;
+    REL_DW.SL_b_DoorOutSwValid_n = SL_b_FLDoorOutSwSts;
     REL_DW.is_RlsReq_o0 = REL_IN_Initial_i;
     REL_DW.is_RlsReq_id = REL_IN_Initial_i;
     REL_B.SO_b_UnlockReq_f = false;
@@ -1880,11 +1912,11 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
      */
     REL_Y.VbOUT_REL_FLDoorRlsReq_flg_VbOU = false;
   } else {
-    REL_DoorIn_l(&SI_b_DoorInSwSts_prev_p, &SL_b_DoorInSwValid_prev_g);
+    REL_DoorIn_l(&SI_b_DoorInSwSts_prev_p, &SL_b_FLDoorInSwSts);
     if (REL_DW.is_DoorCentral_f == REL_IN_Initial_i) {
-      if ((!SI_b_CrashSts_prev) && (((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP <= 0)
-            && (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN)) ||
-           (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP == 1)) &&
+      if ((!Compare) && (((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP <= 0) &&
+                          (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN)) ||
+                         (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP == 1)) &&
           (((SL_b_CentSingleDoorSwValid_pr_f !=
              REL_DW.SL_b_CentSingleDoorSwValid_st_c) &&
             REL_DW.SL_b_CentSingleDoorSwValid_st_c) ||
@@ -1910,9 +1942,9 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
       }
 
       /* case IN_Trigger: */
-    } else if (SI_b_CrashSts_prev || ((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP >=
-                 1) && (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
-                (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
+    } else if (Compare || ((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP >= 1) &&
+                           (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
+                           (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
                ((REL_U.VeOUT_DLK_BdcDrvrDoorLockSts_si == 1) &&
                 (REL_Y.VeOUT_REL_BdcLFDoorRatSts_sig_V == 3))) {
       REL_DW.is_Trigger_k = REL_IN_NO_ACTIVE_CHILD_h;
@@ -1978,11 +2010,11 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
 
     REL_DW.SL_b_CentSingleDoorSwValid_h = REL_U.VbINP_CAN_CdcDrvrDoorButtonSts_;
     REL_DW.SL_b_CentAllDoorSwValid_h = REL_U.VbINP_CAN_CdcAllDoorOpenButtonS;
-    REL_DW.SL_b_DoorOutSwValid_n = REL_B.SL_b_FLDoorOutSwSts;
+    REL_DW.SL_b_DoorOutSwValid_n = SL_b_FLDoorOutSwSts;
     if (REL_DW.is_RlsReq_o0 == REL_IN_Initial_i) {
-      if ((!SI_b_CrashSts_prev) && (((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP <= 0)
-            && (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN)) ||
-           (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP == 1)) &&
+      if ((!Compare) && (((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP <= 0) &&
+                          (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN)) ||
+                         (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP == 1)) &&
           (REL_U.VeOUT_DHM_BDCDrvrDoorHndSts_sig == 1) &&
           ((SL_b_DoorOutSwValid_prev_j != REL_DW.SL_b_DoorOutSwValid_start_h) &&
            REL_DW.SL_b_DoorOutSwValid_start_h)) {
@@ -1991,9 +2023,9 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
       }
 
       /* case IN_Trigger: */
-    } else if (SI_b_CrashSts_prev || ((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP >=
-                 1) && (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
-                (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
+    } else if (Compare || ((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP >= 1) &&
+                           (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
+                           (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
                (REL_U.VeOUT_DHM_BDCDrvrDoorHndSts_sig != 1) ||
                (REL_Y.VeOUT_REL_BdcLFDoorRatSts_sig_V == 3)) {
       REL_DW.is_Trigger_d = REL_IN_NO_ACTIVE_CHILD_h;
@@ -2088,7 +2120,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                       &REL_Y.VbOUT_REL_FLDoorMotorA_flg_VbOU,
                       &REL_Y.VbOUT_REL_FLDoorMotorB_flg_VbOU,
                       &REL_Y.VeOUT_REL_FLDoorMotorSts_sig_Ve,
-                      &SI_b_DoorInSwSts_prev_p, &SI_e_DoorLockSet_prev,
+                      &SL_b_FLDoorOutSwSts, &SI_e_DoorLockSet_prev,
                       &REL_DW.sf_FLDoorRlsDriver);
 
   /* Truth Table: '<S3>/FRDoorRatSts' incorporates:
@@ -2143,19 +2175,19 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   REL_DW.SI_e_DoorLockSts_start = REL_U.VeOUT_DLK_BCMPassengerDoorLockS;
   SI_e_DoorLockSet_prev = REL_DW.SI_e_VcuGearPosn_start;
   REL_DW.SI_e_VcuGearPosn_start = REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP;
-  SI_b_DoorInSwSts_prev_p = REL_DW.SI_b_DoorInSwSts_start;
-  REL_DW.SI_b_DoorInSwSts_start = REL_B.SL_b_FRDoorInSwSts;
-  SL_b_DoorInSwValid_prev_g = REL_DW.SL_b_DoorInSwValid_start;
+  SL_b_FLDoorOutSwSts = REL_DW.SI_b_DoorInSwSts_start;
+  REL_DW.SI_b_DoorInSwSts_start = SL_b_FRDoorInSwSts;
+  SL_b_FRDoorInSwSts = REL_DW.SL_b_DoorInSwValid_start;
   REL_DW.SL_b_DoorInSwValid_start = REL_DW.SL_b_DoorInSwValid;
-  SL_b_DoorOutSwValid_prev_j = REL_DW.SL_b_DoorOutSwValid_start;
+  SI_b_DoorInSwSts_prev_p = REL_DW.SL_b_DoorOutSwValid_start;
   REL_DW.SL_b_DoorOutSwValid_start = REL_DW.SL_b_DoorOutSwValid;
-  SI_b_DoorHandSwSts_prev_i = REL_DW.SI_b_DoorHandSwSts_start;
+  SL_b_FLDoorInSwSts = REL_DW.SI_b_DoorHandSwSts_start;
   REL_DW.SI_b_DoorHandSwSts_start = REL_B.SL_b_FRDoorHandSwSts;
-  SL_b_DoorHandSwValid_prev_k = REL_DW.SL_b_DoorHandSwValid_start;
+  SL_b_DoorOutSwValid_prev_j = REL_DW.SL_b_DoorHandSwValid_start;
   REL_DW.SL_b_DoorHandSwValid_start = REL_DW.SL_b_DoorHandSwValid;
-  SL_b_CentSingleDoorSwValid_pr_f = REL_DW.SL_b_CentSingleDoorSwValid_star;
+  SI_b_DoorHandSwSts_prev_i = REL_DW.SL_b_CentSingleDoorSwValid_star;
   REL_DW.SL_b_CentSingleDoorSwValid_star = REL_DW.SL_b_CentSingleDoorSwValid;
-  SL_b_CentAllDoorSwValid_prev_o = REL_DW.SL_b_CentAllDoorSwValid_start;
+  SL_b_DoorHandSwValid_prev_k = REL_DW.SL_b_CentAllDoorSwValid_start;
   REL_DW.SL_b_CentAllDoorSwValid_start = REL_DW.SL_b_CentAllDoorSwValid;
   if (REL_DW.is_active_c5_DoorRlsReq == 0U) {
     REL_DW.is_active_c5_DoorRlsReq = 1U;
@@ -2165,7 +2197,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     REL_DW.is_DoorCentral = REL_IN_Initial_i;
     REL_DW.SL_b_CentSingleDoorSwValid = REL_U.VbINP_CAN_CdcPassDoorButtonSts_;
     REL_DW.SL_b_CentAllDoorSwValid = REL_U.VbINP_CAN_CdcAllDoorOpenButtonS;
-    REL_DW.SL_b_DoorOutSwValid = REL_B.SL_b_FRDoorOutSwSts;
+    REL_DW.SL_b_DoorOutSwValid = SL_b_FRDoorOutSwSts;
     REL_DW.is_RlsReq_i = REL_IN_Initial_i;
     REL_DW.is_RlsReq_j = REL_IN_Initial_i;
     REL_B.SO_b_UnlockReq_i = false;
@@ -2179,17 +2211,15 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
      */
     REL_Y.VbOUT_REL_FRDoorRlsReq_flg_VbOU = false;
   } else {
-    REL_DoorIn_e(&SI_b_DoorInSwSts_prev_p, &SL_b_DoorInSwValid_prev_g);
+    REL_DoorIn_e(&SL_b_FLDoorOutSwSts, &SL_b_FRDoorInSwSts);
     if (REL_DW.is_DoorCentral == REL_IN_Initial_i) {
-      if ((!SI_b_CrashSts_prev) && (((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP <= 0)
-            && (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN)) ||
-           (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP == 1)) &&
-          (((SL_b_CentSingleDoorSwValid_pr_f !=
-             REL_DW.SL_b_CentSingleDoorSwValid_star) &&
-            REL_DW.SL_b_CentSingleDoorSwValid_star) ||
-           ((SL_b_CentAllDoorSwValid_prev_o !=
-             REL_DW.SL_b_CentAllDoorSwValid_start) &&
-            REL_DW.SL_b_CentAllDoorSwValid_start))) {
+      if ((!Compare) && (((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP <= 0) &&
+                          (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN)) ||
+                         (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP == 1)) &&
+          (((SI_b_DoorHandSwSts_prev_i != REL_DW.SL_b_CentSingleDoorSwValid_star)
+            && REL_DW.SL_b_CentSingleDoorSwValid_star) ||
+           ((SL_b_DoorHandSwValid_prev_k != REL_DW.SL_b_CentAllDoorSwValid_start)
+            && REL_DW.SL_b_CentAllDoorSwValid_start))) {
         REL_DW.is_DoorCentral = REL_IN_Trigger_g;
         switch (REL_U.VeOUT_DLK_BCMPassengerDoorLockS) {
          case 0:
@@ -2209,9 +2239,9 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
       }
 
       /* case IN_Trigger: */
-    } else if (SI_b_CrashSts_prev || ((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP >=
-                 1) && (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
-                (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
+    } else if (Compare || ((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP >= 1) &&
+                           (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
+                           (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
                ((REL_U.VeOUT_DLK_BCMPassengerDoorLockS == 1) &&
                 (REL_Y.VeOUT_REL_BdcRFDoorRatSts_sig_V == 3))) {
       REL_DW.is_Trigger_f = REL_IN_NO_ACTIVE_CHILD_h;
@@ -2277,22 +2307,22 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
 
     REL_DW.SL_b_CentSingleDoorSwValid = REL_U.VbINP_CAN_CdcPassDoorButtonSts_;
     REL_DW.SL_b_CentAllDoorSwValid = REL_U.VbINP_CAN_CdcAllDoorOpenButtonS;
-    REL_DW.SL_b_DoorOutSwValid = REL_B.SL_b_FRDoorOutSwSts;
+    REL_DW.SL_b_DoorOutSwValid = SL_b_FRDoorOutSwSts;
     if (REL_DW.is_RlsReq_i == REL_IN_Initial_i) {
-      if ((!SI_b_CrashSts_prev) && (((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP <= 0)
-            && (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN)) ||
-           (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP == 1)) &&
+      if ((!Compare) && (((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP <= 0) &&
+                          (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN)) ||
+                         (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP == 1)) &&
           (REL_U.VeOUT_DHM_BDCPassDoorHndSts_sig == 1) &&
-          ((SL_b_DoorOutSwValid_prev_j != REL_DW.SL_b_DoorOutSwValid_start) &&
+          ((SI_b_DoorInSwSts_prev_p != REL_DW.SL_b_DoorOutSwValid_start) &&
            REL_DW.SL_b_DoorOutSwValid_start)) {
         REL_DW.is_RlsReq_i = REL_IN_Trigger_g;
         REL_DW.is_Trigger_b = REL_IN_Wait_g;
       }
 
       /* case IN_Trigger: */
-    } else if (SI_b_CrashSts_prev || ((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP >=
-                 1) && (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
-                (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
+    } else if (Compare || ((REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP >= 1) &&
+                           (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
+                           (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
                (REL_U.VeOUT_DHM_BDCPassDoorHndSts_sig != 1) ||
                (REL_Y.VeOUT_REL_BdcRFDoorRatSts_sig_V == 3)) {
       REL_DW.is_Trigger_b = REL_IN_NO_ACTIVE_CHILD_h;
@@ -2321,7 +2351,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
       REL_B.SO_e_DoorRlsDelayTime_n = 4U;
     }
 
-    REL_DoorHand_b(&SI_b_DoorHandSwSts_prev_i, &SL_b_DoorHandSwValid_prev_k);
+    REL_DoorHand_b(&SL_b_FLDoorInSwSts, &SL_b_DoorOutSwValid_prev_j);
     if (REL_DW.is_RlsReq != REL_IN_Initial_i) {
       /* case IN_TRIGGER: */
       if (((SI_e_DoorLockSet_prev != REL_DW.SI_e_VcuGearPosn_start) &&
@@ -2377,7 +2407,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                       &REL_Y.VbOUT_REL_FRDoorMotorA_flg_VbOU,
                       &REL_Y.VbOUT_REL_FRDoorMotorB_flg_VbOU,
                       &REL_Y.VeOUT_REL_FRDoorMotorSts_sig_Ve,
-                      &SI_b_DoorInSwSts_prev_p, &SI_e_DoorLockSet_prev,
+                      &SL_b_FRDoorOutSwSts, &SI_e_DoorLockSet_prev,
                       &REL_DW.sf_FRDoorRlsDriver);
 
   /* Truth Table: '<S3>/RLDoorRatSts' incorporates:
@@ -2400,13 +2430,12 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
    *  Outport: '<Root>/VbOUT_REL_RLDoorRlsReq_flg_VbOUT_REL_RLDoorRlsReq_flg'
    *  Outport: '<Root>/VeOUT_REL_BdcLRDoorRatSts_sig_VeOUT_REL_BdcLRDoorRatSts_sig'
    */
-  REL_RLDoorRlsReq(SI_b_CrashSts_prev, REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP,
+  REL_RLDoorRlsReq(Compare, REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP,
                    REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN,
                    REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP,
                    REL_U.VeOUT_DLK_BCMPassengerDoorLockS,
-                   REL_Y.VeOUT_REL_BdcLRDoorRatSts_sig_V,
-                   REL_B.SL_b_RLDoorInSwSts, REL_B.SL_b_RLDoorOutSwSts,
-                   REL_B.SL_b_RLDoorHandSwSts,
+                   REL_Y.VeOUT_REL_BdcLRDoorRatSts_sig_V, SI_b_CrashSts_prev,
+                   REL_B.SL_b_RLDoorOutSwSts, REL_B.SL_b_RLDoorHandSwSts,
                    REL_U.VeOUT_DHM_BDCLeReDoorHndSts_sig,
                    REL_U.VbINP_CAN_CdcLeReDoorButtonSts_,
                    REL_U.VbINP_CAN_CdcAllDoorOpenButtonS,
@@ -2435,13 +2464,12 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
    *  Outport: '<Root>/VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg'
    *  Outport: '<Root>/VeOUT_REL_BdcRRDoorRatSts_sig_VeOUT_REL_BdcRRDoorRatSts_sig'
    */
-  REL_RLDoorRlsReq(SI_b_CrashSts_prev, REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP,
+  REL_RLDoorRlsReq(Compare, REL_U.VeOUT_SP_EspVehSpd_kmh_VeOUT_SP,
                    REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN,
                    REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP,
                    REL_U.VeOUT_DLK_BCMPassengerDoorLockS,
-                   REL_Y.VeOUT_REL_BdcRRDoorRatSts_sig_V,
-                   REL_B.SL_b_RRDoorInSwSts, REL_B.SL_b_RRDoorOutSwSts,
-                   REL_B.SL_b_RRDoorHandSwSts,
+                   REL_Y.VeOUT_REL_BdcRRDoorRatSts_sig_V, SL_b_RRDoorInSwSts,
+                   REL_B.SL_b_RRDoorOutSwSts, REL_B.SL_b_RRDoorHandSwSts,
                    REL_U.VeOUT_DHM_BDCRiReDoorHndSts_sig,
                    REL_U.VbINP_CAN_CdcRiReDoorButtonSts_,
                    REL_U.VbINP_CAN_CdcAllDoorOpenButtonS,
@@ -2470,7 +2498,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                       &REL_Y.VbOUT_REL_RLDoorMotorA_flg_VbOU,
                       &REL_Y.VbOUT_REL_RLDoorMotorB_flg_VbOU,
                       &REL_Y.VeOUT_REL_RLDoorMotorSts_sig_Ve,
-                      &SI_b_DoorInSwSts_prev_p, &SI_e_DoorLockSet_prev,
+                      &SL_b_RRDoorInSwSts, &SI_e_DoorLockSet_prev,
                       &REL_DW.sf_RLDoorRlsDriver);
 
   /* Chart: '<S3>/RRDoorRlsDriver' incorporates:
@@ -2490,13 +2518,13 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                       &REL_Y.VbOUT_REL_RRDoorMotorA_flg_VbOU,
                       &REL_Y.VbOUT_REL_RRDoorMotorB_flg_VbOU,
                       &REL_Y.VeOUT_REL_RRDoorMotorSts_sig_Ve,
-                      &SI_b_DoorInSwSts_prev_p, &SI_e_DoorLockSet_prev,
+                      &SL_b_RRDoorInSwSts, &SI_e_DoorLockSet_prev,
                       &REL_DW.sf_RRDoorRlsDriver);
 
   /* Chart: '<S3>/Unlock_Request' */
-  SI_b_DoorInSwSts_prev_p = REL_DW.SI_b_DrvUnlockReq_start;
+  SL_b_RRDoorInSwSts = REL_DW.SI_b_DrvUnlockReq_start;
   REL_DW.SI_b_DrvUnlockReq_start = REL_B.SO_b_UnlockReq_f;
-  SL_b_DoorInSwValid_prev_g = REL_DW.SI_b_PassUnlockReq_start;
+  Compare = REL_DW.SI_b_PassUnlockReq_start;
   REL_DW.SI_b_PassUnlockReq_start = SI_b_CrashSts_prev;
   if (REL_DW.is_active_c6_REL == 0U) {
     REL_DW.is_active_c6_REL = 1U;
@@ -2505,17 +2533,17 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
     REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = 0U;
   } else if (REL_DW.is_c6_REL == REL_IN_Initial_i) {
-    if (((SI_b_DoorInSwSts_prev_p != REL_DW.SI_b_DrvUnlockReq_start) &&
-         REL_DW.SI_b_DrvUnlockReq_start) || ((SL_b_DoorInSwValid_prev_g !=
+    if (((SL_b_RRDoorInSwSts != REL_DW.SI_b_DrvUnlockReq_start) &&
+         REL_DW.SI_b_DrvUnlockReq_start) || ((Compare !=
           REL_DW.SI_b_PassUnlockReq_start) && REL_DW.SI_b_PassUnlockReq_start))
     {
       REL_DW.is_c6_REL = REL_IN_REQ_SENT;
     }
   } else {
     /* case IN_REQ_SENT: */
-    SI_b_DoorInSwSts_prev_p = !SI_b_CrashSts_prev;
-    SL_b_DoorInSwValid_prev_g = !REL_B.SO_b_UnlockReq_f;
-    if (SL_b_DoorInSwValid_prev_g && SI_b_DoorInSwSts_prev_p) {
+    SL_b_RRDoorInSwSts = !SI_b_CrashSts_prev;
+    Compare = !REL_B.SO_b_UnlockReq_f;
+    if (Compare && SL_b_RRDoorInSwSts) {
       REL_DW.is_c6_REL = REL_IN_Initial_i;
 
       /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
@@ -2523,10 +2551,10 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     } else if (REL_B.SO_b_UnlockReq_f && SI_b_CrashSts_prev) {
       /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
       REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = 3U;
-    } else if (REL_B.SO_b_UnlockReq_f && SI_b_DoorInSwSts_prev_p) {
+    } else if (REL_B.SO_b_UnlockReq_f && SL_b_RRDoorInSwSts) {
       /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
       REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = 1U;
-    } else if (SL_b_DoorInSwValid_prev_g && SI_b_CrashSts_prev) {
+    } else if (Compare && SI_b_CrashSts_prev) {
       /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
       REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = 2U;
     } else {

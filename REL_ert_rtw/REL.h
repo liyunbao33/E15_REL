@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.288
+ * Model version                  : 1.299
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Tue Sep  5 23:23:06 2023
+ * C/C++ source code generated on : Wed Sep  6 10:29:52 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -110,12 +110,6 @@ typedef struct {
   boolean_T SO_b_UnlockReq_e;          /* '<S3>/RLDoorRlsReq' */
   boolean_T SO_b_UnlockReq_i;          /* '<S3>/FRDoorRlsReq' */
   boolean_T SO_b_UnlockReq_f;          /* '<S3>/FLDoorRlsReq' */
-  boolean_T SL_b_FLDoorInSwSts;        /* '<S3>/DoorSwSts' */
-  boolean_T SL_b_FRDoorInSwSts;        /* '<S3>/DoorSwSts' */
-  boolean_T SL_b_RLDoorInSwSts;        /* '<S3>/DoorSwSts' */
-  boolean_T SL_b_RRDoorInSwSts;        /* '<S3>/DoorSwSts' */
-  boolean_T SL_b_FLDoorOutSwSts;       /* '<S3>/DoorSwSts' */
-  boolean_T SL_b_FRDoorOutSwSts;       /* '<S3>/DoorSwSts' */
   boolean_T SL_b_RLDoorOutSwSts;       /* '<S3>/DoorSwSts' */
   boolean_T SL_b_RRDoorOutSwSts;       /* '<S3>/DoorSwSts' */
   boolean_T SL_b_FLDoorHandSwSts;      /* '<S3>/DoorSwSts' */
