@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.307
+ * Model version                  : 1.308
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Wed Sep  6 13:31:00 2023
+ * C/C++ source code generated on : Wed Sep  6 14:09:23 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -373,76 +373,6 @@ typedef struct {
         /* '<Root>/VeOUT_REL_RLDoorMotorSts_sig_VeOUT_REL_RLDoorMotorSts_sig' */
   UInt8 VeOUT_REL_RRDoorMotorSts_sig_Ve;
         /* '<Root>/VeOUT_REL_RRDoorMotorSts_sig_VeOUT_REL_RRDoorMotorSts_sig' */
-  Boolean VbOUT_REL_BdcDrvrDoorLockSetS_j;
-  /* '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg1' */
-  UInt8 VeOUT_REL_BcmDrvrDoorSwtSts_s_l;
-  /* '<Root>/VeOUT_REL_BcmDrvrDoorSwtSts_sig_VeOUT_REL_BcmDrvrDoorSwtSts_sig1' */
-  UInt8 VeOUT_REL_BcmPassDoorSwtSts_s_l;
-  /* '<Root>/VeOUT_REL_BcmPassDoorSwtSts_sig_VeOUT_REL_BcmPassDoorSwtSts_sig1' */
-  UInt8 VeOUT_REL_BcmLeReDoorSwtSts_s_h;
-  /* '<Root>/VeOUT_REL_BcmLeReDoorSwtSts_sig_VeOUT_REL_BcmLeReDoorSwtSts_sig1' */
-  UInt8 VeOUT_REL_BcmRiReDoorSwtSts_s_l;
-  /* '<Root>/VeOUT_REL_BcmRiReDoorSwtSts_sig_VeOUT_REL_BcmRiReDoorSwtSts_sig1' */
-  UInt8 VeOUT_REL_BdcLFDoorRatSts_sig_j;
-     /* '<Root>/VeOUT_REL_BdcLFDoorRatSts_sig_VeOUT_REL_BdcLFDoorRatSts_sig1' */
-  UInt8 VeOUT_REL_BdcRFDoorRatSts_sig_k;
-     /* '<Root>/VeOUT_REL_BdcRFDoorRatSts_sig_VeOUT_REL_BdcRFDoorRatSts_sig1' */
-  UInt8 VeOUT_REL_BdcLRDoorRatSts_sig_j;
-     /* '<Root>/VeOUT_REL_BdcLRDoorRatSts_sig_VeOUT_REL_BdcLRDoorRatSts_sig1' */
-  UInt8 VeOUT_REL_BdcRRDoorRatSts_sig_m;
-     /* '<Root>/VeOUT_REL_BdcRRDoorRatSts_sig_VeOUT_REL_BdcRRDoorRatSts_sig1' */
-  Boolean VbOUT_REL_BcmDrvrDoorHandleRe_b;
-  /* '<Root>/VbOUT_REL_BcmDrvrDoorHandleReq_flg_VbOUT_REL_BcmDrvrDoorHandleReq_flg1' */
-  Boolean VbOUT_REL_BcmPassDoorHandleRe_e;
-  /* '<Root>/VbOUT_REL_BcmPassDoorHandleReq_flg_VbOUT_REL_BcmPassDoorHandleReq_flg1' */
-  Boolean VbOUT_REL_BcmLeReDoorHandleRe_e;
-  /* '<Root>/VbOUT_REL_BcmLeReDoorHandleReq_flg_VbOUT_REL_BcmLeReDoorHandleReq_flg1' */
-  Boolean VbOUT_REL_BcmBcmRiReDoorHandl_a;
-  /* '<Root>/VbOUT_REL_BcmBcmRiReDoorHandleReq_flg_VbOUT_REL_BcmBcmRiReDoorHandleReq_flg1' */
-  Boolean VbOUT_REL_FLDoorHndlBtnSig_fl_a;
-  /* '<Root>/VbOUT_REL_FLDoorHndlBtnSig_flg_VbOUT_REL_FLDoorHndlBtnSig_flg1' */
-  Boolean VbOUT_REL_FRDoorHndlBtnSig_fl_o;
-  /* '<Root>/VbOUT_REL_FRDoorHndlBtnSig_flg_VbOUT_REL_FRDoorHndlBtnSig_flg1' */
-  Boolean VbOUT_REL_RLDoorHndlBtnSig_fl_i;
-  /* '<Root>/VbOUT_REL_RLDoorHndlBtnSig_flg_VbOUT_REL_RLDoorHndlBtnSig_flg1' */
-  Boolean VbOUT_REL_RRDoorHndlBtnSig_fl_a;
-  /* '<Root>/VbOUT_REL_RRDoorHndlBtnSig_flg_VbOUT_REL_RRDoorHndlBtnSig_flg1' */
-  Boolean VbOUT_REL_BdcDrvrDoorLockOpen_b;
-  /* '<Root>/VbOUT_REL_BdcDrvrDoorLockOpenReq_flg_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg1' */
-  Boolean VbOUT_REL_FLDoorMotorA_flg_Vb_f;
-           /* '<Root>/VbOUT_REL_FLDoorMotorA_flg_VbOUT_REL_FLDoorMotorA_flg1' */
-  Boolean VbOUT_REL_FLDoorMotorB_flg_Vb_m;
-           /* '<Root>/VbOUT_REL_FLDoorMotorB_flg_VbOUT_REL_FLDoorMotorB_flg1' */
-  Boolean VbOUT_REL_FRDoorMotorA_flg_Vb_e;
-           /* '<Root>/VbOUT_REL_FRDoorMotorA_flg_VbOUT_REL_FRDoorMotorA_flg1' */
-  Boolean VbOUT_REL_FRDoorMotorB_flg_Vb_m;
-           /* '<Root>/VbOUT_REL_FRDoorMotorB_flg_VbOUT_REL_FRDoorMotorB_flg1' */
-  Boolean VbOUT_REL_RLDoorMotorA_flg_Vb_i;
-           /* '<Root>/VbOUT_REL_RLDoorMotorA_flg_VbOUT_REL_RLDoorMotorA_flg1' */
-  Boolean VbOUT_REL_RLDoorMotorB_flg_Vb_i;
-           /* '<Root>/VbOUT_REL_RLDoorMotorB_flg_VbOUT_REL_RLDoorMotorB_flg1' */
-  Boolean VbOUT_REL_RRDoorMotorA_flg_Vb_f;
-           /* '<Root>/VbOUT_REL_RRDoorMotorA_flg_VbOUT_REL_RRDoorMotorA_flg1' */
-  Boolean VbOUT_REL_RRDoorMotorB_flg_Vb_a;
-           /* '<Root>/VbOUT_REL_RRDoorMotorB_flg_VbOUT_REL_RRDoorMotorB_flg1' */
-  UInt8 VeOUT_REL_DLKReqUnlock_sig_Ve_p;
-           /* '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig1' */
-  Boolean VbOUT_REL_FLDoorRlsReq_flg_Vb_n;
-           /* '<Root>/VbOUT_REL_FLDoorRlsReq_flg_VbOUT_REL_FLDoorRlsReq_flg1' */
-  Boolean VbOUT_REL_FRDoorRlsReq_flg_Vb_j;
-           /* '<Root>/VbOUT_REL_FRDoorRlsReq_flg_VbOUT_REL_FRDoorRlsReq_flg1' */
-  Boolean VbOUT_REL_RLDoorRlsReq_flg_Vb_c;
-           /* '<Root>/VbOUT_REL_RLDoorRlsReq_flg_VbOUT_REL_RLDoorRlsReq_flg1' */
-  Boolean VbOUT_REL_RRDoorRlsReq_flg_Vb_m;
-           /* '<Root>/VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg1' */
-  UInt8 VeOUT_REL_FLDoorMotorSts_sig__n;
-       /* '<Root>/VeOUT_REL_FLDoorMotorSts_sig_VeOUT_REL_FLDoorMotorSts_sig1' */
-  UInt8 VeOUT_REL_FRDoorMotorSts_sig__j;
-       /* '<Root>/VeOUT_REL_FRDoorMotorSts_sig_VeOUT_REL_FRDoorMotorSts_sig1' */
-  UInt8 VeOUT_REL_RLDoorMotorSts_sig__j;
-       /* '<Root>/VeOUT_REL_RLDoorMotorSts_sig_VeOUT_REL_RLDoorMotorSts_sig1' */
-  UInt8 VeOUT_REL_RRDoorMotorSts_sig__a;
-       /* '<Root>/VeOUT_REL_RRDoorMotorSts_sig_VeOUT_REL_RRDoorMotorSts_sig1' */
 } ExtY_REL_T;
 
 /* Real-time Model Data Structure */
