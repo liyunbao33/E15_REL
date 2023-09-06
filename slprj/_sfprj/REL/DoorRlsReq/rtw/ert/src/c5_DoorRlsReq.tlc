@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   44 \
+    NumChartData   41 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -28,10 +28,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_TRIGGER"\
+      Name         "is_Trigger"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorLockSet.RlsReq.TRIGGER"\
+      Path         "DoorLockSet.RlsReq.Trigger"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -189,38 +189,17 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "temporalCounter_i8"\
-      Description  "TemporalCounter"\
+      Name         "SI_b_DoorLockOpenReq_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         ""\
+      Path         "SI_b_DoorLockOpenReq"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_e_DoorLockSts_prev"\
+      Name         "SI_b_DoorLockOpenReq_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_e_DoorLockSts"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_e_DoorLockSts_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_e_DoorLockSts"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_e_VcuGearPosn_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_e_VcuGearPosn"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_e_VcuGearPosn_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_e_VcuGearPosn"\
+      Path         "SI_b_DoorLockOpenReq"\
       SrcLocation  ""\
     }\
     ChartData {\

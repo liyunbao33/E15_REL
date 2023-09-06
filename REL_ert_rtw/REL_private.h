@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.299
+ * Model version                  : 1.305
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Wed Sep  6 10:29:52 2023
+ * C/C++ source code generated on : Wed Sep  6 11:20:41 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -38,8 +38,9 @@ extern void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd,
   rtu_SI_b_DoorHandSwSts, UInt8 rtu_SI_e_DoorHandPosSts, Boolean
   rtu_SI_b_CentSingleDoorSwSts, Boolean rtu_SI_b_CentAllDoorSwSts, Boolean
   rtu_SI_b_ChildLckSts, boolean_T rtu_SI_b_DoorLockSetSts, boolean_T
-  *rty_SO_b_DoorRlsReq, boolean_T *rty_SO_b_UnlockReq, uint8_T
-  *rty_SO_e_DoorRlsDelayTime, DW_RLDoorRlsReq_REL_T *localDW);
+  rtu_SI_b_DoorLockOpenReq, boolean_T *rty_SO_b_DoorRlsReq, boolean_T
+  *rty_SO_b_UnlockReq, uint8_T *rty_SO_e_DoorRlsDelayTime, DW_RLDoorRlsReq_REL_T
+  *localDW);
 
 #endif                                 /* RTW_HEADER_REL_private_h_ */
 
