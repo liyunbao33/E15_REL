@@ -5,7 +5,7 @@
  *
  * Model version                  : 1.305
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Wed Sep  6 11:20:41 2023
+ * C/C++ source code generated on : Wed Sep  6 11:35:47 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -38,16 +38,14 @@ typedef struct {
   uint16_T temporalCounter_i1;         /* '<S3>/FLDoorRlsDriver' */
   uint8_T is_active_c19_DoorRlsDriver; /* '<S3>/FLDoorRlsDriver' */
   uint8_T is_c19_DoorRlsDriver;        /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_NORMAL;                   /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_MAIN_PROGRESS;            /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_RELEASE;                  /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_STEP2_OPEN;               /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_MAIN_PROGRESS_f;          /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_RELEASE_k;                /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_STEP2_OPEN_p;             /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_Normal;                   /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_MainProgress;             /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_Release;                  /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_Step2_Open;               /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_MainProgress_j;           /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_Release_i;                /* '<S3>/FLDoorRlsDriver' */
+  uint8_T is_Step2_Open_c;             /* '<S3>/FLDoorRlsDriver' */
   uint8_T SL_e_CheckCycle;             /* '<S3>/FLDoorRlsDriver' */
-  boolean_T SI_b_CinchHome_prev;       /* '<S3>/FLDoorRlsDriver' */
-  boolean_T SI_b_CinchHome_start;      /* '<S3>/FLDoorRlsDriver' */
   boolean_T SO_b_DoorRlsReq_prev;      /* '<S3>/FLDoorRlsDriver' */
   boolean_T SO_b_DoorRlsReq_start;     /* '<S3>/FLDoorRlsDriver' */
 } DW_FLDoorRlsDriver_REL_T;
