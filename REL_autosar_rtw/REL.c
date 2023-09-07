@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.3
+ * Model version                  : 1.6
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep  7 13:37:10 2023
+ * C/C++ source code generated on : Thu Sep  7 13:56:38 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -1493,6 +1493,11 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   /* RootInportFunctionCallGenerator generated from: '<Root>/REL_Step' incorporates:
    *  SubSystem: '<Root>/REL_Step_sys'
    */
+  /* DataStoreWrite: '<S3>/Data Store Write' incorporates:
+   *  Constant: '<S3>/Constant'
+   */
+  REL_DW.E15 = 2.0;
+
   /* SignalConversion generated from: '<S2>/VbINP_HWA_FRDoorButton_flg_VbINP_HWA_FRDoorButton_flg_read' incorporates:
    *  Inport: '<Root>/VbINP_HWA_FRDoorButton_flg_VbINP_HWA_FRDoorButton_flg'
    */
@@ -1512,17 +1517,38 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   (void)Rte_Read_VbINP_HWA_RLDoorButton_flg_VbINP_HWA_RLDoorButton_flg
     (&REL_B.TmpSignalConversionAtVbINP_HW_j);
 
+  /* Outport: '<Root>/VeOUT_REL_BcmLeReDoorSwtSts_sig_VeOUT_REL_BcmLeReDoorSwtSts_sig' incorporates:
+   *  DataTypeConversion: '<S3>/Data Type Conversion1'
+   */
+  (void)
+    Rte_Write_VeOUT_REL_BcmLeReDoorSwtSts_sig_VeOUT_REL_BcmLeReDoorSwtSts_sig
+    (REL_B.TmpSignalConversionAtVbINP_HW_j);
+
   /* SignalConversion generated from: '<S2>/VbINP_HWA_RRDoorButton_flg_VbINP_HWA_RRDoorButton_flg_read' incorporates:
    *  Inport: '<Root>/VbINP_HWA_RRDoorButton_flg_VbINP_HWA_RRDoorButton_flg'
    */
   (void)Rte_Read_VbINP_HWA_RRDoorButton_flg_VbINP_HWA_RRDoorButton_flg
     (&REL_B.TmpSignalConversionAtVbINP_HW_m);
 
+  /* Outport: '<Root>/VeOUT_REL_BcmRiReDoorSwtSts_sig_VeOUT_REL_BcmRiReDoorSwtSts_sig' incorporates:
+   *  DataTypeConversion: '<S3>/Data Type Conversion2'
+   */
+  (void)
+    Rte_Write_VeOUT_REL_BcmRiReDoorSwtSts_sig_VeOUT_REL_BcmRiReDoorSwtSts_sig
+    (REL_B.TmpSignalConversionAtVbINP_HW_m);
+
   /* SignalConversion generated from: '<S2>/VbINP_HWA_FLDoorButton_flg_VbINP_HWA_FLDoorButton_flg_read' incorporates:
    *  Inport: '<Root>/VbINP_HWA_FLDoorButton_flg_VbINP_HWA_FLDoorButton_flg'
    */
   (void)Rte_Read_VbINP_HWA_FLDoorButton_flg_VbINP_HWA_FLDoorButton_flg
     (&REL_B.TmpSignalConversionAtVbINP_H_jc);
+
+  /* Outport: '<Root>/VeOUT_REL_BcmDrvrDoorSwtSts_sig_VeOUT_REL_BcmDrvrDoorSwtSts_sig' incorporates:
+   *  DataTypeConversion: '<S3>/Data Type Conversion4'
+   */
+  (void)
+    Rte_Write_VeOUT_REL_BcmDrvrDoorSwtSts_sig_VeOUT_REL_BcmDrvrDoorSwtSts_sig
+    (REL_B.TmpSignalConversionAtVbINP_H_jc);
 
   /* Chart: '<S3>/DoorLockSetSts' */
   if (REL_DW.temporalCounter_i1_k < 127U) {
@@ -2419,27 +2445,6 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   }
 
   /* End of Chart: '<S3>/Unlock_Request' */
-
-  /* Outport: '<Root>/VeOUT_REL_BcmDrvrDoorSwtSts_sig_VeOUT_REL_BcmDrvrDoorSwtSts_sig' incorporates:
-   *  DataTypeConversion: '<S3>/Data Type Conversion4'
-   */
-  (void)
-    Rte_Write_VeOUT_REL_BcmDrvrDoorSwtSts_sig_VeOUT_REL_BcmDrvrDoorSwtSts_sig
-    (REL_B.TmpSignalConversionAtVbINP_H_jc);
-
-  /* Outport: '<Root>/VeOUT_REL_BcmRiReDoorSwtSts_sig_VeOUT_REL_BcmRiReDoorSwtSts_sig' incorporates:
-   *  DataTypeConversion: '<S3>/Data Type Conversion2'
-   */
-  (void)
-    Rte_Write_VeOUT_REL_BcmRiReDoorSwtSts_sig_VeOUT_REL_BcmRiReDoorSwtSts_sig
-    (REL_B.TmpSignalConversionAtVbINP_HW_m);
-
-  /* Outport: '<Root>/VeOUT_REL_BcmLeReDoorSwtSts_sig_VeOUT_REL_BcmLeReDoorSwtSts_sig' incorporates:
-   *  DataTypeConversion: '<S3>/Data Type Conversion1'
-   */
-  (void)
-    Rte_Write_VeOUT_REL_BcmLeReDoorSwtSts_sig_VeOUT_REL_BcmLeReDoorSwtSts_sig
-    (REL_B.TmpSignalConversionAtVbINP_HW_j);
 
   /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockOpenReq_flg_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg' incorporates:
    *  Constant: '<S3>/Constant3'

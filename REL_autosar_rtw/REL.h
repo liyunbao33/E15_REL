@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.3
+ * Model version                  : 1.6
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep  7 13:37:10 2023
+ * C/C++ source code generated on : Thu Sep  7 13:56:38 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -157,6 +157,7 @@ typedef struct tag_B_REL_T {
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct tag_DW_REL_T {
+  float64 E15;                         /* '<S2>/Data Store Memory' */
   uint16 temporalCounter_i1;           /* '<S3>/DoorSwSts' */
   uint8 is_active_c6_REL;              /* '<S3>/Unlock_Request' */
   uint8 is_c6_REL;                     /* '<S3>/Unlock_Request' */
