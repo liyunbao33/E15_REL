@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.3
+ * Model version                  : 1.6
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep  7 13:22:14 2023
+ * C/C++ source code generated on : Thu Sep  7 14:01:26 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -1568,6 +1568,24 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
    */
   REL_Y.VeOUT_REL_BcmPassDoorSwtSts_sig = REL_U.VbINP_HWA_FRDoorButton_flg_VbIN;
 
+  /* Outport: '<Root>/VeOUT_REL_BcmLeReDoorSwtSts_sig_VeOUT_REL_BcmLeReDoorSwtSts_sig' incorporates:
+   *  DataTypeConversion: '<S3>/Data Type Conversion1'
+   *  Inport: '<Root>/VbINP_HWA_RLDoorButton_flg_VbINP_HWA_RLDoorButton_flg'
+   */
+  REL_Y.VeOUT_REL_BcmLeReDoorSwtSts_sig = REL_U.VbINP_HWA_RLDoorButton_flg_VbIN;
+
+  /* Outport: '<Root>/VeOUT_REL_BcmRiReDoorSwtSts_sig_VeOUT_REL_BcmRiReDoorSwtSts_sig' incorporates:
+   *  DataTypeConversion: '<S3>/Data Type Conversion2'
+   *  Inport: '<Root>/VbINP_HWA_RRDoorButton_flg_VbINP_HWA_RRDoorButton_flg'
+   */
+  REL_Y.VeOUT_REL_BcmRiReDoorSwtSts_sig = REL_U.VbINP_HWA_RRDoorButton_flg_VbIN;
+
+  /* Outport: '<Root>/VeOUT_REL_BcmDrvrDoorSwtSts_sig_VeOUT_REL_BcmDrvrDoorSwtSts_sig' incorporates:
+   *  DataTypeConversion: '<S3>/Data Type Conversion4'
+   *  Inport: '<Root>/VbINP_HWA_FLDoorButton_flg_VbINP_HWA_FLDoorButton_flg'
+   */
+  REL_Y.VeOUT_REL_BcmDrvrDoorSwtSts_sig = REL_U.VbINP_HWA_FLDoorButton_flg_VbIN;
+
   /* Chart: '<S3>/DoorLockSetSts' incorporates:
    *  Inport: '<Root>/VeINP_CAN_CdcDrvrDoorLockSet_sig_VeINP_CAN_CdcDrvrDoorLockSet_sig'
    */
@@ -1789,18 +1807,18 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
 
   /* End of Chart: '<S3>/DoorSwSts' */
 
-  /* RelationalOperator: '<S12>/Compare' incorporates:
-   *  Constant: '<S12>/Constant'
-   *  Inport: '<Root>/VeOUT_PDU_BcmPowerStatusFeedback_sig_VeOUT_PDU_BcmPowerStatusFeedback_sig'
-   */
-  Compare = (REL_U.VeOUT_PDU_BcmPowerStatusFeedbac == 0);
-
   /* Truth Table: '<S3>/FLDoorRatSts' incorporates:
    *  Inport: '<Root>/VbINP_HWA_FLDoorAjar_flg_VbINP_HWA_FLDoorAjar_flg'
    *  Outport: '<Root>/VeOUT_REL_BdcLFDoorRatSts_sig_VeOUT_REL_BdcLFDoorRatSts_sig'
    */
   REL_FLDoorRatSts(REL_U.VbINP_HWA_FLDoorAjar_flg_VbINP_,
                    &REL_Y.VeOUT_REL_BdcLFDoorRatSts_sig_V);
+
+  /* RelationalOperator: '<S12>/Compare' incorporates:
+   *  Constant: '<S12>/Constant'
+   *  Inport: '<Root>/VeOUT_PDU_BcmPowerStatusFeedback_sig_VeOUT_PDU_BcmPowerStatusFeedback_sig'
+   */
+  Compare = (REL_U.VeOUT_PDU_BcmPowerStatusFeedbac == 0);
 
   /* Chart: '<S3>/FLDoorRlsReq' incorporates:
    *  Constant: '<S3>/Constant2'
@@ -2493,25 +2511,6 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   }
 
   /* End of Chart: '<S3>/Unlock_Request' */
-
-  /* Outport: '<Root>/VeOUT_REL_BcmLeReDoorSwtSts_sig_VeOUT_REL_BcmLeReDoorSwtSts_sig' incorporates:
-   *  DataTypeConversion: '<S3>/Data Type Conversion1'
-   *  Inport: '<Root>/VbINP_HWA_RLDoorButton_flg_VbINP_HWA_RLDoorButton_flg'
-   */
-  REL_Y.VeOUT_REL_BcmLeReDoorSwtSts_sig = REL_U.VbINP_HWA_RLDoorButton_flg_VbIN;
-
-  /* Outport: '<Root>/VeOUT_REL_BcmRiReDoorSwtSts_sig_VeOUT_REL_BcmRiReDoorSwtSts_sig' incorporates:
-   *  DataTypeConversion: '<S3>/Data Type Conversion2'
-   *  Inport: '<Root>/VbINP_HWA_RRDoorButton_flg_VbINP_HWA_RRDoorButton_flg'
-   */
-  REL_Y.VeOUT_REL_BcmRiReDoorSwtSts_sig = REL_U.VbINP_HWA_RRDoorButton_flg_VbIN;
-
-  /* Outport: '<Root>/VeOUT_REL_BcmDrvrDoorSwtSts_sig_VeOUT_REL_BcmDrvrDoorSwtSts_sig' incorporates:
-   *  DataTypeConversion: '<S3>/Data Type Conversion4'
-   *  Inport: '<Root>/VbINP_HWA_FLDoorButton_flg_VbINP_HWA_FLDoorButton_flg'
-   */
-  REL_Y.VeOUT_REL_BcmDrvrDoorSwtSts_sig = REL_U.VbINP_HWA_FLDoorButton_flg_VbIN;
-
   /* End of Outputs for RootInportFunctionCallGenerator generated from: '<Root>/REL_Step' */
 
   /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockOpenReq_flg_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg' incorporates:
