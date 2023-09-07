@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.2
+ * Model version                  : 1.3
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Wed Sep  6 14:50:44 2023
+ * C/C++ source code generated on : Thu Sep  7 13:37:10 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -170,36 +170,30 @@ static void REL_Normal(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
       /* case IN_Release: */
       switch (localDW->is_Release) {
        case REL_IN_Checking:
-        {
+        *rty_SO_e_MotorMode = 0U;
+        if ((localDW->temporalCounter_i1 >= 5) && (!rtu_SI_b_DoorAjar)) {
+          localDW->is_Release = REL_IN_Step2_Open;
+          localDW->is_Step2_Open = REL_IN_Idle_c;
+          localDW->temporalCounter_i1 = 0U;
+          *rty_SO_b_MotorA = false;
+          *rty_SO_b_MotorB = false;
           *rty_SO_e_MotorMode = 0U;
-          if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar) {
-            localDW->is_Release = REL_IN_Step2_Open;
-            localDW->is_Step2_Open = REL_IN_Idle_c;
-            localDW->temporalCounter_i1 = 0U;
-            *rty_SO_b_MotorA = false;
-            *rty_SO_b_MotorB = false;
-            *rty_SO_e_MotorMode = 0U;
-          } else {
-            Boolean tmp_0;
-            tmp_0 = !rtu_SI_b_DoorAjar;
-            if ((localDW->temporalCounter_i1 >= 5) && tmp_0 &&
-                (localDW->SL_e_CheckCycle < 2)) {
-              *rty_SO_e_MotorPwm = 80U;
-              localDW->is_Release = REL_IN_Initial;
-              localDW->temporalCounter_i1 = 0U;
-              *rty_SO_b_MotorA = true;
-              *rty_SO_b_MotorB = false;
-              *rty_SO_e_MotorMode = 1U;
-            } else if ((localDW->temporalCounter_i1 >= 5) && tmp_0 &&
-                       (localDW->SL_e_CheckCycle >= 2)) {
-              localDW->is_Release = REL_IN_Reset;
-              localDW->temporalCounter_i1 = 0U;
-              *rty_SO_b_MotorA = false;
-              *rty_SO_b_MotorB = true;
-              *rty_SO_e_MotorMode = 2U;
-              *rty_SO_e_MotorPwm = 70U;
-            }
-          }
+        } else if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar &&
+                   (localDW->SL_e_CheckCycle < 2)) {
+          *rty_SO_e_MotorPwm = 80U;
+          localDW->is_Release = REL_IN_Initial;
+          localDW->temporalCounter_i1 = 0U;
+          *rty_SO_b_MotorA = true;
+          *rty_SO_b_MotorB = false;
+          *rty_SO_e_MotorMode = 1U;
+        } else if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar &&
+                   (localDW->SL_e_CheckCycle >= 2)) {
+          localDW->is_Release = REL_IN_Reset;
+          localDW->temporalCounter_i1 = 0U;
+          *rty_SO_b_MotorA = false;
+          *rty_SO_b_MotorB = true;
+          *rty_SO_e_MotorMode = 2U;
+          *rty_SO_e_MotorPwm = 70U;
         }
         break;
 
@@ -287,7 +281,7 @@ static void REL_Normal(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
 
          case REL_IN_Idle_c:
           *rty_SO_e_MotorMode = 0U;
-          if ((localDW->temporalCounter_i1 < 270) && rtu_SI_b_DoorAjar) {
+          if ((localDW->temporalCounter_i1 < 270) && (!rtu_SI_b_DoorAjar)) {
             localDW->is_Step2_Open = REL_IN_NO_ACTIVE_CHILD;
             localDW->is_Release = REL_IN_Reset;
             localDW->temporalCounter_i1 = 0U;
@@ -330,36 +324,30 @@ static void REL_Normal(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
     /* case IN_Release: */
     switch (localDW->is_Release_i) {
      case REL_IN_Checking:
-      {
+      *rty_SO_e_MotorMode = 0U;
+      if ((localDW->temporalCounter_i1 >= 5) && (!rtu_SI_b_DoorAjar)) {
+        localDW->is_Release_i = REL_IN_Step2_Open;
+        localDW->is_Step2_Open_e = REL_IN_Idle;
+        localDW->temporalCounter_i1 = 0U;
+        *rty_SO_b_MotorA = false;
+        *rty_SO_b_MotorB = false;
         *rty_SO_e_MotorMode = 0U;
-        if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar) {
-          localDW->is_Release_i = REL_IN_Step2_Open;
-          localDW->is_Step2_Open_e = REL_IN_Idle;
-          localDW->temporalCounter_i1 = 0U;
-          *rty_SO_b_MotorA = false;
-          *rty_SO_b_MotorB = false;
-          *rty_SO_e_MotorMode = 0U;
-        } else {
-          Boolean tmp_0;
-          tmp_0 = !rtu_SI_b_DoorAjar;
-          if ((localDW->temporalCounter_i1 >= 5) && tmp_0 &&
-              (localDW->SL_e_CheckCycle < 2)) {
-            *rty_SO_e_MotorPwm = 80U;
-            localDW->is_Release_i = REL_IN_Initial;
-            localDW->temporalCounter_i1 = 0U;
-            *rty_SO_b_MotorA = true;
-            *rty_SO_b_MotorB = false;
-            *rty_SO_e_MotorMode = 1U;
-          } else if ((localDW->temporalCounter_i1 >= 5) && tmp_0 &&
-                     (localDW->SL_e_CheckCycle >= 2)) {
-            localDW->is_Release_i = REL_IN_Reset;
-            localDW->temporalCounter_i1 = 0U;
-            *rty_SO_b_MotorA = false;
-            *rty_SO_b_MotorB = true;
-            *rty_SO_e_MotorMode = 2U;
-            *rty_SO_e_MotorPwm = 70U;
-          }
-        }
+      } else if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar &&
+                 (localDW->SL_e_CheckCycle < 2)) {
+        *rty_SO_e_MotorPwm = 80U;
+        localDW->is_Release_i = REL_IN_Initial;
+        localDW->temporalCounter_i1 = 0U;
+        *rty_SO_b_MotorA = true;
+        *rty_SO_b_MotorB = false;
+        *rty_SO_e_MotorMode = 1U;
+      } else if ((localDW->temporalCounter_i1 >= 5) && rtu_SI_b_DoorAjar &&
+                 (localDW->SL_e_CheckCycle >= 2)) {
+        localDW->is_Release_i = REL_IN_Reset;
+        localDW->temporalCounter_i1 = 0U;
+        *rty_SO_b_MotorA = false;
+        *rty_SO_b_MotorB = true;
+        *rty_SO_e_MotorMode = 2U;
+        *rty_SO_e_MotorPwm = 70U;
       }
       break;
 
@@ -409,7 +397,7 @@ static void REL_Normal(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
       /* case IN_Step2_Open: */
       if (localDW->is_Step2_Open_e == REL_IN_Idle) {
         *rty_SO_e_MotorMode = 0U;
-        if ((localDW->temporalCounter_i1 < 270) && rtu_SI_b_DoorAjar) {
+        if ((localDW->temporalCounter_i1 < 270) && (!rtu_SI_b_DoorAjar)) {
           localDW->is_Step2_Open_e = REL_IN_NO_ACTIVE_CHILD;
           localDW->is_Release_i = REL_IN_Reset;
           localDW->temporalCounter_i1 = 0U;
