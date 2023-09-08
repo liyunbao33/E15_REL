@@ -5,7 +5,7 @@
  *
  * Model version                  : 1.13
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Fri Sep  8 14:29:45 2023
+ * C/C++ source code generated on : Fri Sep  8 14:58:59 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -141,27 +141,14 @@ static void REL_DoorHand_e(const boolean_T *SI_b_DoorHandSwSts_prev, const
  */
 void REL_FLDoorRatSts(Boolean rtu_SI_b_DoorOpen, uint8_T *rty_SO_e_DoorRatSts)
 {
-  Boolean aVarTruthTableCondition_1_tmp;
-  boolean_T tmp;
-
   /*  condition 1 */
-  aVarTruthTableCondition_1_tmp = !rtu_SI_b_DoorOpen;
-
   /*  condition 2 */
-  tmp = !aVarTruthTableCondition_1_tmp;
-  if (tmp) {
+  if (!rtu_SI_b_DoorOpen) {
     /*  All Lock */
     *rty_SO_e_DoorRatSts = 1U;
-  } else if (tmp && aVarTruthTableCondition_1_tmp) {
-    /*  Half Lock */
-    *rty_SO_e_DoorRatSts = 2U;
-  } else if (aVarTruthTableCondition_1_tmp) {
+  } else {
     /*  All Unlock */
     *rty_SO_e_DoorRatSts = 3U;
-  } else {
-    /*  Default */
-    /*  Invalid */
-    *rty_SO_e_DoorRatSts = 0U;
   }
 }
 
