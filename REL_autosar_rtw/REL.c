@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.12
+ * Model version                  : 1.14
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Fri Sep  8 14:27:51 2023
+ * C/C++ source code generated on : Fri Sep  8 15:08:23 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -127,27 +127,14 @@ static void REL_DoorHand_e(void);
  */
 void REL_FLDoorRatSts(Boolean rtu_SI_b_DoorOpen, uint8 *rty_SO_e_DoorRatSts)
 {
-  Boolean aVarTruthTableCondition_1_tmp;
-  boolean tmp;
-
   /*  condition 1 */
-  aVarTruthTableCondition_1_tmp = !rtu_SI_b_DoorOpen;
-
   /*  condition 2 */
-  tmp = !aVarTruthTableCondition_1_tmp;
-  if (tmp) {
+  if (!rtu_SI_b_DoorOpen) {
     /*  All Lock */
     *rty_SO_e_DoorRatSts = 1U;
-  } else if (tmp && aVarTruthTableCondition_1_tmp) {
-    /*  Half Lock */
-    *rty_SO_e_DoorRatSts = 2U;
-  } else if (aVarTruthTableCondition_1_tmp) {
+  } else {
     /*  All Unlock */
     *rty_SO_e_DoorRatSts = 3U;
-  } else {
-    /*  Default */
-    /*  Invalid */
-    *rty_SO_e_DoorRatSts = 0U;
   }
 }
 
