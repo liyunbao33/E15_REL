@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.44
+ * Model version                  : 1.63
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 11 13:20:45 2023
+ * C/C++ source code generated on : Mon Sep 11 13:47:10 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -35,9 +35,8 @@ extern void REL_RLDoorRlsReq(boolean rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd,
   Boolean rtu_SI_b_EspVehSpdVld, UInt8 rtu_SI_e_VcuGearPosn, UInt8
   rtu_SI_e_DoorLockSts, uint8 rtu_SI_e_DoorRatSts, boolean rtu_SI_b_DoorInBtnSts,
   boolean rtu_SI_b_DoorHndPullSts, boolean rtu_SI_b_DoorHndBtnSts, UInt8
-  rtu_SI_e_DoorHandPosSts, Boolean rtu_SI_b_CentSingleDoorSwSts, Boolean
-  rtu_SI_b_CentAllDoorSwSts, Boolean rtu_SI_b_ChildLckSts, boolean
-  rtu_SI_b_DoorLockSetSts, boolean rtu_SI_b_DoorLockOpenReq, boolean
+  rtu_SI_e_DoorHandPosSts, Boolean rtu_SI_b_CentSingleDoorBtnSts, Boolean
+  rtu_SI_b_CentAllDoorBtnSts, Boolean rtu_SI_b_ChildLckSts, boolean
   *rty_SO_b_DoorRlsReq, boolean *rty_SO_b_UnlockReq, uint8
   *rty_SO_e_DoorRlsDelayTime, DW_RLDoorRlsReq_REL_T *localDW);
 
