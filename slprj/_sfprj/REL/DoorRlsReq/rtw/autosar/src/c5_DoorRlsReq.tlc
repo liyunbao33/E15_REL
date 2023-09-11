@@ -38,35 +38,35 @@
       Name         "is_SwValid"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorIn.SwValid"\
+      Path         "DoorInBtn.SwValid"\
       SrcLocation  ""\
     }\
     ChartData {\
       Name         "is_RlsReq"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorIn.RlsReq"\
+      Path         "DoorInBtn.RlsReq"\
       SrcLocation  ""\
     }\
     ChartData {\
       Name         "is_Trigger"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorIn.RlsReq.Trigger"\
+      Path         "DoorInBtn.RlsReq.Trigger"\
       SrcLocation  ""\
     }\
     ChartData {\
       Name         "is_RlsReq"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorOut.RlsReq"\
+      Path         "DoorHndPull.RlsReq"\
       SrcLocation  ""\
     }\
     ChartData {\
       Name         "is_Trigger"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DoorOut.RlsReq.Trigger"\
+      Path         "DoorHndPull.RlsReq.Trigger"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -105,10 +105,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SL_b_DoorInSwValid"\
+      Name         "SL_b_DoorInBtnValid"\
       Description  "ChartLocal"\
       SFName       ""\
-      Path         "SL_b_DoorInSwValid"\
+      Path         "SL_b_DoorInBtnValid"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -126,17 +126,17 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SL_b_DoorOutSwValid"\
+      Name         "SL_b_DoorHndPullValid"\
       Description  "ChartLocal"\
       SFName       ""\
-      Path         "SL_b_DoorOutSwValid"\
+      Path         "SL_b_DoorHndPullValid"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SL_b_DoorHandSwValid"\
+      Name         "SL_b_DoorHndBtnValid"\
       Description  "ChartLocal"\
       SFName       ""\
-      Path         "SL_b_DoorHandSwValid"\
+      Path         "SL_b_DoorHndBtnValid"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -203,73 +203,73 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DoorInSwSts_prev"\
+      Name         "SI_b_DoorInBtnSts_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_DoorInSwSts"\
+      Path         "SI_b_DoorInBtnSts"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DoorInSwSts_start"\
+      Name         "SI_b_DoorInBtnSts_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_DoorInSwSts"\
+      Path         "SI_b_DoorInBtnSts"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SL_b_DoorInSwValid_prev"\
+      Name         "SL_b_DoorInBtnValid_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SL_b_DoorInSwValid"\
+      Path         "SL_b_DoorInBtnValid"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SL_b_DoorInSwValid_start"\
+      Name         "SL_b_DoorInBtnValid_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SL_b_DoorInSwValid"\
+      Path         "SL_b_DoorInBtnValid"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SL_b_DoorOutSwValid_prev"\
+      Name         "SL_b_DoorHndPullValid_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SL_b_DoorOutSwValid"\
+      Path         "SL_b_DoorHndPullValid"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SL_b_DoorOutSwValid_start"\
+      Name         "SL_b_DoorHndPullValid_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SL_b_DoorOutSwValid"\
+      Path         "SL_b_DoorHndPullValid"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DoorHandSwSts_prev"\
+      Name         "SI_b_DoorHndBtnSts_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_DoorHandSwSts"\
+      Path         "SI_b_DoorHndBtnSts"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DoorHandSwSts_start"\
+      Name         "SI_b_DoorHndBtnSts_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SI_b_DoorHandSwSts"\
+      Path         "SI_b_DoorHndBtnSts"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SL_b_DoorHandSwValid_prev"\
+      Name         "SL_b_DoorHndBtnValid_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SL_b_DoorHandSwValid"\
+      Path         "SL_b_DoorHndBtnValid"\
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SL_b_DoorHandSwValid_start"\
+      Name         "SL_b_DoorHndBtnValid_start"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
-      Path         "SL_b_DoorHandSwValid"\
+      Path         "SL_b_DoorHndBtnValid"\
       SrcLocation  ""\
     }\
     ChartData {\

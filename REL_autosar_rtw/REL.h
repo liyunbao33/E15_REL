@@ -5,7 +5,7 @@
  *
  * Model version                  : 1.44
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 11 11:29:44 2023
+ * C/C++ source code generated on : Mon Sep 11 13:20:45 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -63,23 +63,23 @@ typedef struct {
   uint8 temporalCounter_i5;            /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i6;            /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i7;            /* '<S3>/RLDoorRlsReq' */
-  boolean SL_b_DoorInSwValid;          /* '<S3>/RLDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid;         /* '<S3>/RLDoorRlsReq' */
   boolean SL_b_CentSingleDoorSwValid;  /* '<S3>/RLDoorRlsReq' */
   boolean SL_b_CentAllDoorSwValid;     /* '<S3>/RLDoorRlsReq' */
-  boolean SL_b_DoorOutSwValid;         /* '<S3>/RLDoorRlsReq' */
-  boolean SL_b_DoorHandSwValid;        /* '<S3>/RLDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid;       /* '<S3>/RLDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid;        /* '<S3>/RLDoorRlsReq' */
   boolean SI_b_DoorLockOpenReq_prev;   /* '<S3>/RLDoorRlsReq' */
   boolean SI_b_DoorLockOpenReq_start;  /* '<S3>/RLDoorRlsReq' */
-  boolean SI_b_DoorInSwSts_prev;       /* '<S3>/RLDoorRlsReq' */
-  boolean SI_b_DoorInSwSts_start;      /* '<S3>/RLDoorRlsReq' */
-  boolean SL_b_DoorInSwValid_prev;     /* '<S3>/RLDoorRlsReq' */
-  boolean SL_b_DoorInSwValid_start;    /* '<S3>/RLDoorRlsReq' */
-  boolean SL_b_DoorOutSwValid_prev;    /* '<S3>/RLDoorRlsReq' */
-  boolean SL_b_DoorOutSwValid_start;   /* '<S3>/RLDoorRlsReq' */
-  boolean SI_b_DoorHandSwSts_prev;     /* '<S3>/RLDoorRlsReq' */
-  boolean SI_b_DoorHandSwSts_start;    /* '<S3>/RLDoorRlsReq' */
-  boolean SL_b_DoorHandSwValid_prev;   /* '<S3>/RLDoorRlsReq' */
-  boolean SL_b_DoorHandSwValid_start;  /* '<S3>/RLDoorRlsReq' */
+  boolean SI_b_DoorInBtnSts_prev;      /* '<S3>/RLDoorRlsReq' */
+  boolean SI_b_DoorInBtnSts_start;     /* '<S3>/RLDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid_prev;    /* '<S3>/RLDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid_start;   /* '<S3>/RLDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid_prev;  /* '<S3>/RLDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid_start; /* '<S3>/RLDoorRlsReq' */
+  boolean SI_b_DoorHndBtnSts_prev;     /* '<S3>/RLDoorRlsReq' */
+  boolean SI_b_DoorHndBtnSts_start;    /* '<S3>/RLDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid_prev;   /* '<S3>/RLDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid_start;  /* '<S3>/RLDoorRlsReq' */
   boolean SL_b_CentSingleDoorSwValid_prev;/* '<S3>/RLDoorRlsReq' */
   boolean SL_b_CentSingleDoorSwValid_star;/* '<S3>/RLDoorRlsReq' */
   boolean SL_b_CentAllDoorSwValid_prev;/* '<S3>/RLDoorRlsReq' */
@@ -198,44 +198,44 @@ typedef struct tag_DW_REL_T {
   boolean SI_b_DrvUnlockReq_start;     /* '<S3>/Unlock_Request' */
   boolean SI_b_PassUnlockReq_prev;     /* '<S3>/Unlock_Request' */
   boolean SI_b_PassUnlockReq_start;    /* '<S3>/Unlock_Request' */
-  boolean SL_b_DoorInSwValid;          /* '<S3>/FRDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid;         /* '<S3>/FRDoorRlsReq' */
   boolean SL_b_CentSingleDoorSwValid;  /* '<S3>/FRDoorRlsReq' */
   boolean SL_b_CentAllDoorSwValid;     /* '<S3>/FRDoorRlsReq' */
-  boolean SL_b_DoorOutSwValid;         /* '<S3>/FRDoorRlsReq' */
-  boolean SL_b_DoorHandSwValid;        /* '<S3>/FRDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid;       /* '<S3>/FRDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid;        /* '<S3>/FRDoorRlsReq' */
   boolean SI_b_DoorLockOpenReq_prev;   /* '<S3>/FRDoorRlsReq' */
   boolean SI_b_DoorLockOpenReq_start;  /* '<S3>/FRDoorRlsReq' */
-  boolean SI_b_DoorInSwSts_prev;       /* '<S3>/FRDoorRlsReq' */
-  boolean SI_b_DoorInSwSts_start;      /* '<S3>/FRDoorRlsReq' */
-  boolean SL_b_DoorInSwValid_prev;     /* '<S3>/FRDoorRlsReq' */
-  boolean SL_b_DoorInSwValid_start;    /* '<S3>/FRDoorRlsReq' */
-  boolean SL_b_DoorOutSwValid_prev;    /* '<S3>/FRDoorRlsReq' */
-  boolean SL_b_DoorOutSwValid_start;   /* '<S3>/FRDoorRlsReq' */
-  boolean SI_b_DoorHandSwSts_prev;     /* '<S3>/FRDoorRlsReq' */
-  boolean SI_b_DoorHandSwSts_start;    /* '<S3>/FRDoorRlsReq' */
-  boolean SL_b_DoorHandSwValid_prev;   /* '<S3>/FRDoorRlsReq' */
-  boolean SL_b_DoorHandSwValid_start;  /* '<S3>/FRDoorRlsReq' */
+  boolean SI_b_DoorInBtnSts_prev;      /* '<S3>/FRDoorRlsReq' */
+  boolean SI_b_DoorInBtnSts_start;     /* '<S3>/FRDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid_prev;    /* '<S3>/FRDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid_start;   /* '<S3>/FRDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid_prev;  /* '<S3>/FRDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid_start; /* '<S3>/FRDoorRlsReq' */
+  boolean SI_b_DoorHndBtnSts_prev;     /* '<S3>/FRDoorRlsReq' */
+  boolean SI_b_DoorHndBtnSts_start;    /* '<S3>/FRDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid_prev;   /* '<S3>/FRDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid_start;  /* '<S3>/FRDoorRlsReq' */
   boolean SL_b_CentSingleDoorSwValid_prev;/* '<S3>/FRDoorRlsReq' */
   boolean SL_b_CentSingleDoorSwValid_star;/* '<S3>/FRDoorRlsReq' */
   boolean SL_b_CentAllDoorSwValid_prev;/* '<S3>/FRDoorRlsReq' */
   boolean SL_b_CentAllDoorSwValid_start;/* '<S3>/FRDoorRlsReq' */
-  boolean SL_b_DoorInSwValid_i;        /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid_f;       /* '<S3>/FLDoorRlsReq' */
   boolean SL_b_CentSingleDoorSwValid_a;/* '<S3>/FLDoorRlsReq' */
   boolean SL_b_CentAllDoorSwValid_j;   /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorOutSwValid_f;       /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorHandSwValid_p;      /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid_g;     /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid_g;      /* '<S3>/FLDoorRlsReq' */
   boolean SI_b_DoorLockOpenReq_prev_j; /* '<S3>/FLDoorRlsReq' */
   boolean SI_b_DoorLockOpenReq_start_f;/* '<S3>/FLDoorRlsReq' */
-  boolean SI_b_DoorInSwSts_prev_h;     /* '<S3>/FLDoorRlsReq' */
-  boolean SI_b_DoorInSwSts_start_c;    /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorInSwValid_prev_a;   /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorInSwValid_start_l;  /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorOutSwValid_prev_a;  /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorOutSwValid_start_g; /* '<S3>/FLDoorRlsReq' */
-  boolean SI_b_DoorHandSwSts_prev_k;   /* '<S3>/FLDoorRlsReq' */
-  boolean SI_b_DoorHandSwSts_start_p;  /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorHandSwValid_prev_l; /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorHandSwValid_start_f;/* '<S3>/FLDoorRlsReq' */
+  boolean SI_b_DoorInBtnSts_prev_a;    /* '<S3>/FLDoorRlsReq' */
+  boolean SI_b_DoorInBtnSts_start_l;   /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid_prev_j;  /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid_start_d; /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid_prev_f;/* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid_start_o;/* '<S3>/FLDoorRlsReq' */
+  boolean SI_b_DoorHndBtnSts_prev_a;   /* '<S3>/FLDoorRlsReq' */
+  boolean SI_b_DoorHndBtnSts_start_h;  /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid_prev_e; /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid_start_l;/* '<S3>/FLDoorRlsReq' */
   boolean SL_b_CentSingleDoorSwValid_pr_k;/* '<S3>/FLDoorRlsReq' */
   boolean SL_b_CentSingleDoorSwValid_st_o;/* '<S3>/FLDoorRlsReq' */
   boolean SL_b_CentAllDoorSwValid_prev_g;/* '<S3>/FLDoorRlsReq' */
