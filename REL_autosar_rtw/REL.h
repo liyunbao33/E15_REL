@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.63
+ * Model version                  : 1.78
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 11 13:47:10 2023
+ * C/C++ source code generated on : Mon Sep 11 17:02:36 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -100,20 +100,6 @@ typedef struct tag_B_REL_T {
   uint8 SO_e_MotorMode_d;              /* '<S3>/FLDoorRlsDriver' */
   uint8 SO_e_DoorRatSts_dw;            /* '<S3>/FLDoorRatSts' */
   Boolean TmpSignalConversionAtVbINP_HWA_;
-  Boolean TmpSignalConversionAtVbINP_HW_j;
-  Boolean TmpSignalConversionAtVbINP_HW_m;
-  Boolean TmpSignalConversionAtVbINP_H_jc;
-  Boolean VbINP_HWA_RRDoorOutButton_flg_V;
-  /* '<S2>/VbINP_HWA_RRDoorOutButton_flg_VbINP_HWA_RRDoorOutButton_flg_read' */
-  Boolean VbINP_HWA_FLDoorHandleSW_flg_Vb;
-     /* '<S2>/VbINP_HWA_FLDoorHandleSW_flg_VbINP_HWA_FLDoorHandleSW_flg_read' */
-  Boolean VbINP_HWA_FRDoorHandleSW_flg_Vb;
-     /* '<S2>/VbINP_HWA_FRDoorHandleSW_flg_VbINP_HWA_FRDoorHandleSW_flg_read' */
-  Boolean VbINP_HWA_RLDoorHandleSW_flg_Vb;
-     /* '<S2>/VbINP_HWA_RLDoorHandleSW_flg_VbINP_HWA_RLDoorHandleSW_flg_read' */
-  Boolean VbINP_HWA_RRDoorHandleSW_flg_Vb;
-     /* '<S2>/VbINP_HWA_RRDoorHandleSW_flg_VbINP_HWA_RRDoorHandleSW_flg_read' */
-  Boolean TmpSignalConversionAtVbINP_H_m0;
   boolean Compare;                     /* '<S12>/Compare' */
   Boolean TmpSignalConversionAtVbINP_CAN_;
   Boolean TmpSignalConversionAtVbINP_CA_f;
@@ -137,12 +123,12 @@ typedef struct tag_B_REL_T {
   boolean SO_b_UnlockReq_m;            /* '<S3>/FLDoorRlsReq' */
   boolean SO_b_MotorA_p;               /* '<S3>/FLDoorRlsDriver' */
   boolean SO_b_MotorB_e;               /* '<S3>/FLDoorRlsDriver' */
+  boolean SL_b_FLDoorInBtnSts;         /* '<S3>/DoorSwSts' */
+  boolean SL_b_FRDoorInBtnSts;         /* '<S3>/DoorSwSts' */
   boolean SL_b_RLDoorInBtnSts;         /* '<S3>/DoorSwSts' */
   boolean SL_b_RRDoorInBtnSts;         /* '<S3>/DoorSwSts' */
-  boolean SL_b_FRDoorHndPullSts;       /* '<S3>/DoorSwSts' */
   boolean SL_b_RLDoorHndPullSts;       /* '<S3>/DoorSwSts' */
   boolean SL_b_RRDoorHndPullSts;       /* '<S3>/DoorSwSts' */
-  boolean SL_b_FLDoorHndBtnSts;        /* '<S3>/DoorSwSts' */
   boolean SL_b_FRDoorHndBtnSts;        /* '<S3>/DoorSwSts' */
   boolean SL_b_RLDoorHndBtnSts;        /* '<S3>/DoorSwSts' */
   boolean SL_b_RRDoorHndBtnSts;        /* '<S3>/DoorSwSts' */

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Auto generated XML Component Description for model REL
-Model version                : 1.63
+Model version                : 1.78
 Simulink Coder version       : Simulink Coder 9.7 (R2022a) 13-Nov-2021
-XML source code generated on : Mon Sep 11 13:47:15 2023
-Model Checksum               : 4054809787 3622652280 3855008455 2561439710
+XML source code generated on : Mon Sep 11 17:02:42 2023
+Model Checksum               : 1398777116 142563944 3786119557 2607497367
 -->
 <AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-3-1.xsd">
     <AR-PACKAGES>
