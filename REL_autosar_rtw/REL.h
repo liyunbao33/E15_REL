@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.78
+ * Model version                  : 1.79
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 11 17:02:36 2023
+ * C/C++ source code generated on : Tue Sep 12 17:31:58 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -29,13 +29,9 @@ typedef struct {
   uint16 temporalCounter_i1;           /* '<S3>/FLDoorRlsDriver' */
   uint8 is_active_c19_DoorRlsDriver;   /* '<S3>/FLDoorRlsDriver' */
   uint8 is_c19_DoorRlsDriver;          /* '<S3>/FLDoorRlsDriver' */
-  uint8 is_Normal;                     /* '<S3>/FLDoorRlsDriver' */
   uint8 is_MainProgress;               /* '<S3>/FLDoorRlsDriver' */
   uint8 is_Release;                    /* '<S3>/FLDoorRlsDriver' */
   uint8 is_Step2_Open;                 /* '<S3>/FLDoorRlsDriver' */
-  uint8 is_MainProgress_k;             /* '<S3>/FLDoorRlsDriver' */
-  uint8 is_Release_i;                  /* '<S3>/FLDoorRlsDriver' */
-  uint8 is_Step2_Open_e;               /* '<S3>/FLDoorRlsDriver' */
   uint8 SL_e_CheckCycle;               /* '<S3>/FLDoorRlsDriver' */
   boolean SO_b_DoorRlsReq_prev;        /* '<S3>/FLDoorRlsDriver' */
   boolean SO_b_DoorRlsReq_start;       /* '<S3>/FLDoorRlsDriver' */
@@ -99,14 +95,9 @@ typedef struct tag_B_REL_T {
   uint8 SO_e_DoorRlsDelayTime_g;       /* '<S3>/FLDoorRlsReq' */
   uint8 SO_e_MotorMode_d;              /* '<S3>/FLDoorRlsDriver' */
   uint8 SO_e_DoorRatSts_dw;            /* '<S3>/FLDoorRatSts' */
-  Boolean TmpSignalConversionAtVbINP_HWA_;
   boolean Compare;                     /* '<S12>/Compare' */
   Boolean TmpSignalConversionAtVbINP_CAN_;
   Boolean TmpSignalConversionAtVbINP_CA_f;
-  Boolean TmpSignalConversionAtVbINP_CFG_;
-  Boolean TmpSignalConversionAtVbINP_HW_g;
-  Boolean TmpSignalConversionAtVbINP_HW_f;
-  Boolean TmpSignalConversionAtVbINP_H_gz;
   boolean SO_b_DoorRlsReq;             /* '<S3>/RRDoorRlsReq' */
   boolean SO_b_UnlockReq;              /* '<S3>/RRDoorRlsReq' */
   boolean SO_b_MotorA;                 /* '<S3>/RRDoorRlsDriver' */
