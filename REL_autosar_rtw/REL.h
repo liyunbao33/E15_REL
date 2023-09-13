@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.79
+ * Model version                  : 1.84
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Tue Sep 12 17:31:58 2023
+ * C/C++ source code generated on : Wed Sep 13 17:25:42 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -172,8 +172,6 @@ typedef struct tag_DW_REL_T {
   uint8 is_active_c1_REL;              /* '<S3>/DoorLockSetSts' */
   uint8 is_c1_REL;                     /* '<S3>/DoorLockSetSts' */
   uint8 temporalCounter_i1_k;          /* '<S3>/DoorLockSetSts' */
-  uint8 SI_e_DoorLockSet_prev;         /* '<S3>/DoorLockSetSts' */
-  uint8 SI_e_DoorLockSet_start;        /* '<S3>/DoorLockSetSts' */
   boolean SI_b_DrvUnlockReq_prev;      /* '<S3>/Unlock_Request' */
   boolean SI_b_DrvUnlockReq_start;     /* '<S3>/Unlock_Request' */
   boolean SI_b_PassUnlockReq_prev;     /* '<S3>/Unlock_Request' */

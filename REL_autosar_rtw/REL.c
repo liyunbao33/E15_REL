@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.79
+ * Model version                  : 1.84
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Tue Sep 12 17:31:58 2023
+ * C/C++ source code generated on : Wed Sep 13 17:25:42 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -1273,11 +1273,6 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   /* Inport: '<Root>/VbOUT_SP_CrashOutpSts_flg_VbOUT_SP_CrashOutpSts_flg' */
   (void)Rte_Read_VbOUT_SP_CrashOutpSts_flg_VbOUT_SP_CrashOutpSts_flg(&tmpRead_7);
 
-  /* Inport: '<Root>/VeINP_CAN_CdcDrvrDoorLockSet_sig_VeINP_CAN_CdcDrvrDoorLockSet_sig' */
-  (void)
-    Rte_Read_VeINP_CAN_CdcDrvrDoorLockSet_sig_VeINP_CAN_CdcDrvrDoorLockSet_sig
-    (&tmpRead);
-
   /* RootInportFunctionCallGenerator generated from: '<Root>/REL_Step' incorporates:
    *  SubSystem: '<Root>/REL_Step_sys'
    */
@@ -1383,9 +1378,6 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     REL_DW.temporalCounter_i1_k++;
   }
 
-  REL_DW.SI_e_DoorLockSet_prev = REL_DW.SI_e_DoorLockSet_start;
-  REL_DW.SI_e_DoorLockSet_start = tmpRead;
-
   /* End of Outputs for RootInportFunctionCallGenerator generated from: '<Root>/REL_Step' */
 
   /* Inport: '<Root>/VeINP_EPRM_BdcDrvrDoorLockSetSts_sig_VeINP_EPRM_BdcDrvrDoorLockSetSts_sig' */
@@ -1396,17 +1388,41 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
   /* RootInportFunctionCallGenerator generated from: '<Root>/REL_Step' incorporates:
    *  SubSystem: '<Root>/REL_Step_sys'
    */
-  /* Chart: '<S3>/DoorLockSetSts' */
+  /* Chart: '<S3>/DoorLockSetSts' incorporates:
+   *  Inport: '<Root>/VeINP_CAN_CdcDrvrDoorLockSet_sig_VeINP_CAN_CdcDrvrDoorLockSet_sig'
+   */
   if (REL_DW.is_active_c1_REL == 0U) {
-    REL_DW.SI_e_DoorLockSet_prev = tmpRead;
     REL_DW.is_active_c1_REL = 1U;
 
     /*  ReadEEDoorLockSet  */
     REL_DW.is_c1_REL = REL_IN_Init_h;
     REL_DW.temporalCounter_i1_k = 0U;
     REL_B.SO_b_EEDoorLockSetSts = (tmpRead_0 != 0);
-  } else if (REL_DW.is_c1_REL == REL_IN_DoorLockSet) {
-    if (REL_DW.SI_e_DoorLockSet_prev != REL_DW.SI_e_DoorLockSet_start) {
+  } else {
+    (void)
+      Rte_Read_VeINP_CAN_CdcDrvrDoorLockSet_sig_VeINP_CAN_CdcDrvrDoorLockSet_sig
+      (&tmpRead);
+    if (REL_DW.is_c1_REL == REL_IN_DoorLockSet) {
+      switch (tmpRead) {
+       case 1:
+        REL_B.SO_b_DoorLockSetSts = true;
+        REL_B.SO_b_EEDoorLockSetSts = true;
+        break;
+
+       case 2:
+        REL_B.SO_b_DoorLockSetSts = false;
+        REL_B.SO_b_EEDoorLockSetSts = false;
+        break;
+
+       default:
+        REL_B.SO_b_DoorLockSetSts = REL_B.SO_b_EEDoorLockSetSts;
+        break;
+      }
+
+      /* case IN_Init: */
+    } else if (REL_DW.temporalCounter_i1_k >= 100) {
+      REL_DW.is_c1_REL = REL_IN_DoorLockSet;
+
       /*  DoorLockSet  */
       switch (tmpRead) {
        case 1:
@@ -1423,30 +1439,9 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
         REL_B.SO_b_DoorLockSetSts = REL_B.SO_b_EEDoorLockSetSts;
         break;
       }
+    } else {
+      REL_B.SO_b_EEDoorLockSetSts = (tmpRead_0 != 0);
     }
-
-    /* case IN_Init: */
-  } else if (REL_DW.temporalCounter_i1_k >= 100) {
-    REL_DW.is_c1_REL = REL_IN_DoorLockSet;
-
-    /*  DoorLockSet  */
-    switch (tmpRead) {
-     case 1:
-      REL_B.SO_b_DoorLockSetSts = true;
-      REL_B.SO_b_EEDoorLockSetSts = true;
-      break;
-
-     case 2:
-      REL_B.SO_b_DoorLockSetSts = false;
-      REL_B.SO_b_EEDoorLockSetSts = false;
-      break;
-
-     default:
-      REL_B.SO_b_DoorLockSetSts = REL_B.SO_b_EEDoorLockSetSts;
-      break;
-    }
-  } else {
-    REL_B.SO_b_EEDoorLockSetSts = (tmpRead_0 != 0);
   }
 
   /* End of Outputs for RootInportFunctionCallGenerator generated from: '<Root>/REL_Step' */
