@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.7
+ * Model version                  : 1.12
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep 14 17:58:28 2023
+ * C/C++ source code generated on : Thu Sep 14 18:35:12 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -97,13 +97,13 @@ typedef struct {
 /* Block signals (default storage) */
 typedef struct {
   uint8_T SO_e_DoorRlsDelayTime;       /* '<S3>/RRDoorRlsReq' */
-  uint8_T SO_e_DoorRlsDelayTime_m;     /* '<S3>/RLDoorRlsReq' */
-  uint8_T SO_e_DoorRlsDelayTime_n;     /* '<S3>/FRDoorRlsReq' */
-  uint8_T SO_e_DoorRlsDelayTime_c;     /* '<S3>/FLDoorRlsReq' */
+  uint8_T SO_e_DoorRlsDelayTime_e;     /* '<S3>/RLDoorRlsReq' */
+  uint8_T SO_e_DoorRlsDelayTime_k;     /* '<S3>/FRDoorRlsReq' */
+  uint8_T SO_e_DoorRlsDelayTime_m;     /* '<S3>/FLDoorRlsReq' */
   boolean_T SO_b_UnlockReq;            /* '<S3>/RRDoorRlsReq' */
-  boolean_T SO_b_UnlockReq_k;          /* '<S3>/RLDoorRlsReq' */
-  boolean_T SO_b_UnlockReq_n;          /* '<S3>/FRDoorRlsReq' */
-  boolean_T SO_b_UnlockReq_g;          /* '<S3>/FLDoorRlsReq' */
+  boolean_T SO_b_UnlockReq_m;          /* '<S3>/RLDoorRlsReq' */
+  boolean_T SO_b_UnlockReq_c;          /* '<S3>/FRDoorRlsReq' */
+  boolean_T SO_b_UnlockReq_k;          /* '<S3>/FLDoorRlsReq' */
 } B_REL_T;
 
 /* Block states (default storage) for system '<Root>' */
