@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.92
+ * Model version                  : 1.95
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep 14 10:17:39 2023
+ * C/C++ source code generated on : Thu Sep 14 11:01:08 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -1517,18 +1517,24 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
       /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
       REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = false;
       REL_DW.SL_e_DoorLockSetBackup = 2U;
-    } else if (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt == 1) {
-      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
-      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = true;
-
-      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
-      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = true;
     } else {
-      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
-      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = false;
+      switch (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt) {
+       case 1:
+        /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
+        REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = true;
 
-      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
-      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = false;
+        /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
+        REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = true;
+        break;
+
+       case 0:
+        /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
+        REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = false;
+
+        /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
+        REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = false;
+        break;
+      }
     }
   } else if ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 1) ||
              ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 0) &&
@@ -1548,18 +1554,24 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
     REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = false;
     REL_DW.SL_e_DoorLockSetBackup = 2U;
-  } else if (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt == 1) {
-    /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
-    REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = true;
-
-    /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
-    REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = true;
   } else {
-    /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
-    REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = false;
+    switch (REL_U.VeINP_EPRM_BdcDrvrDoorLockSetSt) {
+     case 1:
+      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
+      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = true;
 
-    /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
-    REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = false;
+      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
+      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = true;
+      break;
+
+     case 0:
+      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
+      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = false;
+
+      /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
+      REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = false;
+      break;
+    }
   }
 
   /* End of Chart: '<S3>/DoorLockSetSts' */
