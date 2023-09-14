@@ -7,7 +7,7 @@
    This file is generated for:
    Atomic software component:  "REL"
    ARXML schema: "4.3"
-   File generated on: "13-Sep-2023 17:25:49"  */
+   File generated on: "14-Sep-2023 18:44:27"  */
 
 #ifndef Rte_REL_h
 #define Rte_REL_h
@@ -290,6 +290,12 @@ Std_ReturnType
   Rte_Read_VbINP_HWA_RRDoorOutButton_flg_VbINP_HWA_RRDoorOutButton_flg(Boolean*
   u);
 
+#define Rte_Read_VbOUT_DLK_BdcDrvrDoorLockOpenReq_flg_VbOUT_DLK_BdcDrvrDoorLockOpenReq_flg Rte_Read_REL_VbOUT_DLK_BdcDrvrDoorLockOpenReq_flg_VbOUT_DLK_BdcDrvrDoorLockOpenReq_flg
+
+Std_ReturnType
+  Rte_Read_VbOUT_DLK_BdcDrvrDoorLockOpenReq_flg_VbOUT_DLK_BdcDrvrDoorLockOpenReq_flg
+  (Boolean* u);
+
 #define Rte_Read_VbOUT_SP_CrashOutpSts_flg_VbOUT_SP_CrashOutpSts_flg Rte_Read_REL_VbOUT_SP_CrashOutpSts_flg_VbOUT_SP_CrashOutpSts_flg
 
 Std_ReturnType Rte_Read_VbOUT_SP_CrashOutpSts_flg_VbOUT_SP_CrashOutpSts_flg
@@ -568,18 +574,6 @@ Std_ReturnType
 
 Std_ReturnType
   Rte_Invalidate_VbOUT_REL_RRDoorHndlBtnSig_flg_VbOUT_REL_RRDoorHndlBtnSig_flg
-  (void);
-
-#define Rte_Write_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg Rte_Write_REL_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg
-
-Std_ReturnType
-  Rte_Write_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg
-  (Boolean u);
-
-#define Rte_Invalidate_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg Rte_Invalidate_REL_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg
-
-Std_ReturnType
-  Rte_Invalidate_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg_VbOUT_REL_BdcDrvrDoorLockOpenReq_flg
   (void);
 
 #define Rte_Write_VbOUT_REL_FLDoorMotorA_flg_VbOUT_REL_FLDoorMotorA_flg Rte_Write_REL_VbOUT_REL_FLDoorMotorA_flg_VbOUT_REL_FLDoorMotorA_flg

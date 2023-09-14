@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   36 \
+    NumChartData   44 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -18,6 +18,20 @@
       Description  "StateIsActive"\
       SFName       ""\
       Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_RlsReq"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorAutoRls.RlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_Trigger"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorAutoRls.RlsReq.Trigger"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -39,6 +53,13 @@
       Description  "StateActiveChild"\
       SFName       ""\
       Path         "DoorInBtn.RlsReq.Trigger"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DoorLock"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorInBtn.RlsReq.Trigger.DoorLock"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -77,6 +98,13 @@
       SrcLocation  ""\
     }\
     ChartData {\
+      Name         "is_DoorLock"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorHndBtn.RlsReq.Trigger.DoorLock"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
       Name         "is_DoorCentral"\
       Description  "StateActiveChild"\
       SFName       ""\
@@ -88,6 +116,13 @@
       Description  "StateActiveChild"\
       SFName       ""\
       Path         "CentDoorBtn.DoorCentral.Trigger"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DoorLock"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "CentDoorBtn.DoorCentral.Trigger.DoorLock"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -165,6 +200,27 @@
       Description  "TemporalCounter"\
       SFName       ""\
       Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i7"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorAutoRlsReq_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorAutoRlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorAutoRlsReq_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorAutoRlsReq"\
       SrcLocation  ""\
     }\
     ChartData {\

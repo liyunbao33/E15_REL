@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.84
+ * Model version                  : 1.12
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Wed Sep 13 17:25:42 2023
+ * C/C++ source code generated on : Thu Sep 14 18:44:22 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -40,27 +40,35 @@ typedef struct {
 /* Block states (default storage) for system '<S3>/RLDoorRlsReq' */
 typedef struct {
   uint8 is_active_c5_DoorRlsReq;       /* '<S3>/RLDoorRlsReq' */
-  uint8 is_SwValid;                    /* '<S3>/RLDoorRlsReq' */
   uint8 is_RlsReq;                     /* '<S3>/RLDoorRlsReq' */
   uint8 is_Trigger;                    /* '<S3>/RLDoorRlsReq' */
-  uint8 is_RlsReq_l;                   /* '<S3>/RLDoorRlsReq' */
-  uint8 is_Trigger_l;                  /* '<S3>/RLDoorRlsReq' */
-  uint8 is_SwValid_i;                  /* '<S3>/RLDoorRlsReq' */
-  uint8 is_RlsReq_h;                   /* '<S3>/RLDoorRlsReq' */
-  uint8 is_Trigger_k;                  /* '<S3>/RLDoorRlsReq' */
+  uint8 is_SwValid;                    /* '<S3>/RLDoorRlsReq' */
+  uint8 is_RlsReq_f;                   /* '<S3>/RLDoorRlsReq' */
+  uint8 is_Trigger_p;                  /* '<S3>/RLDoorRlsReq' */
+  uint8 is_DoorLock;                   /* '<S3>/RLDoorRlsReq' */
+  uint8 is_RlsReq_m;                   /* '<S3>/RLDoorRlsReq' */
+  uint8 is_Trigger_i;                  /* '<S3>/RLDoorRlsReq' */
+  uint8 is_SwValid_j;                  /* '<S3>/RLDoorRlsReq' */
+  uint8 is_RlsReq_b;                   /* '<S3>/RLDoorRlsReq' */
+  uint8 is_Trigger_n;                  /* '<S3>/RLDoorRlsReq' */
+  uint8 is_DoorLock_i;                 /* '<S3>/RLDoorRlsReq' */
   uint8 is_DoorCentral;                /* '<S3>/RLDoorRlsReq' */
-  uint8 is_Trigger_b;                  /* '<S3>/RLDoorRlsReq' */
+  uint8 is_Trigger_m;                  /* '<S3>/RLDoorRlsReq' */
+  uint8 is_DoorLock_o;                 /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i1;            /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i2;            /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i3;            /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i4;            /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i5;            /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i6;            /* '<S3>/RLDoorRlsReq' */
+  uint8 temporalCounter_i7;            /* '<S3>/RLDoorRlsReq' */
   boolean SL_b_DoorInBtnValid;         /* '<S3>/RLDoorRlsReq' */
   boolean SL_b_CentSingleDoorBtnValid; /* '<S3>/RLDoorRlsReq' */
   boolean SL_b_CentAllDoorBtnValid;    /* '<S3>/RLDoorRlsReq' */
   boolean SL_b_DoorHndPullValid;       /* '<S3>/RLDoorRlsReq' */
   boolean SL_b_DoorHndBtnValid;        /* '<S3>/RLDoorRlsReq' */
+  boolean SI_b_DoorAutoRlsReq_prev;    /* '<S3>/RLDoorRlsReq' */
+  boolean SI_b_DoorAutoRlsReq_start;   /* '<S3>/RLDoorRlsReq' */
   boolean SI_b_DoorInBtnSts_prev;      /* '<S3>/RLDoorRlsReq' */
   boolean SI_b_DoorInBtnSts_start;     /* '<S3>/RLDoorRlsReq' */
   boolean SL_b_DoorInBtnValid_prev;    /* '<S3>/RLDoorRlsReq' */
@@ -86,15 +94,15 @@ typedef struct tag_B_REL_T {
   uint8 SO_e_DoorRlsDelayTime;         /* '<S3>/RRDoorRlsReq' */
   uint8 SO_e_MotorMode;                /* '<S3>/RRDoorRlsDriver' */
   uint8 SO_e_DoorRatSts;               /* '<S3>/RRDoorRatSts' */
-  uint8 SO_e_DoorRlsDelayTime_o;       /* '<S3>/RLDoorRlsReq' */
-  uint8 SO_e_MotorMode_l;              /* '<S3>/RLDoorRlsDriver' */
-  uint8 SO_e_DoorRatSts_f;             /* '<S3>/RLDoorRatSts' */
-  uint8 SO_e_DoorRlsDelayTime_e;       /* '<S3>/FRDoorRlsReq' */
-  uint8 SO_e_MotorMode_h;              /* '<S3>/FRDoorRlsDriver' */
-  uint8 SO_e_DoorRatSts_d;             /* '<S3>/FRDoorRatSts' */
-  uint8 SO_e_DoorRlsDelayTime_g;       /* '<S3>/FLDoorRlsReq' */
+  uint8 SO_e_DoorRlsDelayTime_e;       /* '<S3>/RLDoorRlsReq' */
+  uint8 SO_e_MotorMode_p;              /* '<S3>/RLDoorRlsDriver' */
+  uint8 SO_e_DoorRatSts_e;             /* '<S3>/RLDoorRatSts' */
+  uint8 SO_e_DoorRlsDelayTime_k;       /* '<S3>/FRDoorRlsReq' */
+  uint8 SO_e_MotorMode_j;              /* '<S3>/FRDoorRlsDriver' */
+  uint8 SO_e_DoorRatSts_ez;            /* '<S3>/FRDoorRatSts' */
+  uint8 SO_e_DoorRlsDelayTime_m;       /* '<S3>/FLDoorRlsReq' */
   uint8 SO_e_MotorMode_d;              /* '<S3>/FLDoorRlsDriver' */
-  uint8 SO_e_DoorRatSts_dw;            /* '<S3>/FLDoorRatSts' */
+  uint8 SO_e_DoorRatSts_k;             /* '<S3>/FLDoorRatSts' */
   boolean Compare;                     /* '<S12>/Compare' */
   Boolean TmpSignalConversionAtVbINP_CAN_;
   Boolean TmpSignalConversionAtVbINP_CA_f;
@@ -102,18 +110,18 @@ typedef struct tag_B_REL_T {
   boolean SO_b_UnlockReq;              /* '<S3>/RRDoorRlsReq' */
   boolean SO_b_MotorA;                 /* '<S3>/RRDoorRlsDriver' */
   boolean SO_b_MotorB;                 /* '<S3>/RRDoorRlsDriver' */
-  boolean SO_b_DoorRlsReq_f;           /* '<S3>/RLDoorRlsReq' */
-  boolean SO_b_UnlockReq_h;            /* '<S3>/RLDoorRlsReq' */
-  boolean SO_b_MotorA_d;               /* '<S3>/RLDoorRlsDriver' */
-  boolean SO_b_MotorB_o;               /* '<S3>/RLDoorRlsDriver' */
-  boolean SO_b_DoorRlsReq_p;           /* '<S3>/FRDoorRlsReq' */
-  boolean SO_b_UnlockReq_b;            /* '<S3>/FRDoorRlsReq' */
-  boolean SO_b_MotorA_b;               /* '<S3>/FRDoorRlsDriver' */
-  boolean SO_b_MotorB_p;               /* '<S3>/FRDoorRlsDriver' */
-  boolean SO_b_DoorRlsReq_fz;          /* '<S3>/FLDoorRlsReq' */
-  boolean SO_b_UnlockReq_m;            /* '<S3>/FLDoorRlsReq' */
-  boolean SO_b_MotorA_p;               /* '<S3>/FLDoorRlsDriver' */
-  boolean SO_b_MotorB_e;               /* '<S3>/FLDoorRlsDriver' */
+  boolean SO_b_DoorRlsReq_j;           /* '<S3>/RLDoorRlsReq' */
+  boolean SO_b_UnlockReq_m;            /* '<S3>/RLDoorRlsReq' */
+  boolean SO_b_MotorA_f;               /* '<S3>/RLDoorRlsDriver' */
+  boolean SO_b_MotorB_f;               /* '<S3>/RLDoorRlsDriver' */
+  boolean SO_b_DoorRlsReq_l;           /* '<S3>/FRDoorRlsReq' */
+  boolean SO_b_UnlockReq_c;            /* '<S3>/FRDoorRlsReq' */
+  boolean SO_b_MotorA_fc;              /* '<S3>/FRDoorRlsDriver' */
+  boolean SO_b_MotorB_b;               /* '<S3>/FRDoorRlsDriver' */
+  boolean SO_b_DoorRlsReq_jt;          /* '<S3>/FLDoorRlsReq' */
+  boolean SO_b_UnlockReq_k;            /* '<S3>/FLDoorRlsReq' */
+  boolean SO_b_MotorA_b;               /* '<S3>/FLDoorRlsDriver' */
+  boolean SO_b_MotorB_m;               /* '<S3>/FLDoorRlsDriver' */
   boolean SL_b_FLDoorInBtnSts;         /* '<S3>/DoorSwSts' */
   boolean SL_b_FRDoorInBtnSts;         /* '<S3>/DoorSwSts' */
   boolean SL_b_RLDoorInBtnSts;         /* '<S3>/DoorSwSts' */
@@ -123,55 +131,66 @@ typedef struct tag_B_REL_T {
   boolean SL_b_FRDoorHndBtnSts;        /* '<S3>/DoorSwSts' */
   boolean SL_b_RLDoorHndBtnSts;        /* '<S3>/DoorSwSts' */
   boolean SL_b_RRDoorHndBtnSts;        /* '<S3>/DoorSwSts' */
-  boolean SO_b_DoorLockSetSts;         /* '<S3>/DoorLockSetSts' */
-  boolean SO_b_EEDoorLockSetSts;       /* '<S3>/DoorLockSetSts' */
+  boolean SO_b_DoorAutoRlsSetSts;      /* '<S3>/DoorLockSetSts' */
+  boolean SO_b_EEDoorAutoRlsSetSts;    /* '<S3>/DoorLockSetSts' */
 } B_REL_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct tag_DW_REL_T {
-  float64 E15;                         /* '<S2>/Data Store Memory' */
+  float64 E15_REL;                     /* '<S3>/Data Store Memory' */
   uint16 temporalCounter_i1;           /* '<S3>/DoorSwSts' */
   uint8 is_active_c6_REL;              /* '<S3>/Unlock_Request' */
   uint8 is_c6_REL;                     /* '<S3>/Unlock_Request' */
   uint8 is_active_c5_DoorRlsReq;       /* '<S3>/FRDoorRlsReq' */
-  uint8 is_SwValid;                    /* '<S3>/FRDoorRlsReq' */
   uint8 is_RlsReq;                     /* '<S3>/FRDoorRlsReq' */
   uint8 is_Trigger;                    /* '<S3>/FRDoorRlsReq' */
-  uint8 is_RlsReq_c;                   /* '<S3>/FRDoorRlsReq' */
-  uint8 is_Trigger_i;                  /* '<S3>/FRDoorRlsReq' */
-  uint8 is_SwValid_i;                  /* '<S3>/FRDoorRlsReq' */
-  uint8 is_RlsReq_j;                   /* '<S3>/FRDoorRlsReq' */
-  uint8 is_Trigger_d;                  /* '<S3>/FRDoorRlsReq' */
-  uint8 is_DoorCentral;                /* '<S3>/FRDoorRlsReq' */
+  uint8 is_SwValid;                    /* '<S3>/FRDoorRlsReq' */
+  uint8 is_RlsReq_o;                   /* '<S3>/FRDoorRlsReq' */
   uint8 is_Trigger_g;                  /* '<S3>/FRDoorRlsReq' */
-  uint8 temporalCounter_i1_f;          /* '<S3>/FRDoorRlsReq' */
+  uint8 is_DoorLock;                   /* '<S3>/FRDoorRlsReq' */
+  uint8 is_RlsReq_k;                   /* '<S3>/FRDoorRlsReq' */
+  uint8 is_Trigger_b;                  /* '<S3>/FRDoorRlsReq' */
+  uint8 is_SwValid_g;                  /* '<S3>/FRDoorRlsReq' */
+  uint8 is_RlsReq_b;                   /* '<S3>/FRDoorRlsReq' */
+  uint8 is_Trigger_bg;                 /* '<S3>/FRDoorRlsReq' */
+  uint8 is_DoorLock_l;                 /* '<S3>/FRDoorRlsReq' */
+  uint8 is_DoorCentral;                /* '<S3>/FRDoorRlsReq' */
+  uint8 is_Trigger_l;                  /* '<S3>/FRDoorRlsReq' */
+  uint8 is_DoorLock_c;                 /* '<S3>/FRDoorRlsReq' */
+  uint8 temporalCounter_i1_e;          /* '<S3>/FRDoorRlsReq' */
   uint8 temporalCounter_i2;            /* '<S3>/FRDoorRlsReq' */
   uint8 temporalCounter_i3;            /* '<S3>/FRDoorRlsReq' */
   uint8 temporalCounter_i4;            /* '<S3>/FRDoorRlsReq' */
   uint8 temporalCounter_i5;            /* '<S3>/FRDoorRlsReq' */
   uint8 temporalCounter_i6;            /* '<S3>/FRDoorRlsReq' */
-  uint8 is_active_c5_DoorRlsReq_m;     /* '<S3>/FLDoorRlsReq' */
-  uint8 is_SwValid_a;                  /* '<S3>/FLDoorRlsReq' */
-  uint8 is_RlsReq_f;                   /* '<S3>/FLDoorRlsReq' */
-  uint8 is_Trigger_b;                  /* '<S3>/FLDoorRlsReq' */
-  uint8 is_RlsReq_n;                   /* '<S3>/FLDoorRlsReq' */
-  uint8 is_Trigger_gs;                 /* '<S3>/FLDoorRlsReq' */
-  uint8 is_SwValid_d;                  /* '<S3>/FLDoorRlsReq' */
-  uint8 is_RlsReq_m;                   /* '<S3>/FLDoorRlsReq' */
-  uint8 is_Trigger_k;                  /* '<S3>/FLDoorRlsReq' */
-  uint8 is_DoorCentral_f;              /* '<S3>/FLDoorRlsReq' */
+  uint8 temporalCounter_i7;            /* '<S3>/FRDoorRlsReq' */
+  uint8 is_active_c5_DoorRlsReq_b;     /* '<S3>/FLDoorRlsReq' */
+  uint8 is_RlsReq_oc;                  /* '<S3>/FLDoorRlsReq' */
+  uint8 is_Trigger_p;                  /* '<S3>/FLDoorRlsReq' */
+  uint8 is_SwValid_l;                  /* '<S3>/FLDoorRlsReq' */
+  uint8 is_RlsReq_d;                   /* '<S3>/FLDoorRlsReq' */
+  uint8 is_Trigger_f;                  /* '<S3>/FLDoorRlsReq' */
+  uint8 is_DoorLock_g;                 /* '<S3>/FLDoorRlsReq' */
+  uint8 is_RlsReq_g;                   /* '<S3>/FLDoorRlsReq' */
+  uint8 is_Trigger_a;                  /* '<S3>/FLDoorRlsReq' */
+  uint8 is_SwValid_c;                  /* '<S3>/FLDoorRlsReq' */
+  uint8 is_RlsReq_e;                   /* '<S3>/FLDoorRlsReq' */
   uint8 is_Trigger_j;                  /* '<S3>/FLDoorRlsReq' */
+  uint8 is_DoorLock_i;                 /* '<S3>/FLDoorRlsReq' */
+  uint8 is_DoorCentral_g;              /* '<S3>/FLDoorRlsReq' */
+  uint8 is_Trigger_fu;                 /* '<S3>/FLDoorRlsReq' */
+  uint8 is_DoorLock_j;                 /* '<S3>/FLDoorRlsReq' */
   uint8 temporalCounter_i1_h;          /* '<S3>/FLDoorRlsReq' */
-  uint8 temporalCounter_i2_c;          /* '<S3>/FLDoorRlsReq' */
-  uint8 temporalCounter_i3_l;          /* '<S3>/FLDoorRlsReq' */
-  uint8 temporalCounter_i4_i;          /* '<S3>/FLDoorRlsReq' */
-  uint8 temporalCounter_i5_c;          /* '<S3>/FLDoorRlsReq' */
-  uint8 temporalCounter_i6_e;          /* '<S3>/FLDoorRlsReq' */
+  uint8 temporalCounter_i2_d;          /* '<S3>/FLDoorRlsReq' */
+  uint8 temporalCounter_i3_b;          /* '<S3>/FLDoorRlsReq' */
+  uint8 temporalCounter_i4_k;          /* '<S3>/FLDoorRlsReq' */
+  uint8 temporalCounter_i5_h;          /* '<S3>/FLDoorRlsReq' */
+  uint8 temporalCounter_i6_i;          /* '<S3>/FLDoorRlsReq' */
+  uint8 temporalCounter_i7_l;          /* '<S3>/FLDoorRlsReq' */
   uint8 is_active_c23_REL;             /* '<S3>/DoorSwSts' */
   uint8 is_c23_REL;                    /* '<S3>/DoorSwSts' */
   uint8 is_active_c1_REL;              /* '<S3>/DoorLockSetSts' */
-  uint8 is_c1_REL;                     /* '<S3>/DoorLockSetSts' */
-  uint8 temporalCounter_i1_k;          /* '<S3>/DoorLockSetSts' */
+  uint8 SL_e_DoorAutoRlsSetBackup;     /* '<S3>/DoorLockSetSts' */
   boolean SI_b_DrvUnlockReq_prev;      /* '<S3>/Unlock_Request' */
   boolean SI_b_DrvUnlockReq_start;     /* '<S3>/Unlock_Request' */
   boolean SI_b_PassUnlockReq_prev;     /* '<S3>/Unlock_Request' */
@@ -181,6 +200,8 @@ typedef struct tag_DW_REL_T {
   boolean SL_b_CentAllDoorBtnValid;    /* '<S3>/FRDoorRlsReq' */
   boolean SL_b_DoorHndPullValid;       /* '<S3>/FRDoorRlsReq' */
   boolean SL_b_DoorHndBtnValid;        /* '<S3>/FRDoorRlsReq' */
+  boolean SI_b_DoorAutoRlsReq_prev;    /* '<S3>/FRDoorRlsReq' */
+  boolean SI_b_DoorAutoRlsReq_start;   /* '<S3>/FRDoorRlsReq' */
   boolean SI_b_DoorInBtnSts_prev;      /* '<S3>/FRDoorRlsReq' */
   boolean SI_b_DoorInBtnSts_start;     /* '<S3>/FRDoorRlsReq' */
   boolean SL_b_DoorInBtnValid_prev;    /* '<S3>/FRDoorRlsReq' */
@@ -195,25 +216,27 @@ typedef struct tag_DW_REL_T {
   boolean SL_b_CentSingleDoorBtnValid_sta;/* '<S3>/FRDoorRlsReq' */
   boolean SL_b_CentAllDoorBtnValid_prev;/* '<S3>/FRDoorRlsReq' */
   boolean SL_b_CentAllDoorBtnValid_start;/* '<S3>/FRDoorRlsReq' */
-  boolean SL_b_DoorInBtnValid_f;       /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_CentSingleDoorBtnValid_h;/* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_CentAllDoorBtnValid_d;  /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorHndPullValid_p;     /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorHndBtnValid_c;      /* '<S3>/FLDoorRlsReq' */
-  boolean SI_b_DoorInBtnSts_prev_a;    /* '<S3>/FLDoorRlsReq' */
-  boolean SI_b_DoorInBtnSts_start_n;   /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorInBtnValid_prev_h;  /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorInBtnValid_start_l; /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorHndPullValid_prev_g;/* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorHndPullValid_start_m;/* '<S3>/FLDoorRlsReq' */
-  boolean SI_b_DoorHndBtnSts_prev_p;   /* '<S3>/FLDoorRlsReq' */
-  boolean SI_b_DoorHndBtnSts_start_e;  /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid_b;       /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_CentSingleDoorBtnValid_p;/* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_CentAllDoorBtnValid_h;  /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid_h;     /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid_i;      /* '<S3>/FLDoorRlsReq' */
+  boolean SI_b_DoorAutoRlsReq_prev_c;  /* '<S3>/FLDoorRlsReq' */
+  boolean SI_b_DoorAutoRlsReq_start_h; /* '<S3>/FLDoorRlsReq' */
+  boolean SI_b_DoorInBtnSts_prev_e;    /* '<S3>/FLDoorRlsReq' */
+  boolean SI_b_DoorInBtnSts_start_k;   /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid_prev_b;  /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorInBtnValid_start_o; /* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid_prev_a;/* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndPullValid_start_d;/* '<S3>/FLDoorRlsReq' */
+  boolean SI_b_DoorHndBtnSts_prev_h;   /* '<S3>/FLDoorRlsReq' */
+  boolean SI_b_DoorHndBtnSts_start_n;  /* '<S3>/FLDoorRlsReq' */
   boolean SL_b_DoorHndBtnValid_prev_n; /* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_DoorHndBtnValid_start_k;/* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_CentSingleDoorBtnValid_p_a;/* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_CentSingleDoorBtnValid_s_n;/* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_CentAllDoorBtnValid_prev_j;/* '<S3>/FLDoorRlsReq' */
-  boolean SL_b_CentAllDoorBtnValid_star_k;/* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_DoorHndBtnValid_start_d;/* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_CentSingleDoorBtnValid_p_d;/* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_CentSingleDoorBtnValid_s_g;/* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_CentAllDoorBtnValid_prev_o;/* '<S3>/FLDoorRlsReq' */
+  boolean SL_b_CentAllDoorBtnValid_star_g;/* '<S3>/FLDoorRlsReq' */
   boolean SI_b_CrashSts_prev;          /* '<S3>/DoorSwSts' */
   boolean SI_b_CrashSts_start;         /* '<S3>/DoorSwSts' */
   DW_RLDoorRlsReq_REL_T sf_RRDoorRlsReq;/* '<S3>/RRDoorRlsReq' */

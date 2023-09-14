@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   3 \
+    NumChartData   2 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -21,17 +21,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_c1_REL"\
-      Description  "StateActiveChild"\
+      Name         "SL_e_DoorAutoRlsSetBackup"\
+      Description  "ChartLocal"\
       SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "temporalCounter_i1"\
-      Description  "TemporalCounter"\
-      SFName       ""\
-      Path         ""\
+      Path         "SL_e_DoorAutoRlsSetBackup"\
       SrcLocation  ""\
     }\
   }
