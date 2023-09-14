@@ -19,16 +19,16 @@
 %function GlobalMachineInitializer(block) void
   %openfile tmpFcnBuf
   %<DumpMachineInitializer(block)>\
-  %if FILE_EXISTS("DoorRlsDriver_rtw.tlc")
-    %generatefile "machineSource" "DoorRlsDriver_rtw.tlc"
+  %if FILE_EXISTS("DoorRlsReq_rtw.tlc")
+    %generatefile "machineSource" "DoorRlsReq_rtw.tlc"
     %<GENERATE_TYPE(block,"DumpMachineInitializer","machineSource")>\
   %endif
   %if FILE_EXISTS("DoorRatSts_rtw.tlc")
     %generatefile "machineSource" "DoorRatSts_rtw.tlc"
     %<GENERATE_TYPE(block,"DumpMachineInitializer","machineSource")>\
   %endif
-  %if FILE_EXISTS("DoorRlsReq_rtw.tlc")
-    %generatefile "machineSource" "DoorRlsReq_rtw.tlc"
+  %if FILE_EXISTS("DoorRlsDriver_rtw.tlc")
+    %generatefile "machineSource" "DoorRlsDriver_rtw.tlc"
     %<GENERATE_TYPE(block,"DumpMachineInitializer","machineSource")>\
   %endif
   %closefile tmpFcnBuf
@@ -48,11 +48,11 @@
 %function GlobalMachineTerminator(block) void
   %openfile tmpFcnBuf
   %<DumpMachineTerminator(block)>\
-  %generatefile "machineSource" "DoorRlsDriver_rtw.tlc"
+  %generatefile "machineSource" "DoorRlsReq_rtw.tlc"
   %<GENERATE_TYPE(block,"DumpMachineTerminator","machineSource")>\
   %generatefile "machineSource" "DoorRatSts_rtw.tlc"
   %<GENERATE_TYPE(block,"DumpMachineTerminator","machineSource")>\
-  %generatefile "machineSource" "DoorRlsReq_rtw.tlc"
+  %generatefile "machineSource" "DoorRlsDriver_rtw.tlc"
   %<GENERATE_TYPE(block,"DumpMachineTerminator","machineSource")>\
   %closefile tmpFcnBuf
   %return tmpFcnBuf              
