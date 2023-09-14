@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.96
+ * Model version                  : 1.106
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep 14 11:22:34 2023
+ * C/C++ source code generated on : Thu Sep 14 16:24:21 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -140,7 +140,7 @@ typedef struct {
   uint8_T is_active_c23_REL;           /* '<S3>/DoorSwSts' */
   uint8_T is_c23_REL;                  /* '<S3>/DoorSwSts' */
   uint8_T is_active_c1_REL;            /* '<S3>/DoorLockSetSts' */
-  uint8_T SL_e_DoorLockSetBackup;      /* '<S3>/DoorLockSetSts' */
+  uint8_T SL_e_DoorAutoRlsSetBackup;   /* '<S3>/DoorLockSetSts' */
   boolean_T SI_b_DrvUnlockReq_start;   /* '<S3>/Unlock_Request' */
   boolean_T SI_b_PassUnlockReq_start;  /* '<S3>/Unlock_Request' */
   boolean_T SL_b_DoorInBtnValid;       /* '<S3>/FRDoorRlsReq' */

@@ -21,10 +21,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SL_e_DoorLockSetBackup"\
+      Name         "SL_e_DoorAutoRlsSetBackup"\
       Description  "ChartLocal"\
       SFName       ""\
-      Path         "SL_e_DoorLockSetBackup"\
+      Path         "SL_e_DoorAutoRlsSetBackup"\
       SrcLocation  ""\
     }\
   }
