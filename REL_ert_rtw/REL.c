@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.95
+ * Model version                  : 1.96
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep 14 11:01:08 2023
+ * C/C++ source code generated on : Thu Sep 14 11:22:34 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -1537,7 +1537,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
       }
     }
   } else if ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 1) ||
-             ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 0) &&
+             ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si != 2) &&
               (REL_DW.SL_e_DoorLockSetBackup == 1))) {
     /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
     REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = true;
@@ -1546,7 +1546,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_m = true;
     REL_DW.SL_e_DoorLockSetBackup = 1U;
   } else if ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 2) ||
-             ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 0) &&
+             ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si != 1) &&
               (REL_DW.SL_e_DoorLockSetBackup == 2))) {
     /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
     REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = false;
