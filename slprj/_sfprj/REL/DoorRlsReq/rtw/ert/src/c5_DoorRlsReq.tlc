@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   41 \
+    NumChartData   44 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -56,6 +56,13 @@
       SrcLocation  ""\
     }\
     ChartData {\
+      Name         "is_DoorLock"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorInBtn.RlsReq.Trigger.DoorLock"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
       Name         "is_RlsReq"\
       Description  "StateActiveChild"\
       SFName       ""\
@@ -91,6 +98,13 @@
       SrcLocation  ""\
     }\
     ChartData {\
+      Name         "is_DoorLock"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorHndBtn.RlsReq.Trigger.DoorLock"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
       Name         "is_DoorCentral"\
       Description  "StateActiveChild"\
       SFName       ""\
@@ -102,6 +116,13 @@
       Description  "StateActiveChild"\
       SFName       ""\
       Path         "CentDoorBtn.DoorCentral.Trigger"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DoorLock"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "CentDoorBtn.DoorCentral.Trigger.DoorLock"\
       SrcLocation  ""\
     }\
     ChartData {\
