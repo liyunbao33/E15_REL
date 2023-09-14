@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.12
+ * Model version                  : 1.30
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep 14 18:44:22 2023
+ * C/C++ source code generated on : Thu Sep 14 23:14:41 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -90,7 +90,6 @@ typedef struct tag_B_REL_T {
   UInt8 TmpSignalConversionAtVeOUT_SP_E;
   UInt8 TmpSignalConversionAtVeINP_CAN_;
   UInt8 TmpSignalConversionAtVeOUT_DLK_;
-  uint8 SO_e_UnlockReq;                /* '<S3>/Unlock_Request' */
   uint8 SO_e_DoorRlsDelayTime;         /* '<S3>/RRDoorRlsReq' */
   uint8 SO_e_MotorMode;                /* '<S3>/RRDoorRlsDriver' */
   uint8 SO_e_DoorRatSts;               /* '<S3>/RRDoorRatSts' */
@@ -108,18 +107,22 @@ typedef struct tag_B_REL_T {
   Boolean TmpSignalConversionAtVbINP_CA_f;
   boolean SO_b_DoorRlsReq;             /* '<S3>/RRDoorRlsReq' */
   boolean SO_b_UnlockReq;              /* '<S3>/RRDoorRlsReq' */
+  boolean SO_b_PEUnlockReq;            /* '<S3>/RRDoorRlsReq' */
   boolean SO_b_MotorA;                 /* '<S3>/RRDoorRlsDriver' */
   boolean SO_b_MotorB;                 /* '<S3>/RRDoorRlsDriver' */
   boolean SO_b_DoorRlsReq_j;           /* '<S3>/RLDoorRlsReq' */
   boolean SO_b_UnlockReq_m;            /* '<S3>/RLDoorRlsReq' */
+  boolean SO_b_PEUnlockReq_i;          /* '<S3>/RLDoorRlsReq' */
   boolean SO_b_MotorA_f;               /* '<S3>/RLDoorRlsDriver' */
   boolean SO_b_MotorB_f;               /* '<S3>/RLDoorRlsDriver' */
   boolean SO_b_DoorRlsReq_l;           /* '<S3>/FRDoorRlsReq' */
   boolean SO_b_UnlockReq_c;            /* '<S3>/FRDoorRlsReq' */
+  boolean SO_b_PEUnlockReq_e;          /* '<S3>/FRDoorRlsReq' */
   boolean SO_b_MotorA_fc;              /* '<S3>/FRDoorRlsDriver' */
   boolean SO_b_MotorB_b;               /* '<S3>/FRDoorRlsDriver' */
   boolean SO_b_DoorRlsReq_jt;          /* '<S3>/FLDoorRlsReq' */
   boolean SO_b_UnlockReq_k;            /* '<S3>/FLDoorRlsReq' */
+  boolean SO_b_PEUnlockReq_g;          /* '<S3>/FLDoorRlsReq' */
   boolean SO_b_MotorA_b;               /* '<S3>/FLDoorRlsDriver' */
   boolean SO_b_MotorB_m;               /* '<S3>/FLDoorRlsDriver' */
   boolean SL_b_FLDoorInBtnSts;         /* '<S3>/DoorSwSts' */
@@ -140,7 +143,6 @@ typedef struct tag_DW_REL_T {
   float64 E15_REL;                     /* '<S3>/Data Store Memory' */
   uint16 temporalCounter_i1;           /* '<S3>/DoorSwSts' */
   uint8 is_active_c6_REL;              /* '<S3>/Unlock_Request' */
-  uint8 is_c6_REL;                     /* '<S3>/Unlock_Request' */
   uint8 is_active_c5_DoorRlsReq;       /* '<S3>/FRDoorRlsReq' */
   uint8 is_RlsReq;                     /* '<S3>/FRDoorRlsReq' */
   uint8 is_Trigger;                    /* '<S3>/FRDoorRlsReq' */
@@ -191,10 +193,6 @@ typedef struct tag_DW_REL_T {
   uint8 is_c23_REL;                    /* '<S3>/DoorSwSts' */
   uint8 is_active_c1_REL;              /* '<S3>/DoorLockSetSts' */
   uint8 SL_e_DoorAutoRlsSetBackup;     /* '<S3>/DoorLockSetSts' */
-  boolean SI_b_DrvUnlockReq_prev;      /* '<S3>/Unlock_Request' */
-  boolean SI_b_DrvUnlockReq_start;     /* '<S3>/Unlock_Request' */
-  boolean SI_b_PassUnlockReq_prev;     /* '<S3>/Unlock_Request' */
-  boolean SI_b_PassUnlockReq_start;    /* '<S3>/Unlock_Request' */
   boolean SL_b_DoorInBtnValid;         /* '<S3>/FRDoorRlsReq' */
   boolean SL_b_CentSingleDoorBtnValid; /* '<S3>/FRDoorRlsReq' */
   boolean SL_b_CentAllDoorBtnValid;    /* '<S3>/FRDoorRlsReq' */

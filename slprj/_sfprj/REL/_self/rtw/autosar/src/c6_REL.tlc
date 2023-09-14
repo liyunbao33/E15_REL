@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   6 \
+    NumChartData   1 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -18,41 +18,6 @@
       Description  "StateIsActive"\
       SFName       ""\
       Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_c6_REL"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DrvUnlockReq_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DrvUnlockReq"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DrvUnlockReq_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DrvUnlockReq"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_PassUnlockReq_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_PassUnlockReq"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_PassUnlockReq_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_PassUnlockReq"\
       SrcLocation  ""\
     }\
   }
