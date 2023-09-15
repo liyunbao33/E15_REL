@@ -5,7 +5,7 @@
  *
  * Model version                  : 1.30
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Fri Sep 15 14:02:15 2023
+ * C/C++ source code generated on : Fri Sep 15 14:19:50 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -39,6 +39,9 @@ typedef struct {
 
 /* Block states (default storage) for system '<S3>/RLDoorRlsReq' */
 typedef struct {
+  uint16 temporalCounter_i1;           /* '<S3>/RLDoorRlsReq' */
+  uint16 temporalCounter_i2;           /* '<S3>/RLDoorRlsReq' */
+  uint16 temporalCounter_i3;           /* '<S3>/RLDoorRlsReq' */
   uint8 is_active_c5_DoorRlsReq;       /* '<S3>/RLDoorRlsReq' */
   uint8 is_RlsReq;                     /* '<S3>/RLDoorRlsReq' */
   uint8 is_Trigger;                    /* '<S3>/RLDoorRlsReq' */
@@ -55,9 +58,6 @@ typedef struct {
   uint8 is_DoorCentral;                /* '<S3>/RLDoorRlsReq' */
   uint8 is_Trigger_m;                  /* '<S3>/RLDoorRlsReq' */
   uint8 is_DoorLock_o;                 /* '<S3>/RLDoorRlsReq' */
-  uint8 temporalCounter_i1;            /* '<S3>/RLDoorRlsReq' */
-  uint8 temporalCounter_i2;            /* '<S3>/RLDoorRlsReq' */
-  uint8 temporalCounter_i3;            /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i4;            /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i5;            /* '<S3>/RLDoorRlsReq' */
   uint8 temporalCounter_i6;            /* '<S3>/RLDoorRlsReq' */
@@ -141,7 +141,13 @@ typedef struct tag_B_REL_T {
 /* Block states (default storage) for system '<Root>' */
 typedef struct tag_DW_REL_T {
   float64 E15_REL;                     /* '<S3>/Data Store Memory' */
-  uint16 temporalCounter_i1;           /* '<S3>/DoorSwSts' */
+  uint16 temporalCounter_i1;           /* '<S3>/FRDoorRlsReq' */
+  uint16 temporalCounter_i2;           /* '<S3>/FRDoorRlsReq' */
+  uint16 temporalCounter_i3;           /* '<S3>/FRDoorRlsReq' */
+  uint16 temporalCounter_i1_h;         /* '<S3>/FLDoorRlsReq' */
+  uint16 temporalCounter_i2_d;         /* '<S3>/FLDoorRlsReq' */
+  uint16 temporalCounter_i3_b;         /* '<S3>/FLDoorRlsReq' */
+  uint16 temporalCounter_i1_hf;        /* '<S3>/DoorSwSts' */
   uint8 is_active_c6_REL;              /* '<S3>/Unlock_Request' */
   uint8 is_active_c5_DoorRlsReq;       /* '<S3>/FRDoorRlsReq' */
   uint8 is_RlsReq;                     /* '<S3>/FRDoorRlsReq' */
@@ -159,9 +165,6 @@ typedef struct tag_DW_REL_T {
   uint8 is_DoorCentral;                /* '<S3>/FRDoorRlsReq' */
   uint8 is_Trigger_l;                  /* '<S3>/FRDoorRlsReq' */
   uint8 is_DoorLock_c;                 /* '<S3>/FRDoorRlsReq' */
-  uint8 temporalCounter_i1_e;          /* '<S3>/FRDoorRlsReq' */
-  uint8 temporalCounter_i2;            /* '<S3>/FRDoorRlsReq' */
-  uint8 temporalCounter_i3;            /* '<S3>/FRDoorRlsReq' */
   uint8 temporalCounter_i4;            /* '<S3>/FRDoorRlsReq' */
   uint8 temporalCounter_i5;            /* '<S3>/FRDoorRlsReq' */
   uint8 temporalCounter_i6;            /* '<S3>/FRDoorRlsReq' */
@@ -182,9 +185,6 @@ typedef struct tag_DW_REL_T {
   uint8 is_DoorCentral_g;              /* '<S3>/FLDoorRlsReq' */
   uint8 is_Trigger_fu;                 /* '<S3>/FLDoorRlsReq' */
   uint8 is_DoorLock_j;                 /* '<S3>/FLDoorRlsReq' */
-  uint8 temporalCounter_i1_h;          /* '<S3>/FLDoorRlsReq' */
-  uint8 temporalCounter_i2_d;          /* '<S3>/FLDoorRlsReq' */
-  uint8 temporalCounter_i3_b;          /* '<S3>/FLDoorRlsReq' */
   uint8 temporalCounter_i4_k;          /* '<S3>/FLDoorRlsReq' */
   uint8 temporalCounter_i5_h;          /* '<S3>/FLDoorRlsReq' */
   uint8 temporalCounter_i6_i;          /* '<S3>/FLDoorRlsReq' */
