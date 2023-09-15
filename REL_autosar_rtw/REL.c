@@ -5,7 +5,7 @@
  *
  * Model version                  : 1.30
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep 14 23:14:41 2023
+ * C/C++ source code generated on : Fri Sep 15 14:02:15 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -484,7 +484,7 @@ static void REL_DoorHndBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
         if (rtu_SI_e_DoorLockSts == 1) {
           localDW->is_DoorLock_i = REL_IN_UnlockSucess;
         } else if ((localDW->temporalCounter_i2 >= 50) && (rtu_SI_e_DoorLockSts ==
-                    1)) {
+                    0)) {
           localDW->is_DoorLock_i = REL_IN_UnlockFail;
         } else {
           *rty_SO_b_PEUnlockReq = ((localDW->temporalCounter_i2 != 5) &&
@@ -720,7 +720,7 @@ void REL_RLDoorRlsReq(boolean rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
           if (rtu_SI_e_DoorLockSts == 1) {
             localDW->is_DoorLock_o = REL_IN_UnlockSucess;
           } else if ((localDW->temporalCounter_i3 >= 50) &&
-                     (rtu_SI_e_DoorLockSts == 1)) {
+                     (rtu_SI_e_DoorLockSts == 0)) {
             localDW->is_DoorLock_o = REL_IN_UnlockFail;
           } else {
             *rty_SO_b_UnlockReq = ((localDW->temporalCounter_i3 != 5) &&
@@ -1103,7 +1103,7 @@ static void REL_DoorHndBtn_k(void)
        case REL_IN_UnlockReq_k:
         if (tmpRead == 1) {
           REL_DW.is_DoorLock_i = REL_IN_UnlockSucess_a;
-        } else if ((REL_DW.temporalCounter_i2_d >= 50) && (tmpRead == 1)) {
+        } else if ((REL_DW.temporalCounter_i2_d >= 50) && (tmpRead == 0)) {
           REL_DW.is_DoorLock_i = REL_IN_UnlockFail_i;
         } else {
           REL_B.SO_b_PEUnlockReq_g = ((REL_DW.temporalCounter_i2_d != 5) &&
@@ -1369,7 +1369,7 @@ static void REL_DoorHndBtn_c(void)
         if (REL_B.TmpSignalConversionAtVeOUT_DLK_ == 1) {
           REL_DW.is_DoorLock_l = REL_IN_UnlockSucess_a;
         } else if ((REL_DW.temporalCounter_i2 >= 50) &&
-                   (REL_B.TmpSignalConversionAtVeOUT_DLK_ == 1)) {
+                   (REL_B.TmpSignalConversionAtVeOUT_DLK_ == 0)) {
           REL_DW.is_DoorLock_l = REL_IN_UnlockFail_i;
         } else {
           REL_B.SO_b_PEUnlockReq_e = ((REL_DW.temporalCounter_i2 != 5) &&
@@ -1834,7 +1834,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
          case REL_IN_UnlockReq_k:
           if (tmpRead_1 == 1) {
             REL_DW.is_DoorLock_j = REL_IN_UnlockSucess_a;
-          } else if ((REL_DW.temporalCounter_i3_b >= 50) && (tmpRead_1 == 1)) {
+          } else if ((REL_DW.temporalCounter_i3_b >= 50) && (tmpRead_1 == 0)) {
             REL_DW.is_DoorLock_j = REL_IN_UnlockFail_i;
           } else {
             REL_B.SO_b_UnlockReq_k = ((REL_DW.temporalCounter_i3_b != 5) &&
@@ -2130,7 +2130,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
           if (REL_B.TmpSignalConversionAtVeOUT_DLK_ == 1) {
             REL_DW.is_DoorLock_c = REL_IN_UnlockSucess_a;
           } else if ((REL_DW.temporalCounter_i3 >= 50) &&
-                     (REL_B.TmpSignalConversionAtVeOUT_DLK_ == 1)) {
+                     (REL_B.TmpSignalConversionAtVeOUT_DLK_ == 0)) {
             REL_DW.is_DoorLock_c = REL_IN_UnlockFail_i;
           } else {
             REL_B.SO_b_UnlockReq_c = ((REL_DW.temporalCounter_i3 != 5) &&
