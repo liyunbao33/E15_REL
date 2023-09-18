@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   49 \
+    NumChartData   44 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -158,41 +158,6 @@
       Description  "ChartLocal"\
       SFName       ""\
       Path         "SL_b_DoorHndBtnValid"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SL_b_DoorRlsReq1"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "SL_b_DoorRlsReq1"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SL_b_DoorRlsReq2"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "SL_b_DoorRlsReq2"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SL_b_DoorRlsReq3"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "SL_b_DoorRlsReq3"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SL_b_DoorRlsReq4"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "SL_b_DoorRlsReq4"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SL_b_DoorRlsReq5"\
-      Description  "ChartLocal"\
-      SFName       ""\
-      Path         "SL_b_DoorRlsReq5"\
       SrcLocation  ""\
     }\
     ChartData {\
