@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   9 \
+    NumChartData   10 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -53,6 +53,13 @@
       Description  "ChartLocal"\
       SFName       ""\
       Path         "SL_e_CheckCycle"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_e_DoorRlsDelayTime"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_e_DoorRlsDelayTime"\
       SrcLocation  ""\
     }\
     ChartData {\
