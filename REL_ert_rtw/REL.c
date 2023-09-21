@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.31
+ * Model version                  : 1.39
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Tue Sep 19 16:42:13 2023
+ * C/C++ source code generated on : Thu Sep 21 14:41:46 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -1645,7 +1645,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
    */
   REL_Y.VeOUT_REL_BcmDrvrDoorSwtSts_sig = SL_b_FLDoorInBtnSts;
 
-  /* Chart: '<S3>/DoorLockSetSts' incorporates:
+  /* Chart: '<S3>/DoorAutoRlsSts' incorporates:
    *  Inport: '<Root>/VeINP_CAN_CdcDrvrDoorLockSet_sig_VeINP_CAN_CdcDrvrDoorLockSet_sig'
    *  Inport: '<Root>/VeINP_EPRM_BdcDrvrDoorLockSetSts_sig_VeINP_EPRM_BdcDrvrDoorLockSetSts_sig'
    */
@@ -1653,15 +1653,18 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     REL_DW.is_active_c1_REL = 1U;
 
     /*  DoorLockSet  */
-    REL_DW.SL_e_DoorAutoRlsSetBackup = 0U;
-    if (REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 1) {
+    if ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 1) ||
+        ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si != 2) &&
+         (REL_DW.SL_e_DoorAutoRlsSetBackup == 1))) {
       /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
       REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = true;
 
       /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg_VbOUT_REL_BdcDrvrDoorLockSetStsToEE_flg' */
       REL_Y.VbOUT_REL_BdcDrvrDoorLockSetS_j = true;
       REL_DW.SL_e_DoorAutoRlsSetBackup = 1U;
-    } else if (REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 2) {
+    } else if ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si == 2) ||
+               ((REL_U.VeINP_CAN_CdcDrvrDoorLockSet_si != 1) &&
+                (REL_DW.SL_e_DoorAutoRlsSetBackup == 2))) {
       /* Outport: '<Root>/VbOUT_REL_BdcDrvrDoorLockSetSts_flg_VbOUT_REL_BdcDrvrDoorLockSetSts_flg' */
       REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts = false;
 
@@ -1725,7 +1728,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
     }
   }
 
-  /* End of Chart: '<S3>/DoorLockSetSts' */
+  /* End of Chart: '<S3>/DoorAutoRlsSts' */
 
   /* Truth Table: '<S3>/FLDoorRatSts' incorporates:
    *  Inport: '<Root>/VbINP_HWA_FLDoorAjar_flg_VbINP_HWA_FLDoorAjar_flg'
