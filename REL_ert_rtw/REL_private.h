@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.53
+ * Model version                  : 1.58
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Fri Sep 22 16:25:14 2023
+ * C/C++ source code generated on : Fri Sep 22 17:31:53 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -22,11 +22,12 @@
 extern void REL_FLDoorRatSts(Boolean rtu_SI_b_DoorOpen, uint8_T
   *rty_SO_e_DoorRatSts);
 extern void REL_FLDoorRlsDriver_Init(boolean_T *rty_SO_b_MotorA, boolean_T
-  *rty_SO_b_MotorB, uint8_T *rty_SO_e_MotorMode, boolean_T *rty_SO_b_Error,
+  *rty_SO_b_MotorB, uint8_T *rty_SO_e_MotorCmd, boolean_T *rty_SO_b_Error,
   uint8_T *rty_SO_e_MotorPwm);
 extern void REL_FLDoorRlsDriver(boolean_T rtu_SO_b_DoorRlsReq, Boolean
-  rtu_SI_b_DoorAjar, uint8_T rtu_SI_e_DoorRlsDelayTime, boolean_T
-  *rty_SO_b_MotorA, boolean_T *rty_SO_b_MotorB, uint8_T *rty_SO_e_MotorMode,
+  rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome, Boolean rtu_SI_b_ElecDoorCfg,
+  uint8_T rtu_SI_e_DoorRlsDelayTime, boolean_T *rty_SO_b_MotorA, boolean_T
+  *rty_SO_b_MotorB, uint8_T *rty_SO_e_MotorCmd, boolean_T *rty_SO_b_Error,
   uint8_T *rty_SO_e_MotorPwm, DW_FLDoorRlsDriver_REL_T *localDW);
 extern void REL_RLDoorRlsReq_Init(boolean_T *rty_SO_b_DoorRlsReq, uint8_T
   *rty_SO_e_DoorRlsDelayTime, boolean_T *rty_SO_b_UnlockReq, boolean_T
