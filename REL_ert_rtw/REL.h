@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.83
+ * Model version                  : 1.86
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 11:15:10 2023
+ * C/C++ source code generated on : Mon Sep 25 12:24:35 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -113,9 +113,9 @@ typedef struct {
   boolean_T SO_b_PEUnlockReq_e;        /* '<S3>/FRDoorRlsReq' */
   boolean_T SO_b_UnlockReq_k;          /* '<S3>/FLDoorRlsReq' */
   boolean_T SO_b_PEUnlockReq_g;        /* '<S3>/FLDoorRlsReq' */
-  Motor_Cmd_E SO_e_MotorCmd;           /* '<S3>/RRDoorRlsDriver' */
-  Motor_Cmd_E SO_e_MotorCmd_c;         /* '<S3>/RLDoorRlsDriver' */
-  Motor_Cmd_E SO_e_MotorCmd_e;         /* '<S3>/FRDoorRlsDriver' */
+  Mot_Cmd_E SO_e_MotorCmd;             /* '<S3>/RRDoorRlsDriver' */
+  Mot_Cmd_E SO_e_MotorCmd_c;           /* '<S3>/RLDoorRlsDriver' */
+  Mot_Cmd_E SO_e_MotorCmd_e;           /* '<S3>/FRDoorRlsDriver' */
 } B_REL_T;
 
 /* Block states (default storage) for system '<Root>' */

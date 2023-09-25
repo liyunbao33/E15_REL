@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.83
+ * Model version                  : 1.86
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 11:15:10 2023
+ * C/C++ source code generated on : Mon Sep 25 12:24:35 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -19,27 +19,27 @@
 #include "rtwtypes.h"
 
 /* Model Code Variants */
-#ifndef DEFINED_TYPEDEF_FOR_DoorRat_Sts_E_
-#define DEFINED_TYPEDEF_FOR_DoorRat_Sts_E_
+#ifndef DEFINED_TYPEDEF_FOR_Rat_Sts_E_
+#define DEFINED_TYPEDEF_FOR_Rat_Sts_E_
 
-typedef uint8_T DoorRat_Sts_E;
+typedef uint8_T Rat_Sts_E;
 
-/* enum DoorRat_Sts_E */
-#define Invalid                        ((DoorRat_Sts_E)0U)       /* Default value */
-#define All_Lock                       ((DoorRat_Sts_E)1U)
-#define Half_Lock                      ((DoorRat_Sts_E)2U)
-#define Unlock                         ((DoorRat_Sts_E)3U)
+/* enum Rat_Sts_E */
+#define Rat_Invalid                    ((Rat_Sts_E)0U)           /* Default value */
+#define Rat_All_Lock                   ((Rat_Sts_E)1U)
+#define Rat_Half_Lock                  ((Rat_Sts_E)2U)
+#define Rat_Unlock                     ((Rat_Sts_E)3U)
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_Motor_Cmd_E_
-#define DEFINED_TYPEDEF_FOR_Motor_Cmd_E_
+#ifndef DEFINED_TYPEDEF_FOR_Mot_Cmd_E_
+#define DEFINED_TYPEDEF_FOR_Mot_Cmd_E_
 
-typedef uint8_T Motor_Cmd_E;
+typedef uint8_T Mot_Cmd_E;
 
-/* enum Motor_Cmd_E */
-#define Stop                           ((Motor_Cmd_E)0U)         /* Default value */
-#define Rls                            ((Motor_Cmd_E)1U)
-#define Reset                          ((Motor_Cmd_E)2U)
+/* enum Mot_Cmd_E */
+#define Stop                           ((Mot_Cmd_E)0U)           /* Default value */
+#define Rls                            ((Mot_Cmd_E)1U)
+#define Reset                          ((Mot_Cmd_E)2U)
 #endif
 
 /* Forward declaration for rtModel */
