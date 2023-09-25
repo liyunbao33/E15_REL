@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.90
+ * Model version                  : 1.112
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 14:16:19 2023
+ * C/C++ source code generated on : Mon Sep 25 14:48:27 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -110,13 +110,13 @@ static void REL_DoorInBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
   rtu_SI_b_EspVehSpdVld, Gear_Posn_E rtu_SI_e_VcuGearPosn, Door_Sts_E
   rtu_SI_e_DoorLockSts, Rat_Sts_E rtu_SI_e_DoorRatSts, Boolean
   rtu_SI_b_ChildLckSts, boolean_T *rty_SO_b_DoorRlsReq, uint8_T
-  *rty_SO_e_DoorRlsDelayTime, boolean_T *rty_SO_b_UnlockReq,
+  *rty_SO_e_DoorRlsDelayTime, Unlock_Req_E *rty_SO_b_UnlockReq,
   DW_RLDoorRlsReq_REL_T *localDW);
 static void REL_DoorHndBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
   rtu_SI_b_EspVehSpdVld, Gear_Posn_E rtu_SI_e_VcuGearPosn, Door_Sts_E
   rtu_SI_e_DoorLockSts, Rat_Sts_E rtu_SI_e_DoorRatSts, boolean_T
-  *rty_SO_b_DoorRlsReq, boolean_T *rty_SO_b_PEUnlockReq, DW_RLDoorRlsReq_REL_T
-  *localDW);
+  *rty_SO_b_DoorRlsReq, Unlock_Req_E *rty_SO_b_UnlockReq, DW_RLDoorRlsReq_REL_T *
+  localDW);
 
 /* Forward declaration for local functions */
 static void REL_enter_atomic_NoCrash(boolean_T *SL_b_FRDoorInBtnSts, boolean_T
@@ -137,6 +137,8 @@ static void REL_DoorHndBtn_k(const boolean_T *SI_b_DoorHndBtnSts_prev_f, const
   boolean_T *SL_b_DoorHndBtnValid_prev_m, const Gear_Posn_E
   *DataTypeConversion14, const Rat_Sts_E *SO_e_FLDoorRatSts, const Door_Sts_E
   *DataTypeConversion12);
+static real_T REL_GetDrvUnlockReq(void);
+static real_T REL_GetPassUnlockReq(void);
 
 /* Function for Chart: '<S3>/FLDoorRlsDriver' */
 static void REL_Normal(Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_CinchHome,
@@ -505,7 +507,7 @@ static void REL_DoorInBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
   rtu_SI_b_EspVehSpdVld, Gear_Posn_E rtu_SI_e_VcuGearPosn, Door_Sts_E
   rtu_SI_e_DoorLockSts, Rat_Sts_E rtu_SI_e_DoorRatSts, Boolean
   rtu_SI_b_ChildLckSts, boolean_T *rty_SO_b_DoorRlsReq, uint8_T
-  *rty_SO_e_DoorRlsDelayTime, boolean_T *rty_SO_b_UnlockReq,
+  *rty_SO_e_DoorRlsDelayTime, Unlock_Req_E *rty_SO_b_UnlockReq,
   DW_RLDoorRlsReq_REL_T *localDW)
 {
   switch (localDW->is_SwValid) {
@@ -550,7 +552,7 @@ static void REL_DoorInBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
         localDW->is_Trigger = REL_IN_DoorLock;
         localDW->is_DoorLock = REL_IN_UnlockReq;
         localDW->temporalCounter_i1 = 0U;
-        *rty_SO_b_UnlockReq = true;
+        *rty_SO_b_UnlockReq = Unlock_Req;
         break;
 
        case Door_Unlock:
@@ -587,9 +589,8 @@ static void REL_DoorInBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
         } else if ((localDW->temporalCounter_i1 >= 50) && (rtu_SI_e_DoorLockSts ==
                     Door_Lock)) {
           localDW->is_DoorLock = REL_IN_UnlockFail;
-        } else {
-          *rty_SO_b_UnlockReq = ((localDW->temporalCounter_i1 != 5) &&
-            (*rty_SO_b_UnlockReq));
+        } else if (localDW->temporalCounter_i1 == 5) {
+          *rty_SO_b_UnlockReq = No_Req;
         }
         break;
 
@@ -637,8 +638,8 @@ static void REL_DoorInBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
 static void REL_DoorHndBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
   rtu_SI_b_EspVehSpdVld, Gear_Posn_E rtu_SI_e_VcuGearPosn, Door_Sts_E
   rtu_SI_e_DoorLockSts, Rat_Sts_E rtu_SI_e_DoorRatSts, boolean_T
-  *rty_SO_b_DoorRlsReq, boolean_T *rty_SO_b_PEUnlockReq, DW_RLDoorRlsReq_REL_T
-  *localDW)
+  *rty_SO_b_DoorRlsReq, Unlock_Req_E *rty_SO_b_UnlockReq, DW_RLDoorRlsReq_REL_T *
+  localDW)
 {
   if (localDW->is_RlsReq_e == REL_IN_Idle_i) {
     if ((((rtu_SI_e_EspVehSpd <= 0) && (!rtu_SI_b_EspVehSpdVld)) ||
@@ -652,7 +653,7 @@ static void REL_DoorHndBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
         localDW->is_Trigger_c = REL_IN_DoorLock;
         localDW->is_DoorLock_n = REL_IN_UnlockReq;
         localDW->temporalCounter_i2 = 0U;
-        *rty_SO_b_PEUnlockReq = true;
+        *rty_SO_b_UnlockReq = Unlock_Req;
         break;
 
        case Door_Unlock:
@@ -688,9 +689,8 @@ static void REL_DoorHndBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
         } else if ((localDW->temporalCounter_i2 >= 50) && (rtu_SI_e_DoorLockSts ==
                     Door_Lock)) {
           localDW->is_DoorLock_n = REL_IN_UnlockFail;
-        } else {
-          *rty_SO_b_PEUnlockReq = ((localDW->temporalCounter_i2 != 5) &&
-            (*rty_SO_b_PEUnlockReq));
+        } else if (localDW->temporalCounter_i2 == 5) {
+          *rty_SO_b_UnlockReq = No_Req;
         }
         break;
 
@@ -765,13 +765,11 @@ static void REL_DoorHndBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
  *    '<S3>/RRDoorRlsReq'
  */
 void REL_RLDoorRlsReq_Init(boolean_T *rty_SO_b_DoorRlsReq, uint8_T
-  *rty_SO_e_DoorRlsDelayTime, boolean_T *rty_SO_b_UnlockReq, boolean_T
-  *rty_SO_b_PEUnlockReq)
+  *rty_SO_e_DoorRlsDelayTime, Unlock_Req_E *rty_SO_b_UnlockReq)
 {
   *rty_SO_b_DoorRlsReq = false;
   *rty_SO_e_DoorRlsDelayTime = 0U;
-  *rty_SO_b_UnlockReq = false;
-  *rty_SO_b_PEUnlockReq = false;
+  *rty_SO_b_UnlockReq = No_Req;
 }
 
 /*
@@ -790,9 +788,8 @@ void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
                       rtu_SI_b_CentAllDoorBtnSts, Boolean rtu_SI_b_ChildLckSts,
                       boolean_T rtu_SI_b_DoorAutoRlsSetSts, boolean_T
                       rtu_SI_b_DoorAutoRlsReq, boolean_T *rty_SO_b_DoorRlsReq,
-                      uint8_T *rty_SO_e_DoorRlsDelayTime, boolean_T
-                      *rty_SO_b_UnlockReq, boolean_T *rty_SO_b_PEUnlockReq,
-                      DW_RLDoorRlsReq_REL_T *localDW)
+                      uint8_T *rty_SO_e_DoorRlsDelayTime, Unlock_Req_E
+                      *rty_SO_b_UnlockReq, DW_RLDoorRlsReq_REL_T *localDW)
 {
   if (localDW->temporalCounter_i1 < 63U) {
     localDW->temporalCounter_i1++;
@@ -902,8 +899,8 @@ void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
 
     REL_DoorHndBtn(rtu_SI_e_EspVehSpd, rtu_SI_b_EspVehSpdVld,
                    rtu_SI_e_VcuGearPosn, rtu_SI_e_DoorLockSts,
-                   rtu_SI_e_DoorRatSts, rty_SO_b_DoorRlsReq,
-                   rty_SO_b_PEUnlockReq, localDW);
+                   rtu_SI_e_DoorRatSts, rty_SO_b_DoorRlsReq, rty_SO_b_UnlockReq,
+                   localDW);
     if (localDW->is_DoorCentral == REL_IN_Idle_i) {
       if ((!rtu_SI_b_OFF) && (((rtu_SI_e_EspVehSpd <= 0) &&
             (!rtu_SI_b_EspVehSpdVld)) || (rtu_SI_e_VcuGearPosn == Gear_P)) &&
@@ -919,7 +916,7 @@ void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
           localDW->is_Trigger_f = REL_IN_DoorLock;
           localDW->is_DoorLock_o = REL_IN_UnlockReq;
           localDW->temporalCounter_i3 = 0U;
-          *rty_SO_b_UnlockReq = true;
+          *rty_SO_b_UnlockReq = Unlock_Req;
           break;
 
          case Door_Unlock:
@@ -956,9 +953,8 @@ void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
           } else if ((localDW->temporalCounter_i3 >= 50) &&
                      (rtu_SI_e_DoorLockSts == Door_Lock)) {
             localDW->is_DoorLock_o = REL_IN_UnlockFail;
-          } else {
-            *rty_SO_b_UnlockReq = ((localDW->temporalCounter_i3 != 5) &&
-              (*rty_SO_b_UnlockReq));
+          } else if (localDW->temporalCounter_i3 == 5) {
+            *rty_SO_b_UnlockReq = No_Req;
           }
           break;
 
@@ -1177,7 +1173,7 @@ static void REL_DoorInBtn_n(const boolean_T *SI_b_DoorInBtnSts_prev, const
         REL_DW.is_Trigger = REL_IN_DoorLock_f;
         REL_DW.is_DoorLock = REL_IN_UnlockReq_k;
         REL_DW.temporalCounter_i1_e = 0U;
-        REL_B.SO_b_UnlockReq_c = true;
+        REL_B.SO_b_UnlockReq_c = Unlock_Req;
         break;
 
        case Door_Unlock:
@@ -1220,9 +1216,8 @@ static void REL_DoorInBtn_n(const boolean_T *SI_b_DoorInBtnSts_prev, const
         } else if ((REL_DW.temporalCounter_i1_e >= 50) && (*DataTypeConversion13
                     == Door_Lock)) {
           REL_DW.is_DoorLock = REL_IN_UnlockFail_i;
-        } else {
-          REL_B.SO_b_UnlockReq_c = ((REL_DW.temporalCounter_i1_e != 5) &&
-            REL_B.SO_b_UnlockReq_c);
+        } else if (REL_DW.temporalCounter_i1_e == 5) {
+          REL_B.SO_b_UnlockReq_c = No_Req;
         }
         break;
 
@@ -1288,7 +1283,7 @@ static void REL_DoorHndBtn_c(const boolean_T *SI_b_DoorHndBtnSts_prev, const
         REL_DW.is_Trigger_f = REL_IN_DoorLock_f;
         REL_DW.is_DoorLock_m = REL_IN_UnlockReq_k;
         REL_DW.temporalCounter_i2 = 0U;
-        REL_B.SO_b_PEUnlockReq_e = true;
+        REL_B.SO_b_UnlockReq_c = Unlock_Req;
         break;
 
        case Door_Unlock:
@@ -1331,9 +1326,8 @@ static void REL_DoorHndBtn_c(const boolean_T *SI_b_DoorHndBtnSts_prev, const
         } else if ((REL_DW.temporalCounter_i2 >= 50) && (*DataTypeConversion13 ==
                     Door_Lock)) {
           REL_DW.is_DoorLock_m = REL_IN_UnlockFail_i;
-        } else {
-          REL_B.SO_b_PEUnlockReq_e = ((REL_DW.temporalCounter_i2 != 5) &&
-            REL_B.SO_b_PEUnlockReq_e);
+        } else if (REL_DW.temporalCounter_i2 == 5) {
+          REL_B.SO_b_UnlockReq_c = No_Req;
         }
         break;
 
@@ -1454,7 +1448,7 @@ static void REL_DoorInBtn_e(const boolean_T *SI_b_DoorInBtnSts_prev_j, const
         REL_DW.is_Trigger_d = REL_IN_DoorLock_f;
         REL_DW.is_DoorLock_k = REL_IN_UnlockReq_k;
         REL_DW.temporalCounter_i1_h = 0U;
-        REL_B.SO_b_UnlockReq_k = true;
+        REL_B.SO_b_UnlockReq_k = Unlock_Req;
         break;
 
        case Door_Unlock:
@@ -1497,9 +1491,8 @@ static void REL_DoorInBtn_e(const boolean_T *SI_b_DoorInBtnSts_prev_j, const
         } else if ((REL_DW.temporalCounter_i1_h >= 50) && (*DataTypeConversion12
                     == Door_Lock)) {
           REL_DW.is_DoorLock_k = REL_IN_UnlockFail_i;
-        } else {
-          REL_B.SO_b_UnlockReq_k = ((REL_DW.temporalCounter_i1_h != 5) &&
-            REL_B.SO_b_UnlockReq_k);
+        } else if (REL_DW.temporalCounter_i1_h == 5) {
+          REL_B.SO_b_UnlockReq_k = No_Req;
         }
         break;
 
@@ -1566,7 +1559,7 @@ static void REL_DoorHndBtn_k(const boolean_T *SI_b_DoorHndBtnSts_prev_f, const
         REL_DW.is_Trigger_h = REL_IN_DoorLock_f;
         REL_DW.is_DoorLock_h = REL_IN_UnlockReq_k;
         REL_DW.temporalCounter_i2_d = 0U;
-        REL_B.SO_b_PEUnlockReq_g = true;
+        REL_B.SO_b_UnlockReq_k = Unlock_Req;
         break;
 
        case Door_Unlock:
@@ -1609,9 +1602,8 @@ static void REL_DoorHndBtn_k(const boolean_T *SI_b_DoorHndBtnSts_prev_f, const
         } else if ((REL_DW.temporalCounter_i2_d >= 50) && (*DataTypeConversion12
                     == Door_Lock)) {
           REL_DW.is_DoorLock_h = REL_IN_UnlockFail_i;
-        } else {
-          REL_B.SO_b_PEUnlockReq_g = ((REL_DW.temporalCounter_i2_d != 5) &&
-            REL_B.SO_b_PEUnlockReq_g);
+        } else if (REL_DW.temporalCounter_i2_d == 5) {
+          REL_B.SO_b_UnlockReq_k = No_Req;
         }
         break;
 
@@ -1678,6 +1670,42 @@ static void REL_DoorHndBtn_k(const boolean_T *SI_b_DoorHndBtnSts_prev_f, const
     }
     break;
   }
+}
+
+/* Function for Chart: '<S3>/Unlock_Request' */
+static real_T REL_GetDrvUnlockReq(void)
+{
+  real_T req;
+  switch (REL_B.SO_b_UnlockReq_k) {
+   case PE_Req:
+    req = 2.0;
+    break;
+
+   case Unlock_Req:
+    req = 1.0;
+    break;
+
+   default:
+    req = 0.0;
+    break;
+  }
+
+  return req;
+}
+
+/* Function for Chart: '<S3>/Unlock_Request' */
+static real_T REL_GetPassUnlockReq(void)
+{
+  real_T req;
+  if ((REL_B.SO_b_UnlockReq_c == PE_Req) || (REL_B.SO_b_UnlockReq_m == PE_Req) ||
+      (REL_B.SO_b_UnlockReq == PE_Req)) {
+    req = 2.0;
+  } else {
+    req = ((REL_B.SO_b_UnlockReq_c == Unlock_Req) || (REL_B.SO_b_UnlockReq_m ==
+            Unlock_Req) || (REL_B.SO_b_UnlockReq == Unlock_Req));
+  }
+
+  return req;
 }
 
 /* Model step function for TID1 */
@@ -2014,7 +2042,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                    REL_U.VbINP_HWA_LRChildLckSt_flg_VbIN, false, false,
                    &REL_Y.VbOUT_REL_RLDoorRlsReq_flg_VbOU,
                    &REL_B.SO_e_DoorRlsDelayTime_e, &REL_B.SO_b_UnlockReq_m,
-                   &REL_B.SO_b_PEUnlockReq_i, &REL_DW.sf_RLDoorRlsReq);
+                   &REL_DW.sf_RLDoorRlsReq);
 
   /* Chart: '<S3>/RLDoorRlsDriver' incorporates:
    *  Inport: '<Root>/VbINP_CAN_RLDCUCinchHomeSwitch_flg_VbINP_CAN_RLDCUCinchHomeSwitch_flg'
@@ -2063,7 +2091,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                    REL_U.VbINP_HWA_RRChildLckSt_flg_VbIN, false, false,
                    &REL_Y.VbOUT_REL_RRDoorRlsReq_flg_VbOU,
                    &REL_B.SO_e_DoorRlsDelayTime, &REL_B.SO_b_UnlockReq,
-                   &REL_B.SO_b_PEUnlockReq, &REL_DW.sf_RRDoorRlsReq);
+                   &REL_DW.sf_RRDoorRlsReq);
 
   /* Chart: '<S3>/RRDoorRlsDriver' incorporates:
    *  Inport: '<Root>/VbINP_CAN_RRDCUCinchHomeSwitch_flg_VbINP_CAN_RRDCUCinchHomeSwitch_flg'
@@ -2264,7 +2292,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
           REL_DW.is_Trigger_b = REL_IN_DoorLock_f;
           REL_DW.is_DoorLock_m3 = REL_IN_UnlockReq_k;
           REL_DW.temporalCounter_i3 = 0U;
-          REL_B.SO_b_UnlockReq_c = true;
+          REL_B.SO_b_UnlockReq_c = Unlock_Req;
           break;
 
          case Door_Unlock:
@@ -2301,9 +2329,8 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
           } else if ((REL_DW.temporalCounter_i3 >= 50) && (DataTypeConversion13 ==
                       Door_Lock)) {
             REL_DW.is_DoorLock_m3 = REL_IN_UnlockFail_i;
-          } else {
-            REL_B.SO_b_UnlockReq_c = ((REL_DW.temporalCounter_i3 != 5) &&
-              REL_B.SO_b_UnlockReq_c);
+          } else if (REL_DW.temporalCounter_i3 == 5) {
+            REL_B.SO_b_UnlockReq_c = No_Req;
           }
           break;
 
@@ -2599,7 +2626,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
           REL_DW.is_Trigger_do = REL_IN_DoorLock_f;
           REL_DW.is_DoorLock_c = REL_IN_UnlockReq_k;
           REL_DW.temporalCounter_i3_b = 0U;
-          REL_B.SO_b_UnlockReq_k = true;
+          REL_B.SO_b_UnlockReq_k = Unlock_Req;
           break;
 
          case Door_Unlock:
@@ -2636,9 +2663,8 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
           } else if ((REL_DW.temporalCounter_i3_b >= 50) &&
                      (DataTypeConversion12 == Door_Lock)) {
             REL_DW.is_DoorLock_c = REL_IN_UnlockFail_i;
-          } else {
-            REL_B.SO_b_UnlockReq_k = ((REL_DW.temporalCounter_i3_b != 5) &&
-              REL_B.SO_b_UnlockReq_k);
+          } else if (REL_DW.temporalCounter_i3_b == 5) {
+            REL_B.SO_b_UnlockReq_k = No_Req;
           }
           break;
 
@@ -2743,45 +2769,41 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                       &SI_b_CrashSts_prev, &SO_e_MotorPwm_h,
                       &REL_DW.sf_FLDoorRlsDriver);
 
-  /* Logic: '<S3>/Logical Operator' */
-  SI_b_CrashSts_prev = (REL_B.SO_b_UnlockReq_c || REL_B.SO_b_UnlockReq_m ||
-                        REL_B.SO_b_UnlockReq);
-
-  /* Logic: '<S3>/Logical Operator1' */
-  SL_b_FLDoorInBtnSts = (REL_B.SO_b_PEUnlockReq_g || REL_B.SO_b_PEUnlockReq_e ||
-    REL_B.SO_b_PEUnlockReq_i || REL_B.SO_b_PEUnlockReq);
-
   /* Chart: '<S3>/Unlock_Request' */
   if (REL_DW.is_active_c6_REL == 0U) {
     REL_DW.is_active_c6_REL = 1U;
-    if ((REL_B.SO_b_UnlockReq_k && SI_b_CrashSts_prev) || SL_b_FLDoorInBtnSts) {
+    if (((REL_GetDrvUnlockReq() == 1.0) && (REL_GetPassUnlockReq() == 1.0)) ||
+        (REL_GetDrvUnlockReq() == 2.0) || (REL_GetPassUnlockReq() == 2.0)) {
       /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
       REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = 3U;
 
       /*   */
-    } else if ((!REL_B.SO_b_UnlockReq_k) && SI_b_CrashSts_prev) {
+    } else if ((REL_GetDrvUnlockReq() == 0.0) && (REL_GetPassUnlockReq() == 1.0))
+    {
       /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
       REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = 2U;
     } else {
       /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
       /*   */
-      REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = (UInt8)(REL_B.SO_b_UnlockReq_k &&
-        (!SI_b_CrashSts_prev));
+      REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = (UInt8)((REL_GetDrvUnlockReq() ==
+        1.0) && (REL_GetPassUnlockReq() == 0.0));
     }
-  } else if ((REL_B.SO_b_UnlockReq_k && SI_b_CrashSts_prev) ||
-             SL_b_FLDoorInBtnSts) {
+  } else if (((REL_GetDrvUnlockReq() == 1.0) && (REL_GetPassUnlockReq() == 1.0))
+             || (REL_GetDrvUnlockReq() == 2.0) || (REL_GetPassUnlockReq() == 2.0))
+  {
     /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
     REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = 3U;
 
     /*   */
-  } else if ((!REL_B.SO_b_UnlockReq_k) && SI_b_CrashSts_prev) {
+  } else if ((REL_GetDrvUnlockReq() == 0.0) && (REL_GetPassUnlockReq() == 1.0))
+  {
     /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
     REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = 2U;
   } else {
     /* Outport: '<Root>/VeOUT_REL_DLKReqUnlock_sig_VeOUT_REL_DLKReqUnlock_sig' */
     /*   */
-    REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = (UInt8)(REL_B.SO_b_UnlockReq_k &&
-      (!SI_b_CrashSts_prev));
+    REL_Y.VeOUT_REL_DLKReqUnlock_sig_VeOU = (UInt8)((REL_GetDrvUnlockReq() ==
+      1.0) && (REL_GetPassUnlockReq() == 0.0));
   }
 
   /* End of Chart: '<S3>/Unlock_Request' */
@@ -2832,7 +2854,7 @@ void REL_initialize(void)
      */
     REL_RLDoorRlsReq_Init(&REL_Y.VbOUT_REL_RLDoorRlsReq_flg_VbOU,
                           &REL_B.SO_e_DoorRlsDelayTime_e,
-                          &REL_B.SO_b_UnlockReq_m, &REL_B.SO_b_PEUnlockReq_i);
+                          &REL_B.SO_b_UnlockReq_m);
 
     /* SystemInitialize for Chart: '<S3>/RRDoorRlsDriver' incorporates:
      *  Outport: '<Root>/VbOUT_REL_RRDoorMotorA_flg_VbOUT_REL_RRDoorMotorA_flg'
@@ -2846,8 +2868,7 @@ void REL_initialize(void)
      *  Outport: '<Root>/VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg'
      */
     REL_RLDoorRlsReq_Init(&REL_Y.VbOUT_REL_RRDoorRlsReq_flg_VbOU,
-                          &REL_B.SO_e_DoorRlsDelayTime, &REL_B.SO_b_UnlockReq,
-                          &REL_B.SO_b_PEUnlockReq);
+                          &REL_B.SO_e_DoorRlsDelayTime, &REL_B.SO_b_UnlockReq);
 
     /* End of SystemInitialize for RootInportFunctionCallGenerator generated from: '<Root>/REL_Step' */
   }
