@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.76
+ * Model version                  : 1.83
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 10:54:21 2023
+ * C/C++ source code generated on : Mon Sep 25 11:11:16 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -113,6 +113,9 @@ typedef struct {
   boolean_T SO_b_PEUnlockReq_e;        /* '<S3>/FRDoorRlsReq' */
   boolean_T SO_b_UnlockReq_k;          /* '<S3>/FLDoorRlsReq' */
   boolean_T SO_b_PEUnlockReq_g;        /* '<S3>/FLDoorRlsReq' */
+  Motor_Cmd_E SO_e_MotorCmd;           /* '<S3>/RRDoorRlsDriver' */
+  Motor_Cmd_E SO_e_MotorCmd_c;         /* '<S3>/RLDoorRlsDriver' */
+  Motor_Cmd_E SO_e_MotorCmd_e;         /* '<S3>/FRDoorRlsDriver' */
 } B_REL_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -405,6 +408,12 @@ extern void REL_Step(void);
 
 /* Real-time Model object */
 extern RT_MODEL_REL_T *const REL_M;
+
+/*-
+ * These blocks were eliminated from the model due to optimizations:
+ *
+ * Block '<S3>/Data Type Conversion8' : Unused code path elimination
+ */
 
 /*-
  * The generated code includes comments that allow you to trace directly
