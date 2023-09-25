@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   10 \
+    NumChartData   1 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -18,69 +18,6 @@
       Description  "StateIsActive"\
       SFName       ""\
       Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_c3_REL"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_TRIGGER"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "TRIGGER"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_DOOR_LOCK"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "TRIGGER.DOOR_LOCK"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "temporalCounter_i1"\
-      Description  "TemporalCounter"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "temporalCounter_i2"\
-      Description  "TemporalCounter"\
-      SFName       ""\
-      Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DoublePressSucc_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DoublePressSucc"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DoublePressSucc_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DoublePressSucc"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_e_VcuGearPosn_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_e_VcuGearPosn"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_e_VcuGearPosn_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_e_VcuGearPosn"\
       SrcLocation  ""\
     }\
   }
