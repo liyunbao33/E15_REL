@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.86
+ * Model version                  : 1.88
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 12:24:35 2023
+ * C/C++ source code generated on : Mon Sep 25 12:46:52 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -19,6 +19,18 @@
 #include "rtwtypes.h"
 
 /* Model Code Variants */
+#ifndef DEFINED_TYPEDEF_FOR_Door_Sts_E_
+#define DEFINED_TYPEDEF_FOR_Door_Sts_E_
+
+typedef uint8_T Door_Sts_E;
+
+/* enum Door_Sts_E */
+#define Door_Lock                      ((Door_Sts_E)0U)          /* Default value */
+#define Door_Unlock                    ((Door_Sts_E)1U)
+#define Door_Not_Used                  ((Door_Sts_E)2U)
+#define Door_Error                     ((Door_Sts_E)3U)
+#endif
+
 #ifndef DEFINED_TYPEDEF_FOR_Rat_Sts_E_
 #define DEFINED_TYPEDEF_FOR_Rat_Sts_E_
 
