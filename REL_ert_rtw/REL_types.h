@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.88
+ * Model version                  : 1.89
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 12:46:52 2023
+ * C/C++ source code generated on : Mon Sep 25 13:25:32 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -29,6 +29,20 @@ typedef uint8_T Door_Sts_E;
 #define Door_Unlock                    ((Door_Sts_E)1U)
 #define Door_Not_Used                  ((Door_Sts_E)2U)
 #define Door_Error                     ((Door_Sts_E)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_Gear_Posn_E_
+#define DEFINED_TYPEDEF_FOR_Gear_Posn_E_
+
+typedef uint8_T Gear_Posn_E;
+
+/* enum Gear_Posn_E */
+#define Gear_Reserved1                 ((Gear_Posn_E)0U)         /* Default value */
+#define Gear_P                         ((Gear_Posn_E)1U)
+#define Gear_R                         ((Gear_Posn_E)2U)
+#define Gear_N                         ((Gear_Posn_E)3U)
+#define Gear_D                         ((Gear_Posn_E)4U)
+#define Gear_Reserved2                 ((Gear_Posn_E)5U)
 #endif
 
 #ifndef DEFINED_TYPEDEF_FOR_Rat_Sts_E_
