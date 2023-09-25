@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.76
+ * Model version                  : 1.139
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 10:55:11 2023
+ * C/C++ source code generated on : Mon Sep 25 16:10:50 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -93,42 +93,28 @@ typedef struct {
 /* Block signals (default storage) */
 typedef struct tag_B_REL_T {
   UInt8 TmpSignalConversionAtVeOUT_SP_E;
-  UInt8 TmpSignalConversionAtVeINP_CAN_;
-  UInt8 TmpSignalConversionAtVeOUT_DLK_;
   uint8 SO_e_DoorRlsDelayTime;         /* '<S3>/RRDoorRlsReq' */
-  uint8 SO_e_MotorCmd;                 /* '<S3>/RRDoorRlsDriver' */
   uint8 SO_e_DoorRlsDelayTime_e;       /* '<S3>/RLDoorRlsReq' */
-  uint8 SO_e_MotorCmd_c;               /* '<S3>/RLDoorRlsDriver' */
   uint8 SO_e_DoorRlsDelayTime_k;       /* '<S3>/FRDoorRlsReq' */
-  uint8 SO_e_MotorCmd_e;               /* '<S3>/FRDoorRlsDriver' */
   uint8 SO_e_DoorRlsDelayTime_m;       /* '<S3>/FLDoorRlsReq' */
-  uint8 SO_e_MotorCmd_l;               /* '<S3>/FLDoorRlsDriver' */
+  boolean Compare;                     /* '<S11>/Compare' */
+  Boolean TmpSignalConversionAtVbINP_CAN_;
   Boolean TmpSignalConversionAtVbINP_HWA_;
   Boolean TmpSignalConversionAtVbINP_HW_g;
   Boolean TmpSignalConversionAtVbINP_HW_f;
   Boolean TmpSignalConversionAtVbINP_H_gz;
-  boolean Compare;                     /* '<S11>/Compare' */
-  Boolean TmpSignalConversionAtVbINP_CAN_;
   Boolean TmpSignalConversionAtVbINP_CA_f;
   Boolean TmpSignalConversionAtVbINP_CFG_;
   boolean SO_b_DoorRlsReq;             /* '<S3>/RRDoorRlsReq' */
-  boolean SO_b_UnlockReq;              /* '<S3>/RRDoorRlsReq' */
-  boolean SO_b_PEUnlockReq;            /* '<S3>/RRDoorRlsReq' */
   boolean SO_b_MotorA;                 /* '<S3>/RRDoorRlsDriver' */
   boolean SO_b_MotorB;                 /* '<S3>/RRDoorRlsDriver' */
   boolean SO_b_DoorRlsReq_j;           /* '<S3>/RLDoorRlsReq' */
-  boolean SO_b_UnlockReq_m;            /* '<S3>/RLDoorRlsReq' */
-  boolean SO_b_PEUnlockReq_i;          /* '<S3>/RLDoorRlsReq' */
   boolean SO_b_MotorA_f;               /* '<S3>/RLDoorRlsDriver' */
   boolean SO_b_MotorB_f;               /* '<S3>/RLDoorRlsDriver' */
   boolean SO_b_DoorRlsReq_l;           /* '<S3>/FRDoorRlsReq' */
-  boolean SO_b_UnlockReq_c;            /* '<S3>/FRDoorRlsReq' */
-  boolean SO_b_PEUnlockReq_e;          /* '<S3>/FRDoorRlsReq' */
   boolean SO_b_MotorA_fc;              /* '<S3>/FRDoorRlsDriver' */
   boolean SO_b_MotorB_b;               /* '<S3>/FRDoorRlsDriver' */
   boolean SO_b_DoorRlsReq_jt;          /* '<S3>/FLDoorRlsReq' */
-  boolean SO_b_UnlockReq_k;            /* '<S3>/FLDoorRlsReq' */
-  boolean SO_b_PEUnlockReq_g;          /* '<S3>/FLDoorRlsReq' */
   boolean SO_b_MotorA_b;               /* '<S3>/FLDoorRlsDriver' */
   boolean SO_b_MotorB_m;               /* '<S3>/FLDoorRlsDriver' */
   boolean SL_b_FLDoorInBtnSts;         /* '<S3>/DoorSwSts' */
@@ -142,8 +128,20 @@ typedef struct tag_B_REL_T {
   boolean SL_b_RRDoorHndBtnSts;        /* '<S3>/DoorSwSts' */
   boolean SO_b_DoorAutoRlsSetSts;      /* '<S3>/DoorAutoRlsSts' */
   boolean SO_b_DoorAutoRlsSetStsToEE;  /* '<S3>/DoorAutoRlsSts' */
-  DoorRat_Sts_E SO_e_RLDoorRatSts;     /* '<S3>/DoorRatSts' */
-  DoorRat_Sts_E SO_e_RRDoorRatSts;     /* '<S3>/DoorRatSts' */
+  Unlock_Req_E SO_m_UnlockReq;         /* '<S3>/RRDoorRlsReq' */
+  Unlock_Req_E SO_m_UnlockReq_e;       /* '<S3>/RLDoorRlsReq' */
+  Unlock_Req_E SO_m_UnlockReq_d;       /* '<S3>/FRDoorRlsReq' */
+  Unlock_Req_E SO_m_UnlockReq_k;       /* '<S3>/FLDoorRlsReq' */
+  Rat_Sts_E SO_m_RLDoorRatSts;         /* '<S3>/DoorRatSts' */
+  Rat_Sts_E SO_m_RRDoorRatSts;         /* '<S3>/DoorRatSts' */
+  Mot_Cmd_E SO_e_MotorCmd;             /* '<S3>/RRDoorRlsDriver' */
+  Mot_Cmd_E SO_e_MotorCmd_c;           /* '<S3>/RLDoorRlsDriver' */
+  Mot_Cmd_E SO_e_MotorCmd_e;           /* '<S3>/FRDoorRlsDriver' */
+  Mot_Cmd_E SO_e_MotorCmd_l;           /* '<S3>/FLDoorRlsDriver' */
+  HndPos_Sts_E DataTypeConversion17;   /* '<S3>/Data Type Conversion17' */
+  HndPos_Sts_E DataTypeConversion18;   /* '<S3>/Data Type Conversion18' */
+  Gear_Posn_E DataTypeConversion14;    /* '<S3>/Data Type Conversion14' */
+  Door_Sts_E DataTypeConversion13;     /* '<S3>/Data Type Conversion13' */
 } B_REL_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -261,6 +259,12 @@ extern B_REL_T REL_B;
 extern DW_REL_T REL_DW;
 
 /*-
+ * These blocks were eliminated from the model due to optimizations:
+ *
+ * Block '<S3>/Data Type Conversion8' : Unused code path elimination
+ */
+
+/*-
  * The generated code includes comments that allow you to trace directly
  * back to the appropriate location in the model.  The basic format
  * is <system>/block_name, where system is the system number (uniquely
@@ -290,7 +294,8 @@ extern DW_REL_T REL_DW;
  * '<S13>'  : 'REL/REL_Step_sys/REL/RLDoorRlsReq'
  * '<S14>'  : 'REL/REL_Step_sys/REL/RRDoorRlsDriver'
  * '<S15>'  : 'REL/REL_Step_sys/REL/RRDoorRlsReq'
- * '<S16>'  : 'REL/REL_Step_sys/REL/Unlock_Request'
+ * '<S16>'  : 'REL/REL_Step_sys/REL/Recycle Bin'
+ * '<S17>'  : 'REL/REL_Step_sys/REL/Unlock_Request'
  */
 #endif                                 /* RTW_HEADER_REL_h_ */
 

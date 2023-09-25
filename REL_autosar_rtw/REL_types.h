@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.76
+ * Model version                  : 1.139
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 10:55:11 2023
+ * C/C++ source code generated on : Mon Sep 25 16:10:50 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -19,16 +19,76 @@
 #include "rtwtypes.h"
 
 /* Model Code Variants */
-#ifndef DEFINED_TYPEDEF_FOR_DoorRat_Sts_E_
-#define DEFINED_TYPEDEF_FOR_DoorRat_Sts_E_
+#ifndef DEFINED_TYPEDEF_FOR_Door_Sts_E_
+#define DEFINED_TYPEDEF_FOR_Door_Sts_E_
 
-typedef uint8 DoorRat_Sts_E;
+typedef uint8 Door_Sts_E;
 
-/* enum DoorRat_Sts_E */
-#define Invalid                        ((DoorRat_Sts_E)0U)       /* Default value */
-#define All_Lock                       ((DoorRat_Sts_E)1U)
-#define Half_Lock                      ((DoorRat_Sts_E)2U)
-#define Unlock                         ((DoorRat_Sts_E)3U)
+/* enum Door_Sts_E */
+#define Door_Lock                      ((Door_Sts_E)0U)          /* Default value */
+#define Door_Unlock                    ((Door_Sts_E)1U)
+#define Door_Not_Used                  ((Door_Sts_E)2U)
+#define Door_Error                     ((Door_Sts_E)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_Gear_Posn_E_
+#define DEFINED_TYPEDEF_FOR_Gear_Posn_E_
+
+typedef uint8 Gear_Posn_E;
+
+/* enum Gear_Posn_E */
+#define Gear_Reserved1                 ((Gear_Posn_E)0U)         /* Default value */
+#define Gear_P                         ((Gear_Posn_E)1U)
+#define Gear_R                         ((Gear_Posn_E)2U)
+#define Gear_N                         ((Gear_Posn_E)3U)
+#define Gear_D                         ((Gear_Posn_E)4U)
+#define Gear_Reserved2                 ((Gear_Posn_E)5U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_HndPos_Sts_E_
+#define DEFINED_TYPEDEF_FOR_HndPos_Sts_E_
+
+typedef uint8 HndPos_Sts_E;
+
+/* enum HndPos_Sts_E */
+#define Hnd_Fold                       ((HndPos_Sts_E)0U)        /* Default value */
+#define Hnd_Unfold                     ((HndPos_Sts_E)1U)
+#define Hnd_Half_Unfold                ((HndPos_Sts_E)2U)
+#define Hnd_Error                      ((HndPos_Sts_E)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_Rat_Sts_E_
+#define DEFINED_TYPEDEF_FOR_Rat_Sts_E_
+
+typedef uint8 Rat_Sts_E;
+
+/* enum Rat_Sts_E */
+#define Rat_Invalid                    ((Rat_Sts_E)0U)           /* Default value */
+#define Rat_All_Lock                   ((Rat_Sts_E)1U)
+#define Rat_Half_Lock                  ((Rat_Sts_E)2U)
+#define Rat_Unlock                     ((Rat_Sts_E)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_Mot_Cmd_E_
+#define DEFINED_TYPEDEF_FOR_Mot_Cmd_E_
+
+typedef uint8 Mot_Cmd_E;
+
+/* enum Mot_Cmd_E */
+#define Stop                           ((Mot_Cmd_E)0U)           /* Default value */
+#define Rls                            ((Mot_Cmd_E)1U)
+#define Reset                          ((Mot_Cmd_E)2U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_Unlock_Req_E_
+#define DEFINED_TYPEDEF_FOR_Unlock_Req_E_
+
+typedef uint8 Unlock_Req_E;
+
+/* enum Unlock_Req_E */
+#define Unlock_Idle                    ((Unlock_Req_E)0U)        /* Default value */
+#define Unlock_Req                     ((Unlock_Req_E)1U)
+#define Unlock_PE                      ((Unlock_Req_E)2U)
 #endif
 #endif                                 /* RTW_HEADER_REL_types_h_ */
 
