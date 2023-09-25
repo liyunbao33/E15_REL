@@ -5,7 +5,7 @@
  *
  * Model version                  : 1.83
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 11:11:16 2023
+ * C/C++ source code generated on : Mon Sep 25 11:15:10 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -584,7 +584,7 @@ static void REL_DoorInBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
 
        default:
         /* case IN_UnlockSucess: */
-        if (rtu_SI_e_DoorRatSts != 3) {
+        if (rtu_SI_e_DoorRatSts != Unlock) {
           localDW->is_DoorLock = REL_IN_NO_ACTIVE_CHILD_d;
           localDW->is_Trigger = REL_IN_Release_o;
           localDW->temporalCounter_i1 = 0U;
@@ -655,7 +655,7 @@ static void REL_DoorHndBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
     /* case IN_Trigger: */
   } else if (((rtu_SI_e_EspVehSpd >= 1) && (!rtu_SI_b_EspVehSpdVld) &&
               (rtu_SI_e_VcuGearPosn != 1)) || ((rtu_SI_e_DoorLockSts == 1) &&
-              (rtu_SI_e_DoorRatSts == 3))) {
+              (rtu_SI_e_DoorRatSts == Unlock))) {
     localDW->is_DoorLock_n = REL_IN_NO_ACTIVE_CHILD_d;
     localDW->is_Trigger_c = REL_IN_NO_ACTIVE_CHILD_d;
     localDW->is_RlsReq_e = REL_IN_Idle_i;
@@ -683,7 +683,7 @@ static void REL_DoorHndBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
 
        default:
         /* case IN_UnlockSucess: */
-        if (rtu_SI_e_DoorRatSts != 3) {
+        if (rtu_SI_e_DoorRatSts != Unlock) {
           localDW->is_DoorLock_n = REL_IN_NO_ACTIVE_CHILD_d;
           localDW->is_Trigger_c = REL_IN_Release_o;
           localDW->temporalCounter_i2 = 0U;
@@ -694,7 +694,7 @@ static void REL_DoorHndBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
       break;
 
      case REL_IN_DoorUnlock:
-      if (rtu_SI_e_DoorRatSts != 3) {
+      if (rtu_SI_e_DoorRatSts != Unlock) {
         localDW->is_Trigger_c = REL_IN_Release_o;
         localDW->temporalCounter_i2 = 0U;
         *rty_SO_b_DoorRlsReq = true;
@@ -950,7 +950,7 @@ void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
 
          default:
           /* case IN_UnlockSucess: */
-          if (rtu_SI_e_DoorRatSts != 3) {
+          if (rtu_SI_e_DoorRatSts != Unlock) {
             localDW->is_DoorLock_o = REL_IN_NO_ACTIVE_CHILD_d;
             localDW->is_Trigger_f = REL_IN_RELEASE;
             localDW->temporalCounter_i3 = 0U;
@@ -1214,7 +1214,7 @@ static void REL_DoorInBtn_n(const boolean_T *SI_b_DoorInBtnSts_prev, const
 
        default:
         /* case IN_UnlockSucess: */
-        if (*SO_e_FRDoorRatSts != 3) {
+        if (*SO_e_FRDoorRatSts != Unlock) {
           REL_DW.is_DoorLock = 0;
           REL_DW.is_Trigger = REL_IN_Release_n;
           REL_DW.temporalCounter_i1_e = 0U;
@@ -1302,7 +1302,7 @@ static void REL_DoorHndBtn_c(const boolean_T *SI_b_DoorHndBtnSts_prev, const
               (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
               (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
              ((REL_U.VeOUT_DLK_BCMPassengerDoorLockS == 1) &&
-              (*SO_e_FRDoorRatSts == 3))) {
+              (*SO_e_FRDoorRatSts == Unlock))) {
     REL_DW.is_DoorLock_m = 0;
     REL_DW.is_Trigger_f = 0;
     REL_DW.is_RlsReq_n = REL_IN_Idle_p;
@@ -1330,7 +1330,7 @@ static void REL_DoorHndBtn_c(const boolean_T *SI_b_DoorHndBtnSts_prev, const
 
        default:
         /* case IN_UnlockSucess: */
-        if (*SO_e_FRDoorRatSts != 3) {
+        if (*SO_e_FRDoorRatSts != Unlock) {
           REL_DW.is_DoorLock_m = 0;
           REL_DW.is_Trigger_f = REL_IN_Release_n;
           REL_DW.temporalCounter_i2 = 0U;
@@ -1343,7 +1343,7 @@ static void REL_DoorHndBtn_c(const boolean_T *SI_b_DoorHndBtnSts_prev, const
       break;
 
      case REL_IN_DoorUnlock_g:
-      if (*SO_e_FRDoorRatSts != 3) {
+      if (*SO_e_FRDoorRatSts != Unlock) {
         REL_DW.is_Trigger_f = REL_IN_Release_n;
         REL_DW.temporalCounter_i2 = 0U;
 
@@ -1501,7 +1501,7 @@ static void REL_DoorInBtn_e(const boolean_T *SI_b_DoorInBtnSts_prev_j, const
 
        default:
         /* case IN_UnlockSucess: */
-        if (*SO_e_FLDoorRatSts != 3) {
+        if (*SO_e_FLDoorRatSts != Unlock) {
           REL_DW.is_DoorLock_k = 0;
           REL_DW.is_Trigger_d = REL_IN_Release_n;
           REL_DW.temporalCounter_i1_h = 0U;
@@ -1589,7 +1589,7 @@ static void REL_DoorHndBtn_k(const boolean_T *SI_b_DoorHndBtnSts_prev_f, const
               (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
               (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
              ((REL_U.VeOUT_DLK_BdcDrvrDoorLockSts_si == 1) &&
-              (*SO_e_FLDoorRatSts == 3))) {
+              (*SO_e_FLDoorRatSts == Unlock))) {
     REL_DW.is_DoorLock_h = 0;
     REL_DW.is_Trigger_h = 0;
     REL_DW.is_RlsReq_o = REL_IN_Idle_p;
@@ -1617,7 +1617,7 @@ static void REL_DoorHndBtn_k(const boolean_T *SI_b_DoorHndBtnSts_prev_f, const
 
        default:
         /* case IN_UnlockSucess: */
-        if (*SO_e_FLDoorRatSts != 3) {
+        if (*SO_e_FLDoorRatSts != Unlock) {
           REL_DW.is_DoorLock_h = 0;
           REL_DW.is_Trigger_h = REL_IN_Release_n;
           REL_DW.temporalCounter_i2_d = 0U;
@@ -1630,7 +1630,7 @@ static void REL_DoorHndBtn_k(const boolean_T *SI_b_DoorHndBtnSts_prev_f, const
       break;
 
      case REL_IN_DoorUnlock_g:
-      if (*SO_e_FLDoorRatSts != 3) {
+      if (*SO_e_FLDoorRatSts != Unlock) {
         REL_DW.is_Trigger_h = REL_IN_Release_n;
         REL_DW.temporalCounter_i2_d = 0U;
 
@@ -2291,7 +2291,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
 
          default:
           /* case IN_UnlockSucess: */
-          if (SO_e_FRDoorRatSts != 3) {
+          if (SO_e_FRDoorRatSts != Unlock) {
             REL_DW.is_DoorLock_m3 = 0;
             REL_DW.is_Trigger_b = REL_IN_RELEASE_g;
             REL_DW.temporalCounter_i3 = 0U;
@@ -2627,7 +2627,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
 
          default:
           /* case IN_UnlockSucess: */
-          if (SO_e_FLDoorRatSts != 3) {
+          if (SO_e_FLDoorRatSts != Unlock) {
             REL_DW.is_DoorLock_c = 0;
             REL_DW.is_Trigger_do = REL_IN_RELEASE_g;
             REL_DW.temporalCounter_i3_b = 0U;
