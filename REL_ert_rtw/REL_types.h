@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.125
+ * Model version                  : 1.135
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 15:11:35 2023
+ * C/C++ source code generated on : Mon Sep 25 15:24:18 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -86,9 +86,9 @@ typedef uint8_T Mot_Cmd_E;
 typedef uint8_T Unlock_Req_E;
 
 /* enum Unlock_Req_E */
-#define No_Req                         ((Unlock_Req_E)0U)        /* Default value */
+#define Unlock_Idle                    ((Unlock_Req_E)0U)        /* Default value */
 #define Unlock_Req                     ((Unlock_Req_E)1U)
-#define PE_Req                         ((Unlock_Req_E)2U)
+#define Unlock_PE                      ((Unlock_Req_E)2U)
 #endif
 
 /* Forward declaration for rtModel */
