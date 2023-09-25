@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.30
+ * Model version                  : 1.76
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Fri Sep 15 14:19:50 2023
+ * C/C++ source code generated on : Mon Sep 25 10:55:11 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -16,8 +16,20 @@
 #ifndef RTW_HEADER_REL_types_h_
 #define RTW_HEADER_REL_types_h_
 #include "Rte_Type.h"
+#include "rtwtypes.h"
 
 /* Model Code Variants */
+#ifndef DEFINED_TYPEDEF_FOR_DoorRat_Sts_E_
+#define DEFINED_TYPEDEF_FOR_DoorRat_Sts_E_
+
+typedef uint8 DoorRat_Sts_E;
+
+/* enum DoorRat_Sts_E */
+#define Invalid                        ((DoorRat_Sts_E)0U)       /* Default value */
+#define All_Lock                       ((DoorRat_Sts_E)1U)
+#define Half_Lock                      ((DoorRat_Sts_E)2U)
+#define Unlock                         ((DoorRat_Sts_E)3U)
+#endif
 #endif                                 /* RTW_HEADER_REL_types_h_ */
 
 /*

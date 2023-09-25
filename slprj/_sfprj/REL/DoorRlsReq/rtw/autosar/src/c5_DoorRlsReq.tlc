@@ -21,20 +21,6 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_RlsReq"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "DoorAutoRls.RlsReq"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "is_Trigger"\
-      Description  "StateActiveChild"\
-      SFName       ""\
-      Path         "DoorAutoRls.RlsReq.Trigger"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
       Name         "is_SwValid"\
       Description  "StateActiveChild"\
       SFName       ""\
@@ -126,6 +112,20 @@
       SrcLocation  ""\
     }\
     ChartData {\
+      Name         "is_RlsReq"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorAutoRls.RlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_Trigger"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DoorAutoRls.RlsReq.Trigger"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
       Name         "SL_b_DoorInBtnValid"\
       Description  "ChartLocal"\
       SFName       ""\
@@ -207,20 +207,6 @@
       Description  "TemporalCounter"\
       SFName       ""\
       Path         ""\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DoorAutoRlsReq_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DoorAutoRlsReq"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DoorAutoRlsReq_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DoorAutoRlsReq"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -319,6 +305,20 @@
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
       Path         "SL_b_CentAllDoorBtnValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorAutoRlsReq_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorAutoRlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorAutoRlsReq_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorAutoRlsReq"\
       SrcLocation  ""\
     }\
   }

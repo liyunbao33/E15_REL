@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.71
+ * Model version                  : 1.76
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Sep 25 10:44:24 2023
+ * C/C++ source code generated on : Mon Sep 25 10:54:21 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -596,7 +596,7 @@ static void REL_DoorInBtn(UInt8 rtu_SI_e_EspVehSpd, Boolean
       break;
 
      case REL_IN_DoorUnlock:
-      if (rtu_SI_e_DoorRatSts != 3) {
+      if (rtu_SI_e_DoorRatSts != Unlock) {
         localDW->is_Trigger = REL_IN_Release_o;
         localDW->temporalCounter_i1 = 0U;
         *rty_SO_b_DoorRlsReq = true;
@@ -867,11 +867,11 @@ void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
     } else if (rtu_SI_b_OFF || ((rtu_SI_e_EspVehSpd >= 1) &&
                 (!rtu_SI_b_EspVehSpdVld) && (rtu_SI_e_VcuGearPosn != 1)) ||
                (rtu_SI_e_DoorLockSts != 1) || (rtu_SI_e_DoorHandPosSts != 1) ||
-               (rtu_SI_e_DoorRatSts == 3)) {
+               (rtu_SI_e_DoorRatSts == Unlock)) {
       localDW->is_Trigger_g = REL_IN_NO_ACTIVE_CHILD_d;
       localDW->is_RlsReq_i = REL_IN_Idle_i;
     } else if (localDW->is_Trigger_g == REL_IN_DoorUnlock_i) {
-      if (rtu_SI_e_DoorRatSts != 3) {
+      if (rtu_SI_e_DoorRatSts != Unlock) {
         localDW->is_Trigger_g = REL_IN_Release_oa;
         localDW->temporalCounter_i5 = 0U;
         *rty_SO_b_DoorRlsReq = true;
@@ -921,7 +921,8 @@ void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
       /* case IN_Trigger: */
     } else if (rtu_SI_b_OFF || ((rtu_SI_e_EspVehSpd >= 1) &&
                 (!rtu_SI_b_EspVehSpdVld) && (rtu_SI_e_VcuGearPosn != 1)) ||
-               ((rtu_SI_e_DoorLockSts == 1) && (rtu_SI_e_DoorRatSts == 3))) {
+               ((rtu_SI_e_DoorLockSts == 1) && (rtu_SI_e_DoorRatSts == Unlock)))
+    {
       localDW->is_DoorLock_o = REL_IN_NO_ACTIVE_CHILD_d;
       localDW->is_Trigger_f = REL_IN_NO_ACTIVE_CHILD_d;
       localDW->is_DoorCentral = REL_IN_Idle_i;
@@ -960,7 +961,7 @@ void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
         break;
 
        case REL_IN_DoorUnlock:
-        if (rtu_SI_e_DoorRatSts != 3) {
+        if (rtu_SI_e_DoorRatSts != Unlock) {
           localDW->is_Trigger_f = REL_IN_RELEASE;
           localDW->temporalCounter_i3 = 0U;
           *rty_SO_b_DoorRlsReq = true;
@@ -1000,11 +1001,11 @@ void REL_RLDoorRlsReq(boolean_T rtu_SI_b_OFF, UInt8 rtu_SI_e_EspVehSpd, Boolean
     } else if (rtu_SI_b_OFF || ((rtu_SI_e_EspVehSpd >= 1) &&
                 (!rtu_SI_b_EspVehSpdVld) && (rtu_SI_e_VcuGearPosn != 1)) ||
                (!rtu_SI_b_DoorAutoRlsSetSts) || (rtu_SI_e_DoorLockSts != 1) ||
-               (rtu_SI_e_DoorRatSts == 3)) {
+               (rtu_SI_e_DoorRatSts == Unlock)) {
       localDW->is_Trigger_l = REL_IN_NO_ACTIVE_CHILD_d;
       localDW->is_RlsReq_h = REL_IN_Idle_i;
     } else if (localDW->is_Trigger_l == REL_IN_DoorUnlock_i) {
-      if (rtu_SI_e_DoorRatSts != 3) {
+      if (rtu_SI_e_DoorRatSts != Unlock) {
         localDW->is_Trigger_l = REL_IN_Release_oa;
         localDW->temporalCounter_i7 = 0U;
         *rty_SO_b_DoorRlsReq = true;
@@ -1227,7 +1228,7 @@ static void REL_DoorInBtn_e(const boolean_T *SI_b_DoorInBtnSts_prev_j, const
       break;
 
      case REL_IN_DoorUnlock_g:
-      if (*SO_e_FLDoorRatSts != 3) {
+      if (*SO_e_FLDoorRatSts != Unlock) {
         REL_DW.is_Trigger_d = REL_IN_Release_n;
         REL_DW.temporalCounter_i1_h = 0U;
 
@@ -1514,7 +1515,7 @@ static void REL_DoorInBtn_n(const boolean_T *SI_b_DoorInBtnSts_prev, const
       break;
 
      case REL_IN_DoorUnlock_g:
-      if (*SO_e_FRDoorRatSts != 3) {
+      if (*SO_e_FRDoorRatSts != Unlock) {
         REL_DW.is_Trigger = REL_IN_Release_n;
         REL_DW.temporalCounter_i1_e = 0U;
 
@@ -2189,11 +2190,11 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                            (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
                (REL_U.VeOUT_DLK_BdcDrvrDoorLockSts_si != 1) ||
                (REL_U.VeOUT_DHM_BDCDrvrDoorHndSts_sig != 1) ||
-               (SO_e_FLDoorRatSts == 3)) {
+               (SO_e_FLDoorRatSts == Unlock)) {
       REL_DW.is_Trigger_o = 0;
       REL_DW.is_RlsReq_ku = REL_IN_Idle_p;
     } else if (REL_DW.is_Trigger_o == REL_IN_DoorUnlock_gp) {
-      if (SO_e_FLDoorRatSts != 3) {
+      if (SO_e_FLDoorRatSts != Unlock) {
         REL_DW.is_Trigger_o = REL_IN_Release_ni;
         REL_DW.temporalCounter_i5_h = 0U;
 
@@ -2247,7 +2248,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                            (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
                            (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
                ((REL_U.VeOUT_DLK_BdcDrvrDoorLockSts_si == 1) &&
-                (SO_e_FLDoorRatSts == 3))) {
+                (SO_e_FLDoorRatSts == Unlock))) {
       REL_DW.is_DoorLock_c = 0;
       REL_DW.is_Trigger_do = 0;
       REL_DW.is_DoorCentral_m = REL_IN_Idle_p;
@@ -2288,7 +2289,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
         break;
 
        case REL_IN_DoorUnlock_g:
-        if (SO_e_FLDoorRatSts != 3) {
+        if (SO_e_FLDoorRatSts != Unlock) {
           REL_DW.is_Trigger_do = REL_IN_RELEASE_g;
           REL_DW.temporalCounter_i3_b = 0U;
 
@@ -2334,11 +2335,11 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                            (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
                (!REL_Y.VbOUT_REL_BdcDrvrDoorLockSetSts) ||
                (REL_U.VeOUT_DLK_BdcDrvrDoorLockSts_si != 1) ||
-               (SO_e_FLDoorRatSts == 3)) {
+               (SO_e_FLDoorRatSts == Unlock)) {
       REL_DW.is_Trigger_fu = 0;
       REL_DW.is_RlsReq_na = REL_IN_Idle_p;
     } else if (REL_DW.is_Trigger_fu == REL_IN_DoorUnlock_gp) {
-      if (SO_e_FLDoorRatSts != 3) {
+      if (SO_e_FLDoorRatSts != Unlock) {
         REL_DW.is_Trigger_fu = REL_IN_Release_ni;
         REL_DW.temporalCounter_i7_l = 0U;
 
@@ -2468,11 +2469,11 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                            (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
                (REL_U.VeOUT_DLK_BCMPassengerDoorLockS != 1) ||
                (REL_U.VeOUT_DHM_BDCPassDoorHndSts_sig != 1) ||
-               (SO_e_FRDoorRatSts == 3)) {
+               (SO_e_FRDoorRatSts == Unlock)) {
       REL_DW.is_Trigger_i = 0;
       REL_DW.is_RlsReq_c = REL_IN_Idle_p;
     } else if (REL_DW.is_Trigger_i == REL_IN_DoorUnlock_gp) {
-      if (SO_e_FRDoorRatSts != 3) {
+      if (SO_e_FRDoorRatSts != Unlock) {
         REL_DW.is_Trigger_i = REL_IN_Release_ni;
         REL_DW.temporalCounter_i5 = 0U;
 
@@ -2526,7 +2527,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
                            (!REL_U.VbINP_CAN_EspVehSpdVld_flg_VbIN) &&
                            (REL_U.VeINP_CAN_VcuGearPosn_sig_VeINP != 1)) ||
                ((REL_U.VeOUT_DLK_BCMPassengerDoorLockS == 1) &&
-                (SO_e_FRDoorRatSts == 3))) {
+                (SO_e_FRDoorRatSts == Unlock))) {
       REL_DW.is_DoorLock_m3 = 0;
       REL_DW.is_Trigger_b = 0;
       REL_DW.is_DoorCentral = REL_IN_Idle_p;
@@ -2567,7 +2568,7 @@ void REL_Step(void)                    /* Explicit Task: REL_Step */
         break;
 
        case REL_IN_DoorUnlock_g:
-        if (SO_e_FRDoorRatSts != 3) {
+        if (SO_e_FRDoorRatSts != Unlock) {
           REL_DW.is_Trigger_b = REL_IN_RELEASE_g;
           REL_DW.temporalCounter_i3 = 0U;
 
