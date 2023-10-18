@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.23
+ * Model version                  : 1.51
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep 28 16:18:26 2023
+ * C/C++ source code generated on : Wed Oct 18 15:52:44 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -67,17 +67,6 @@ typedef uint8_T Rat_Sts_E;
 #define Rat_All_Lock                   ((Rat_Sts_E)1U)
 #define Rat_Half_Lock                  ((Rat_Sts_E)2U)
 #define Rat_Unlock                     ((Rat_Sts_E)3U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_Mot_Cmd_E_
-#define DEFINED_TYPEDEF_FOR_Mot_Cmd_E_
-
-typedef uint8_T Mot_Cmd_E;
-
-/* enum Mot_Cmd_E */
-#define Stop                           ((Mot_Cmd_E)0U)           /* Default value */
-#define Rls                            ((Mot_Cmd_E)1U)
-#define Reset                          ((Mot_Cmd_E)2U)
 #endif
 
 #ifndef DEFINED_TYPEDEF_FOR_Unlock_Req_E_

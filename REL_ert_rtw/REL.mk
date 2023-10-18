@@ -2,7 +2,7 @@
 ## Makefile generated for component 'REL'. 
 ## 
 ## Makefile     : REL.mk
-## Generated on : Wed Sep 06 10:30:03 2023
+## Generated on : Wed Oct 18 15:52:53 2023
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/REL.exe
 ## Product type : executable
 ## 
@@ -22,7 +22,7 @@ MAKEFILE                  = REL.mk
 MATLAB_ROOT               = D:/APP/matlab
 MATLAB_BIN                = D:/APP/matlab/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = C:/Users/DELL/Desktop/E15_REL
+START_DIR                 = C:/Users/DELL/Desktop/E15_REL_PACK/E15_REL
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0

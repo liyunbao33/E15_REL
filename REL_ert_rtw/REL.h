@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.23
+ * Model version                  : 1.51
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Sep 28 16:18:26 2023
+ * C/C++ source code generated on : Wed Oct 18 15:52:44 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -38,17 +38,11 @@ typedef struct {
   uint16_T temporalCounter_i1;         /* '<S3>/FLDoorRlsDriver' */
   uint8_T is_active_c19_DoorRlsDriver; /* '<S3>/FLDoorRlsDriver' */
   uint8_T is_c19_DoorRlsDriver;        /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_Normal;                   /* '<S3>/FLDoorRlsDriver' */
   uint8_T is_MainProgress;             /* '<S3>/FLDoorRlsDriver' */
   uint8_T is_Release;                  /* '<S3>/FLDoorRlsDriver' */
   uint8_T is_Step2_Open;               /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_MainProgress_o;           /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_Release_f;                /* '<S3>/FLDoorRlsDriver' */
-  uint8_T is_Step2_Open_a;             /* '<S3>/FLDoorRlsDriver' */
   uint8_T SL_e_CycleCount;             /* '<S3>/FLDoorRlsDriver' */
   uint8_T SL_e_DoorRlsDelayTime;       /* '<S3>/FLDoorRlsDriver' */
-  boolean_T SO_b_DoorRlsReq_prev;      /* '<S3>/FLDoorRlsDriver' */
-  boolean_T SO_b_DoorRlsReq_start;     /* '<S3>/FLDoorRlsDriver' */
 } DW_FLDoorRlsDriver_REL_T;
 
 /* Block states (default storage) for system '<S3>/RLDoorRlsReq' */
@@ -109,9 +103,6 @@ typedef struct {
   Unlock_Req_E SO_m_UnlockReq_l;       /* '<S3>/RLDoorRlsReq' */
   Unlock_Req_E SO_m_UnlockReq_h;       /* '<S3>/FRDoorRlsReq' */
   Unlock_Req_E SO_m_UnlockReq_a;       /* '<S3>/FLDoorRlsReq' */
-  Mot_Cmd_E SO_e_MotorCmd;             /* '<S3>/RRDoorRlsDriver' */
-  Mot_Cmd_E SO_e_MotorCmd_d;           /* '<S3>/RLDoorRlsDriver' */
-  Mot_Cmd_E SO_e_MotorCmd_b;           /* '<S3>/FRDoorRlsDriver' */
 } B_REL_T;
 
 /* Block states (default storage) for system '<Root>' */
@@ -420,7 +411,10 @@ extern RT_MODEL_REL_T *const REL_M;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
- * Block '<S3>/Data Type Conversion8' : Unused code path elimination
+ * Block '<S3>/Data Type Conversion10' : Eliminate redundant data type conversion
+ * Block '<S3>/Data Type Conversion11' : Eliminate redundant data type conversion
+ * Block '<S3>/Data Type Conversion8' : Eliminate redundant data type conversion
+ * Block '<S3>/Data Type Conversion9' : Eliminate redundant data type conversion
  */
 
 /*-
@@ -441,20 +435,28 @@ extern RT_MODEL_REL_T *const REL_M;
  * '<S1>'   : 'REL/REL_Init'
  * '<S2>'   : 'REL/REL_Step_sys'
  * '<S3>'   : 'REL/REL_Step_sys/REL'
- * '<S4>'   : 'REL/REL_Step_sys/REL/DoorAutoRlsSts'
- * '<S5>'   : 'REL/REL_Step_sys/REL/DoorRatSts'
- * '<S6>'   : 'REL/REL_Step_sys/REL/DoorSwSts'
- * '<S7>'   : 'REL/REL_Step_sys/REL/FLDoorRlsDriver'
- * '<S8>'   : 'REL/REL_Step_sys/REL/FLDoorRlsReq'
- * '<S9>'   : 'REL/REL_Step_sys/REL/FRDoorRlsDriver'
- * '<S10>'  : 'REL/REL_Step_sys/REL/FRDoorRlsReq'
- * '<S11>'  : 'REL/REL_Step_sys/REL/OFF '
- * '<S12>'  : 'REL/REL_Step_sys/REL/RLDoorRlsDriver'
- * '<S13>'  : 'REL/REL_Step_sys/REL/RLDoorRlsReq'
- * '<S14>'  : 'REL/REL_Step_sys/REL/RRDoorRlsDriver'
- * '<S15>'  : 'REL/REL_Step_sys/REL/RRDoorRlsReq'
- * '<S16>'  : 'REL/REL_Step_sys/REL/Recycle Bin'
- * '<S17>'  : 'REL/REL_Step_sys/REL/Unlock_Request'
+ * '<S4>'   : 'REL/REL_Step_sys/REL/Compare To Constant'
+ * '<S5>'   : 'REL/REL_Step_sys/REL/Compare To Constant1'
+ * '<S6>'   : 'REL/REL_Step_sys/REL/Compare To Constant2'
+ * '<S7>'   : 'REL/REL_Step_sys/REL/Compare To Constant3'
+ * '<S8>'   : 'REL/REL_Step_sys/REL/Compare To Constant4'
+ * '<S9>'   : 'REL/REL_Step_sys/REL/Compare To Constant5'
+ * '<S10>'  : 'REL/REL_Step_sys/REL/Compare To Constant6'
+ * '<S11>'  : 'REL/REL_Step_sys/REL/Compare To Constant7'
+ * '<S12>'  : 'REL/REL_Step_sys/REL/DoorAutoRlsSts'
+ * '<S13>'  : 'REL/REL_Step_sys/REL/DoorRatSts'
+ * '<S14>'  : 'REL/REL_Step_sys/REL/DoorSwSts'
+ * '<S15>'  : 'REL/REL_Step_sys/REL/FLDoorRlsDriver'
+ * '<S16>'  : 'REL/REL_Step_sys/REL/FLDoorRlsReq'
+ * '<S17>'  : 'REL/REL_Step_sys/REL/FRDoorRlsDriver'
+ * '<S18>'  : 'REL/REL_Step_sys/REL/FRDoorRlsReq'
+ * '<S19>'  : 'REL/REL_Step_sys/REL/OFF '
+ * '<S20>'  : 'REL/REL_Step_sys/REL/RLDoorRlsDriver'
+ * '<S21>'  : 'REL/REL_Step_sys/REL/RLDoorRlsReq'
+ * '<S22>'  : 'REL/REL_Step_sys/REL/RRDoorRlsDriver'
+ * '<S23>'  : 'REL/REL_Step_sys/REL/RRDoorRlsReq'
+ * '<S24>'  : 'REL/REL_Step_sys/REL/Recycle Bin'
+ * '<S25>'  : 'REL/REL_Step_sys/REL/Unlock_Request'
  */
 #endif                                 /* RTW_HEADER_REL_h_ */
 
