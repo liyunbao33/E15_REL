@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.51
+ * Model version                  : 1.24
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Wed Oct 18 15:52:44 2023
+ * C/C++ source code generated on : Fri Oct 27 16:19:24 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -22,7 +22,7 @@
 
 extern void REL_FLDoorRlsDriver_Init(uint8_T *rty_SO_e_MotorCmd, uint8_T
   *rty_SO_e_MotorPwm, boolean_T *rty_SO_b_Error);
-extern void REL_FLDoorRlsDriver(uint8_T rtu_SI_e_Volt100mV, boolean_T
+extern void REL_FLDoorRlsDriver(UInt8 rtu_SI_e_Volt100mV, boolean_T
   rtu_SO_b_DoorRlsReq, Boolean rtu_SI_b_DoorAjar, uint8_T
   rtu_SI_e_DoorRlsDelayTime, uint8_T *rty_SO_e_MotorCmd, uint8_T
   *rty_SO_e_MotorPwm, boolean_T *rty_SO_b_Error, DW_FLDoorRlsDriver_REL_T
