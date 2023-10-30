@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.201
+ * Model version                  : 1.204
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Mon Oct 30 16:56:27 2023
+ * C/C++ source code generated on : Mon Oct 30 17:06:52 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -105,17 +105,6 @@ typedef struct {
   uint8_T SO_e_DoorRlsDelayTime_n;     /* '<S3>/RLDoorRlsReq' */
   uint8_T SO_e_DoorRlsDelayTime_h;     /* '<S3>/FRDoorRlsReq' */
   uint8_T SO_e_DoorRlsDelayTime_k;     /* '<S3>/FLDoorRlsReq' */
-  boolean_T SO_b_DoorRlsReq;           /* '<S3>/RRDoorRlsReq' */
-  boolean_T SO_b_DoorRlsReq_o;         /* '<S3>/RLDoorRlsReq' */
-  boolean_T SO_b_DoorRlsReq_i;         /* '<S3>/FRDoorRlsReq' */
-  boolean_T SO_b_DoorRlsReq_k;         /* '<S3>/FLDoorRlsReq' */
-  boolean_T SL_b_RLDoorHndPullSts;     /* '<S3>/DoorSwSts' */
-  boolean_T SL_b_RRDoorHndPullSts;     /* '<S3>/DoorSwSts' */
-  boolean_T SL_b_FLDoorHndBtnSts;      /* '<S3>/DoorSwSts' */
-  boolean_T SL_b_FRDoorHndBtnSts;      /* '<S3>/DoorSwSts' */
-  boolean_T SL_b_RLDoorHndBtnSts;      /* '<S3>/DoorSwSts' */
-  boolean_T SL_b_RRDoorHndBtnSts;      /* '<S3>/DoorSwSts' */
-  boolean_T SO_b_DoorAutoRlsSetSts;    /* '<S3>/DoorAutoRlsSts' */
   Unlock_Req_E SO_m_UnlockReq;         /* '<S3>/RRDoorRlsReq' */
   Unlock_Req_E SO_m_UnlockReq_f;       /* '<S3>/RLDoorRlsReq' */
   Unlock_Req_E SO_m_UnlockReq_p;       /* '<S3>/FRDoorRlsReq' */
@@ -497,18 +486,10 @@ extern RT_MODEL_REL_T *const REL_M;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
- * Block '<S3>/Data Type Conversion' : Unused code path elimination
- * Block '<S3>/Data Type Conversion1' : Unused code path elimination
- * Block '<S3>/Data Type Conversion10' : Unused code path elimination
- * Block '<S3>/Data Type Conversion11' : Unused code path elimination
- * Block '<S3>/Data Type Conversion2' : Unused code path elimination
- * Block '<S3>/Data Type Conversion3' : Unused code path elimination
- * Block '<S3>/Data Type Conversion4' : Unused code path elimination
- * Block '<S3>/Data Type Conversion5' : Unused code path elimination
- * Block '<S3>/Data Type Conversion6' : Unused code path elimination
- * Block '<S3>/Data Type Conversion7' : Unused code path elimination
- * Block '<S3>/Data Type Conversion8' : Unused code path elimination
- * Block '<S3>/Data Type Conversion9' : Unused code path elimination
+ * Block '<S3>/Data Type Conversion10' : Eliminate redundant data type conversion
+ * Block '<S3>/Data Type Conversion11' : Eliminate redundant data type conversion
+ * Block '<S3>/Data Type Conversion8' : Eliminate redundant data type conversion
+ * Block '<S3>/Data Type Conversion9' : Eliminate redundant data type conversion
  */
 
 /*-
