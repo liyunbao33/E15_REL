@@ -7,7 +7,7 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   44 \
+    NumChartData   50 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
@@ -126,6 +126,20 @@
       SrcLocation  ""\
     }\
     ChartData {\
+      Name         "is_RlsReq"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ble.RlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_Trigger"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Ble.RlsReq.Trigger"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
       Name         "SL_b_DoorInBtnValid"\
       Description  "ChartLocal"\
       SFName       ""\
@@ -158,6 +172,13 @@
       Description  "ChartLocal"\
       SFName       ""\
       Path         "SL_b_DoorHndBtnValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_BleDoorOpenValid"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_b_BleDoorOpenValid"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -204,6 +225,13 @@
     }\
     ChartData {\
       Name         "temporalCounter_i7"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i8"\
       Description  "TemporalCounter"\
       SFName       ""\
       Path         ""\
@@ -319,6 +347,20 @@
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
       Path         "SI_b_DoorAutoRlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_BleDoorOpenValid_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SL_b_BleDoorOpenValid"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_BleDoorOpenValid_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SL_b_BleDoorOpenValid"\
       SrcLocation  ""\
     }\
   }

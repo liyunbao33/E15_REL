@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'REL'.
  *
- * Model version                  : 1.24
+ * Model version                  : 1.201
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Fri Oct 27 16:19:24 2023
+ * C/C++ source code generated on : Mon Oct 30 16:56:27 2023
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -19,18 +19,6 @@
 #include "rtwtypes.h"
 
 /* Model Code Variants */
-#ifndef DEFINED_TYPEDEF_FOR_Door_Sts_E_
-#define DEFINED_TYPEDEF_FOR_Door_Sts_E_
-
-typedef uint8_T Door_Sts_E;
-
-/* enum Door_Sts_E */
-#define Door_Lock                      ((Door_Sts_E)0U)          /* Default value */
-#define Door_Unlock                    ((Door_Sts_E)1U)
-#define Door_Not_Used                  ((Door_Sts_E)2U)
-#define Door_Error                     ((Door_Sts_E)3U)
-#endif
-
 #ifndef DEFINED_TYPEDEF_FOR_Gear_Posn_E_
 #define DEFINED_TYPEDEF_FOR_Gear_Posn_E_
 
@@ -45,18 +33,6 @@ typedef uint8_T Gear_Posn_E;
 #define Gear_Reserved2                 ((Gear_Posn_E)5U)
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_HndPos_Sts_E_
-#define DEFINED_TYPEDEF_FOR_HndPos_Sts_E_
-
-typedef uint8_T HndPos_Sts_E;
-
-/* enum HndPos_Sts_E */
-#define Hnd_Fold                       ((HndPos_Sts_E)0U)        /* Default value */
-#define Hnd_Unfold                     ((HndPos_Sts_E)1U)
-#define Hnd_Half_Unfold                ((HndPos_Sts_E)2U)
-#define Hnd_Error                      ((HndPos_Sts_E)3U)
-#endif
-
 #ifndef DEFINED_TYPEDEF_FOR_Rat_Sts_E_
 #define DEFINED_TYPEDEF_FOR_Rat_Sts_E_
 
@@ -67,6 +43,30 @@ typedef uint8_T Rat_Sts_E;
 #define Rat_All_Lock                   ((Rat_Sts_E)1U)
 #define Rat_Half_Lock                  ((Rat_Sts_E)2U)
 #define Rat_Unlock                     ((Rat_Sts_E)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_Door_Sts_E_
+#define DEFINED_TYPEDEF_FOR_Door_Sts_E_
+
+typedef uint8_T Door_Sts_E;
+
+/* enum Door_Sts_E */
+#define Door_Lock                      ((Door_Sts_E)0U)          /* Default value */
+#define Door_Unlock                    ((Door_Sts_E)1U)
+#define Door_Not_Used                  ((Door_Sts_E)2U)
+#define Door_Error                     ((Door_Sts_E)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_HndPos_Sts_E_
+#define DEFINED_TYPEDEF_FOR_HndPos_Sts_E_
+
+typedef uint8_T HndPos_Sts_E;
+
+/* enum HndPos_Sts_E */
+#define Hnd_Fold                       ((HndPos_Sts_E)0U)        /* Default value */
+#define Hnd_Unfold                     ((HndPos_Sts_E)1U)
+#define Hnd_Half_Unfold                ((HndPos_Sts_E)2U)
+#define Hnd_Error                      ((HndPos_Sts_E)3U)
 #endif
 
 #ifndef DEFINED_TYPEDEF_FOR_Unlock_Req_E_
